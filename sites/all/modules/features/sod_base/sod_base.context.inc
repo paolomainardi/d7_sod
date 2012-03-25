@@ -32,21 +32,21 @@ function sod_base_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_first',
+          'weight' => '-9',
+        ),
         'menu_block-1' => array(
           'module' => 'menu_block',
           'delta' => 1,
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'system-navigation' => array(
           'module' => 'system',
           'delta' => 'navigation',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),

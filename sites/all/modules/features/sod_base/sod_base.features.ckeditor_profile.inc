@@ -193,7 +193,9 @@ function sod_base_ckeditor_profile_defaults() {
           ),
         ),
       ),
-      'input_formats' => array(),
+      'input_formats' => array(
+        'full_html' => 'Full HTML',
+      ),
     ),
   );
   return $data;
