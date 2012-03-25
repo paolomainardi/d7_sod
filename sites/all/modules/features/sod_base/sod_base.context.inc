@@ -26,15 +26,15 @@ function sod_base_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+        'menu_block-1' => array(
+          'module' => 'menu_block',
+          'delta' => 1,
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
@@ -44,11 +44,17 @@ function sod_base_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
+        ),
         'boxes-twitter_widget_opendataitaly' => array(
           'module' => 'boxes',
           'delta' => 'twitter_widget_opendataitaly',
           'region' => 'sidebar_first',
-          'weight' => '-7',
+          'weight' => '-6',
         ),
       ),
     ),

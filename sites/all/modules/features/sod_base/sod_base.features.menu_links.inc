@@ -48,11 +48,15 @@ function sod_base_menu_default_menu_links() {
     'link_path' => 'node/1',
     'router_path' => 'node/%',
     'link_title' => 'Dati',
-    'options' => array(),
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
     'weight' => '1',
   );
