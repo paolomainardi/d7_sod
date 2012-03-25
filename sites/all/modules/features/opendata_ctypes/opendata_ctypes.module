@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the opendata_ctypes feature.
+ */
+
+include_once('opendata_ctypes.features.inc');

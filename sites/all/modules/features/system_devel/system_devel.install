@@ -1,0 +1,18 @@
+<?php
+
+/**
+ *  Implementation of hook_enable()
+ */
+function system_devel_enable() {
+  variable_set('preprocess_css', 0);
+  variable_set('preprocess_js', 0);
+  
+}
+
+/**
+ * Implementation of hook_disable()
+ */
+function system_devel_disable() {
+ variable_set('preprocess_css', 1); 
+ variable_set('preprocess_js', 1);
+}

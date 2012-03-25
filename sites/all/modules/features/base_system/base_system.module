@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Code for the Base System feature.
+ */
+
+include_once('base_system.features.inc');
+
+/**
+ * Get Vocabulary VID by name or machine_name
+ */
+function taxonomy_get_vid_by_name($name) {
+  $sql = "SELECT vid FROM {taxonomy_vocabulary} WHERE machine_name = :name OR name = :name";
+  return db_query($sql, array(':name' => $name))->fetchField();
+}
+
+/**
+ *  Clone of taxonomy_select_nodes with support for node type
+ */
+function taxonomy_select_nodes_by_type($tid, $type, $pager = TRUE, $limit = FALSE, $order = array('t.sticky' => 'DESC', 't.created' => 'DESC')) {
+   if (!variable_get('taxonomy_maintain_index_table', TRUE)) {
+    return array();
+  }
+  $query = db_select('taxonomy_index', 't');
+  $query->addTag('node_access');
+  $query->condition('tid', $tid);
+  $query->join('node', 'n', 't.nid = n.nid');
+  $query->condition('n.type', $type);
+
+  if ($pager) {
+    $count_query = clone $query;
+    $count_query->addExpression('COUNT(t.nid)');
+
+    $query = $query->extend('PagerDefault');
+    if ($limit !== FALSE) {
+      $query = $query->limit($limit);
+    }
+    $query->setCountQuery($count_query);
+  }
+  else {
+    if ($limit !== FALSE) {
+      $query->range(0, $limit);
+    }
+  }
+  $query->addField('t', 'nid');
+  $query->addField('t', 'tid');
+  foreach ($order as $field => $direction) {
+    $query->orderBy($field, $direction);
+    // ORDER BY fields need to be loaded too, assume they are in the form
+    // table_alias.name
+    list($table_alias, $name) = explode('.', $field);
+    $query->addField($table_alias, $name);
+  }
+  return $query->execute()->fetchCol();
+}
+
+/*
+ * Implements hook_alpha_preprocess_block
+ */
+function base_system_preprocess_block(&$vars) {
+  // fix block id/class when longer more than 32chars
+  // Issue = http://projects.twinbitlabs.com/issues/212
+  if ($vars['block']->module == 'views') {
+    $block = $vars['block'];
+    $delta = $block->delta;
+    // if this is 32, this should be an md5 hash.
+    // taken from: views.module line @606 (hook_block_view())
+    if (strlen($delta) == 32) {
+      $hashes = variable_get('views_block_hashes', array());
+      if (!empty($hashes[$delta])) {
+        $delta = $hashes[$delta];
+      }
+      $delta_css = drupal_clean_css_identifier($delta);
+      $classes = $vars['attributes_array']['class'];
+
+      // delete auto generated classes 
+      $classes = array_diff($classes, array("block-{$block->delta}", "block-views-{$block->delta}"));
+
+      // create new classes and id
+      $classes[] = 'block-' . $delta_css;
+      $classes[] = 'block-views-' . $delta_css;
+      $vars['attributes_array']['id'] = 'block-views-' . $delta_css;
+      $vars['attributes_array']['class'] = $classes;
+    }
+  }
+}
