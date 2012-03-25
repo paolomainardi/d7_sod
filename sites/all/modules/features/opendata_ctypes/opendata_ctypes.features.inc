@@ -17,11 +17,11 @@ function opendata_ctypes_ctools_plugin_api() {
 function opendata_ctypes_node_info() {
   $items = array(
     'data' => array(
-      'name' => t('Data'),
+      'name' => t('Dati'),
       'base' => 'node_content',
       'description' => t('Opendata Content type'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titolo'),
       'help' => '',
     ),
   );

@@ -25,7 +25,10 @@ function base_system_user_default_permissions() {
   // Exported permission: access comments
   $permissions['access comments'] = array(
     'name' => 'access comments',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'comment',
   );
 
   // Exported permission: access content
@@ -65,7 +68,10 @@ function base_system_user_default_permissions() {
   // Exported permission: access statistics
   $permissions['access statistics'] = array(
     'name' => 'access statistics',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'statistics',
   );
 
   // Exported permission: access user contact forms
@@ -275,7 +281,10 @@ function base_system_user_default_permissions() {
   // Exported permission: post comments
   $permissions['post comments'] = array(
     'name' => 'post comments',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'comment',
   );
 
   // Exported permission: revert revisions
@@ -287,7 +296,11 @@ function base_system_user_default_permissions() {
   // Exported permission: search content
   $permissions['search content'] = array(
     'name' => 'search content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+    ),
+    'module' => 'search',
   );
 
   // Exported permission: select account cancellation method
@@ -323,7 +336,11 @@ function base_system_user_default_permissions() {
   // Exported permission: use advanced search
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+    ),
+    'module' => 'search',
   );
 
   // Exported permission: use text format php_code
@@ -347,7 +364,10 @@ function base_system_user_default_permissions() {
   // Exported permission: view post access counter
   $permissions['view post access counter'] = array(
     'name' => 'view post access counter',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'statistics',
   );
 
   // Exported permission: view revisions
