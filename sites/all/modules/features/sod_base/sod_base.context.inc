@@ -62,6 +62,12 @@ function sod_base_context_default_contexts() {
           'region' => 'menu_bar',
           'weight' => '-10',
         ),
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
+          'region' => 'menu_bar',
+          'weight' => '-10',
+        ),
       ),
     ),
   );

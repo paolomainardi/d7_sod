@@ -80,7 +80,7 @@ function sod_base_menu_default_menu_links() {
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
     'weight' => '4',
   );
@@ -241,25 +241,6 @@ function sod_base_menu_default_menu_links() {
     'weight' => '0',
     'parent_path' => 'node/add',
   );
-  // Exported menu link: navigation:node/add/panel
-  $menu_links['navigation:node/add/panel'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/panel',
-    'router_path' => 'node/add/panel',
-    'link_title' => 'Panel',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'A panel layout broken up into rows and columns.',
-      ),
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-    'parent_path' => 'node/add',
-  );
   // Exported menu link: navigation:search
   $menu_links['navigation:search'] = array(
     'menu_name' => 'navigation',
@@ -289,7 +270,6 @@ function sod_base_menu_default_menu_links() {
   t('Home');
   t('La memoria');
   t('My blog');
-  t('Panel');
   t('Search');
   t('Sources');
   t('Strumenti');
