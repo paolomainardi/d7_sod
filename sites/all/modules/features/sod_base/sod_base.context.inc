@@ -32,15 +32,15 @@ function sod_base_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
-        'user-login' => array(
-          'module' => 'user',
-          'delta' => 'login',
+        'menu_block-custom-1' => array(
+          'module' => 'menu_block',
+          'delta' => 'custom-1',
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
-        'menu_block-1' => array(
-          'module' => 'menu_block',
-          'delta' => 1,
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
@@ -55,6 +55,12 @@ function sod_base_context_default_contexts() {
           'delta' => 'twitter_widget_opendataitaly',
           'region' => 'sidebar_first',
           'weight' => '-6',
+        ),
+        'system-main-menu' => array(
+          'module' => 'system',
+          'delta' => 'main-menu',
+          'region' => 'menu_bar',
+          'weight' => '-10',
         ),
       ),
     ),
