@@ -81,12 +81,7 @@ function rdfx_drush_arc2_download() {
 
   // Create the path if it does not exist yet.
   if (!is_dir($path)) {
-    if (function_exists('drush_mkdir')) {
-      drush_mkdir($path);
-    }
-    else {
-      mkdir($path);
-    }
+    drush_mkdir($path);
   }
 
   if (is_dir($path . '/arc')) {
