@@ -27,6 +27,14 @@ function opendata_ctypes_node_info() {
       'title_label' => t('Titolo'),
       'help' => '',
     ),
+    'strumento' => array(
+      'name' => t('Tool'),
+      'base' => 'node_content',
+      'description' => t('Opendata manipulation software'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
   );
   return $items;
 }
