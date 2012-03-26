@@ -26,15 +26,15 @@ function sod_base_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'user-login' => array(
-          'module' => 'user',
-          'delta' => 'login',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
         'search-form' => array(
           'module' => 'search',
           'delta' => 'form',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
