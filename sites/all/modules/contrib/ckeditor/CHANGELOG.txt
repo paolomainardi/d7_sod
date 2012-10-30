@@ -1,3 +1,23 @@
+2012-04-18
+New stable release 7.x-1.9
+
+New features:
+[#1489358] by dczepierga: Add support for stylesheetparser plugin
+[#1483402] by dczepierga: Change security filters policy
+[#1489074] by acbramley: Change ckeditor xss url to be passed through url()
+[#1473010] by michal_cksource: Spell checker set to use interface language
+
+Bug fixes:
+[#1537824] by dczepierga: External plugins not work on ckeditor_basic.js loading method
+[#1507852] by dczepierga: 'drush ckeditor-download' fails if svn not installed
+[#1432068] by kruser:  Fix path to sites/all/libraries/ckeditor/ckeditor.styles.js file
+[#1504398] by ndeschildre: Import of ckeditor profile features fails, manual revert needed
+[#1508342] by dczepierga: WSOD on saving content from CKEditor using Ajax when node edit form is embedded in display of another node
+[#1491210] by michal_cksource: CKEditor gets disabled/enabled on all AJAX calls
+[#1512196] by dczepierga: Refactor code with titles and descriptions for translate function
+[#1496164] by michal_cksource: Buttons are to high during Drag & Drop in Firefox
+[#1492344] by dczepierga: Portuguese language missing
+
 2012-03-15
 New stable release 7.x-1.8
 

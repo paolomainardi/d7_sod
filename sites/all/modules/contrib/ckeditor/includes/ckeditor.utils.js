@@ -94,22 +94,29 @@ window.CKEDITOR_BASEPATH = Drupal.settings.ckeditor.editor_path;
             }
         }
 
-        textarea_settings.extraPlugins = '';
-        if (typeof CKEDITOR.plugins != 'undefined'){
-            for (var plugin in textarea_settings['loadPlugins']){
-                textarea_settings.extraPlugins += (textarea_settings.extraPlugins) ? ',' + textarea_settings['loadPlugins'][plugin]['name'] : textarea_settings['loadPlugins'][plugin]['name'];
-                CKEDITOR.plugins.addExternal(textarea_settings['loadPlugins'][plugin]['name'], textarea_settings['loadPlugins'][plugin]['path']);
-            }
-        }
         //remove width 100% from settings because this may cause problems with theme css
         if (textarea_settings.width == '100%') textarea_settings.width = '';
-        Drupal.ckeditorInstance = CKEDITOR.replace(textarea_id, textarea_settings);
+
+        if (CKEDITOR.loadFullCore) {
+            CKEDITOR.on('loaded', function() {
+                textarea_settings = Drupal.ckeditorLoadPlugins(textarea_settings);
+                Drupal.ckeditorInstance = CKEDITOR.replace(textarea_id, textarea_settings);
+            });
+            CKEDITOR.loadFullCore();
+        }
+        else {
+            textarea_settings = Drupal.ckeditorLoadPlugins(textarea_settings);
+            Drupal.ckeditorInstance = CKEDITOR.replace(textarea_id, textarea_settings);
+        }
     }
 
     Drupal.ckeditorOn = function(textarea_id, run_filter) {
 
         run_filter = typeof(run_filter) != 'undefined' ? run_filter : true;
 
+        if (typeof(textarea_id) == 'undefined' || textarea_id.length == 0 || $("#" + textarea_id).length == 0) {
+            return;
+        }
         if ((typeof(Drupal.settings.ckeditor.load_timeout) == 'undefined') && (typeof(CKEDITOR.instances[textarea_id]) != 'undefined')) {
             return;
         }
@@ -125,7 +132,7 @@ window.CKEDITOR_BASEPATH = Drupal.settings.ckeditor.editor_path;
         if (run_filter && ($("#" + textarea_id).val().length > 0) && typeof(ckeditor_obj.input_formats[ckeditor_obj.elements[textarea_id]]) != 'undefined' && ((ckeditor_obj.input_formats[ckeditor_obj.elements[textarea_id]]['ss'] == 1 && typeof(Drupal.settings.ckeditor.autostart) != 'undefined' && typeof(Drupal.settings.ckeditor.autostart[textarea_id]) != 'undefined') || ckeditor_obj.input_formats[ckeditor_obj.elements[textarea_id]]['ss'] == 2)) {
             $.ajax({
                 type: 'POST',
-                url: Drupal.settings.basePath + 'index.php?q=ckeditor/xss',
+                url: Drupal.settings.ckeditor.xss_url,
                 async: false,
                 data: {
                     text: $('#' + textarea_id).val(),
@@ -163,6 +170,22 @@ window.CKEDITOR_BASEPATH = Drupal.settings.ckeditor.editor_path;
 
         $("#" + textarea_id).next(".grippie").css("display", "block");
     };
+
+/**
+* Loading selected CKEditor plugins
+*
+* @param object textarea_settings
+*/
+    Drupal.ckeditorLoadPlugins = function(textarea_settings) {
+        textarea_settings.extraPlugins = '';
+        if (typeof CKEDITOR.plugins != 'undefined') {
+            for (var plugin in textarea_settings['loadPlugins']) {
+                textarea_settings.extraPlugins += (textarea_settings.extraPlugins) ? ',' + textarea_settings['loadPlugins'][plugin]['name'] : textarea_settings['loadPlugins'][plugin]['name'];
+                CKEDITOR.plugins.addExternal(textarea_settings['loadPlugins'][plugin]['name'], textarea_settings['loadPlugins'][plugin]['path']);
+            }
+        }
+        return textarea_settings;
+    }
 
     /**
  * Returns true if CKEDITOR.version >= version
@@ -270,13 +293,16 @@ window.CKEDITOR_BASEPATH = Drupal.settings.ckeditor.editor_path;
             });
         },
         detach:
-        function(context){
+        function(context, settings, trigger){
             $(context).find("textarea.ckeditor-mod.ckeditor-processed").each(function () {
-                var ta_id=$(this).attr("id");
-                if (CKEDITOR.instances[ta_id])
-                    $('#'+ta_id).val(CKEDITOR.instances[ta_id].getData());
+              var ta_id=$(this).attr("id");
+              if (CKEDITOR.instances[ta_id])
+                $('#'+ta_id).val(CKEDITOR.instances[ta_id].getData());
+              if(trigger != 'serialize') {
                 Drupal.ckeditorOff(ta_id);
-            }).removeClass('ckeditor-processed');
+                $(this).removeClass('ckeditor-processed');
+              }
+            });
         }
     };
 })(jQuery);

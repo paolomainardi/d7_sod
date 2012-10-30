@@ -83,6 +83,13 @@ function ckeditor_profile_features_export_render($module_name, $data) {
 }
 
 /**
+ * Implementation of hook_features_rebuild()
+ */
+function ckeditor_profile_features_rebuild($module) {
+    ckeditor_profile_features_revert($module);
+}
+
+/**
  * Implementation of hook_features_revert()
  */
 function ckeditor_profile_features_revert($module) {

@@ -207,7 +207,7 @@ function ckeditor_load_lang_options() {
       }
       $langs = explode(',', $tmp[0]);
       foreach ($langs AS $key => $lang) {
-        preg_match("/(\w+-?\w+):'(\w+)'/i", $lang, $matches);
+        preg_match("/'?(\w+-?\w+)'?:'([\w\s\(\)]+)'/i", $lang, $matches);
         if (isset($matches[1]) && isset($matches[2]))
           $arr[$matches[1]] = $matches[2];
       }
@@ -376,6 +376,16 @@ function ckeditor_load_plugins($render = FALSE) {
             'name' => 'autogrow',
             'desc' => t('Auto Grow plugin'),
             'path' => $base_path . $editor_path . 'plugins/autogrow/',
+            'buttons' => FALSE,
+            'default' => 'f'
+        );
+    }
+
+    if (file_exists($_editor_path . 'plugins/stylesheetparser/plugin.js')) {
+        $arr['stylesheetparser'] = array(
+            'name' => 'stylesheetparser',
+            'desc' => t('Stylesheet Parser plugin'),
+            'path' => $base_path . $editor_path . 'plugins/stylesheetparser/',
             'buttons' => FALSE,
             'default' => 'f'
         );
@@ -809,6 +819,8 @@ function ckeditor_profile_settings_compile( $global_profile, $profile ) {
 
     if ($conf['auto_lang'] == "f") {
         $settings['language'] = $conf['lang'];
+        //[#1473010]
+        $settings['scayt_sLang'] = ckeditor_scayt_langcode($conf['lang']);
     }
 
     if (isset($conf['forcePasteAsPlainText']) && $conf['forcePasteAsPlainText'] == 't') {
@@ -1368,7 +1380,7 @@ function ckeditor_load_by_field( $field, $format, $show_toggle = TRUE, $add_fiel
             if (module_exists('pagebreak')) {
                 drupal_add_js(array('ckeditor' => array('pagebreak' => TRUE)), 'setting');
             }
-            drupal_add_js(array('ckeditor' => array('ajaxToken' => drupal_get_token('ckeditorAjaxCall'))), 'setting');
+            drupal_add_js(array('ckeditor' => array('ajaxToken' => drupal_get_token('ckeditorAjaxCall'), 'xss_url' => url('ckeditor/xss'))), 'setting');
             $is_running = TRUE;
         }
 
@@ -1379,7 +1391,10 @@ function ckeditor_load_by_field( $field, $format, $show_toggle = TRUE, $add_fiel
         if (!empty($ckeditor_on)) {
             drupal_add_js(array('ckeditor' => array('autostart' => array( $textarea_id => $ckeditor_on))), 'setting');
         }
-        if (!empty($field["#language"])) {
+        //[#1473010]
+        if (isset($settings['scayt_sLang'])) {
+          drupal_add_js(array('ckeditor' => array('scayt_language' => $settings['scayt_sLang'] )), 'setting');
+        } else if (!empty($field["#language"]) && $field["#language"] != LANGUAGE_NONE) {
             drupal_add_js(array('ckeditor' => array('scayt_language' => ckeditor_scayt_langcode($field["#language"]))), 'setting');
         }
 
@@ -1410,20 +1425,81 @@ function ckeditor_load_by_field( $field, $format, $show_toggle = TRUE, $add_fiel
  */
 function ckeditor_security_filters() {
     $security_filters = array();
-    $security_filters['filter_html'] = TRUE;
-    $security_modules = array('htmLawed', 'htmltidy', 'htmlpurifier', 'wysiwyg_filter');
-    foreach ($security_modules as $module_name) {
+
+    $security_filters['modules'] = array(
+        'htmLawed' => array(
+            'title' => 'htmLawed',
+            'project_page' => 'http://drupal.org/project/htmLawed',
+            'weight' => 0,
+            'installed' => FALSE,
+            'filters' => array()
+        ),
+        'htmltidy' => array(
+            'title' => 'Htmltidy',
+            'project_page' => 'http://drupal.org/project/htmltidy',
+            'weight' => 0,
+            'installed' => FALSE,
+            'filters' => array()
+        ),
+        'htmlpurifier' => array(
+            'title' => 'HTML Purifier',
+            'project_page' => 'http://drupal.org/project/htmlpurifier',
+            'weight' => 0,
+            'installed' => FALSE,
+            'filters' => array()
+        ),
+        'wysiwyg_filter' => array(
+            'title' => 'WYSIWYG Filter',
+            'project_page' => 'http://drupal.org/project/wysiwyg_filter',
+            'weight' => 0,
+            'installed' => FALSE,
+            'filters' => array()
+        )
+    );
+
+    $security_filters['filters'] = array();
+
+    foreach ($security_filters['modules'] as $module_name => $module_conf) {
         if (module_exists($module_name)) {
+            $security_filters['modules'][$module_name]['installed'] = TRUE;
             $module_filters = module_invoke($module_name, 'filter_info');
             foreach ($module_filters as $module_filter_name => $module_filter_conf) {
-                $security_filters[$module_filter_name] = TRUE;
+                $security_filters['modules'][$module_name]['filters'][$module_filter_name] = $module_filter_conf;
+                $security_filters['filters'][$module_filter_name] = TRUE;
             }
         }
     }
+
+    //add filters from Drupal core
+    $security_filters['modules']['__drupal'] = array(
+        'title' => 'Drupal core',
+        'project_page' => FALSE,
+        'weight' => -1,
+        'installed' => TRUE,
+        'filters' => array(
+            'filter_html' => array(
+                'title' => 'Limit allowed HTML tags',
+                'description' => 'Removes the attributes that the built-in "Limit allowed HTML tags"-filter does not allow inside HTML elements/tags'
+            )
+        )
+    );
+    $security_filters['filters']['filter_html'] = TRUE;
+
+    //load security filters added by API
     $external_module_filters = module_invoke_all('ckeditor_security_filter');
-    foreach ($external_module_filters as $module_filter_name => $module_filter_conf) {
-        $security_filters[$module_filter_name] = TRUE;
+    if (count($external_module_filters) > 0) {
+        $security_filters['modules']['__external'] = array(
+            'title' => 'External filters',
+            'project_page' => FALSE,
+            'weight' => 1,
+            'installed' => TRUE,
+            'filters' => array()
+        );
+        foreach ($external_module_filters as $module_filter_name => $module_filter_conf) {
+            $security_filters['modules']['__external']['filters'][$module_filter_name] = $module_filter_conf;
+            $security_filters['filters'][$module_filter_name] = TRUE;
+        }
     }
-    
+
     return $security_filters;
 }

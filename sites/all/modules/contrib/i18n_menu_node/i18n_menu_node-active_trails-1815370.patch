@@ -1,0 +1,43 @@
+diff --git a/i18n_menu_node.module b/i18n_menu_node.module
+index 16499f9..bef0eaa 100644
+--- a/i18n_menu_node.module
++++ b/i18n_menu_node.module
+@@ -725,12 +725,8 @@ function _i18n_menu_node_item_translations_refresh($result, $force_status = NULL
+ function i18n_menu_node_set_item($node) {
+   if (!empty($node->tnid) && $node->tnid != $node->nid && i18n_menu_node_menu_link_enabled($node)) {
+     $item = menu_get_item();
+-    $item['original_href'] = $item['href'];
+     if ($href[0] == 'node') {
+-      $href[1] = $node->tnid;
+-      $item['href'] = implode('/', $href);
+-      menu_set_item(NULL, $item);
++      menu_tree_set_path('main-menu', 'node/' . $node->tnid);
+     }
+   }
+ }
+@@ -759,20 +755,19 @@ function i18n_menu_node_menu_link_enabled($node) {
+   if (!isset($items[$nid])) {
+     $items[$nid] = FALSE;
+     // Give priority to the default menu.
+-    $menu_name = variable_get('menu_default_node_menu', 'primary-links');
+-    $item = db_query_range("SELECT options FROM {menu_links} WHERE link_path = 'node/:nid' AND menu_name = ':mn' AND module = 'menu' ORDER BY mlid ASC", 0, 1, 
+-            array(':nid' => $nid, ':mn' => $menu_name))->fetchAssoc();
++    $menu_name = variable_get('menu_default_node_menu', 'main-menu');
++    $item = db_query_range("SELECT options FROM {menu_links} WHERE link_path = :nid AND menu_name = :mn AND module = 'menu' ORDER BY mlid ASC", 0, 1, 
++            array(':nid' => "node/$nid", ':mn' => $menu_name))->fetchAssoc();
+     // Check all menus if a link does not exist in the default menu.
+     if (!$item) {
+-      $item = db_query_range("SELECT options FROM {menu_links} WHERE link_path = 'node/:nid' AND module = 'menu' ORDER BY mlid ASC", 0, 1, 
+-              array(':nid' => $nid))->fetchAssoc();
++      $item = db_query_range("SELECT options FROM {menu_links} WHERE link_path = :nid AND module = 'menu' ORDER BY mlid ASC", 0, 1, 
++              array(':nid' => "node/$nid"))->fetchAssoc();
+     }
+     if ($item) {
+       $item['options'] = unserialize($item['options']);
+       $items[$nid] = i18n_menu_node_enabled($item);
+     }
+   }
+-
+   return $items[$nid];
+ }
+ 
