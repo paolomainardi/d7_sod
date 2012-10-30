@@ -1,20 +1,26 @@
-<article id="article-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <div class="article-inner">
+<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div class="node-inner">
 
     <?php print $unpublished; ?>
 
     <?php print render($title_prefix); ?>
     <?php if ($title || $display_submitted): ?>
-      <header>
+      <header<?php print $header_attributes; ?>>
+
         <?php if ($title): ?>
           <h1<?php print $title_attributes; ?>>
-            <a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a>
+            <?php if (!$page): ?>
+              <a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a>
+            <?php elseif ($page): ?>
+              <?php print $title; ?>
+            <?php endif; ?>
           </h1>
         <?php endif; ?>
 
         <?php if ($display_submitted): ?>
           <p class="submitted"><?php print $submitted; ?></p>
         <?php endif; ?>
+
       </header>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
@@ -28,8 +34,8 @@
     ?>
     </div>
 
-    <?php if (!empty($content['links'])): ?>
-      <nav class="clearfix"><?php print render($content['links']); ?></nav>
+    <?php if ($links = render($content['links'])): ?>
+      <nav<?php print $links_attributes; ?>><?php print $links; ?></nav>
     <?php endif; ?>
 
     <?php print render($content['comments']); ?>

@@ -10,7 +10,7 @@
 function opendata_ctypes_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-data-body'
+  // Exported field: 'node-data-body'.
   $fields['node-data-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -83,7 +84,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_data_license'
+  // Exported field: 'node-data-field_data_license'.
   $fields['node-data-field_data_license'] = array(
     'field_config' => array(
       'active' => '1',
@@ -104,6 +105,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -112,6 +114,7 @@ function opendata_ctypes_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -153,7 +156,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_data_source'
+  // Exported field: 'node-data-field_data_source'.
   $fields['node-data-field_data_source'] = array(
     'field_config' => array(
       'active' => '1',
@@ -163,6 +166,7 @@ function opendata_ctypes_field_default_fields() {
       'field_name' => 'field_data_source',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -235,7 +239,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_data_type'
+  // Exported field: 'node-data-field_data_type'.
   $fields['node-data-field_data_type'] = array(
     'field_config' => array(
       'active' => '1',
@@ -256,6 +260,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -264,6 +269,7 @@ function opendata_ctypes_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -305,7 +311,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_data_upload'
+  // Exported field: 'node-data-field_data_upload'.
   $fields['node-data-field_data_upload'] = array(
     'field_config' => array(
       'active' => '1',
@@ -326,6 +332,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'file',
       'settings' => array(
         'display_default' => 1,
@@ -377,7 +384,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_tags'
+  // Exported field: 'node-data-field_tags'.
   $fields['node-data-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -398,6 +405,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -406,6 +414,7 @@ function opendata_ctypes_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -450,7 +459,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-data-field_thematic_area'
+  // Exported field: 'node-data-field_thematic_area'.
   $fields['node-data-field_thematic_area'] = array(
     'field_config' => array(
       'active' => '1',
@@ -471,6 +480,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -479,6 +489,7 @@ function opendata_ctypes_field_default_fields() {
             'parent' => '0',
           ),
         ),
+        'options_list_callback' => 'i18n_taxonomy_allowed_values',
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -520,7 +531,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-body'
+  // Exported field: 'node-strumento-body'.
   $fields['node-strumento-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -543,6 +554,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -593,7 +605,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-field_tool_license'
+  // Exported field: 'node-strumento-field_tool_license'.
   $fields['node-strumento-field_tool_license'] = array(
     'field_config' => array(
       'active' => '1',
@@ -607,6 +619,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -663,7 +676,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-field_tool_target'
+  // Exported field: 'node-strumento-field_tool_target'.
   $fields['node-strumento-field_tool_target'] = array(
     'field_config' => array(
       'active' => '1',
@@ -677,6 +690,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -726,7 +740,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-field_tool_type'
+  // Exported field: 'node-strumento-field_tool_type'.
   $fields['node-strumento-field_tool_type'] = array(
     'field_config' => array(
       'active' => '1',
@@ -740,6 +754,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'value',
         ),
       ),
+      'locked' => '0',
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
@@ -793,7 +808,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-field_tool_url'
+  // Exported field: 'node-strumento-field_tool_url'.
   $fields['node-strumento-field_tool_url'] = array(
     'field_config' => array(
       'active' => '1',
@@ -803,6 +818,7 @@ function opendata_ctypes_field_default_fields() {
       'field_name' => 'field_tool_url',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -875,7 +891,7 @@ function opendata_ctypes_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-strumento-field_tool_user'
+  // Exported field: 'node-strumento-field_tool_user'.
   $fields['node-strumento-field_tool_user'] = array(
     'field_config' => array(
       'active' => '1',
@@ -896,6 +912,7 @@ function opendata_ctypes_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '255',

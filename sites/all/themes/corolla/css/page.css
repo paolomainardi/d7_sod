@@ -1,16 +1,23 @@
 /* General page and module styles */
-#page > header {
-  clear: both;
-  padding: 10px 0 0;
+#header-wrapper {
+  position: relative;
+  z-index: 100;
+}
+#header-wrapper header {
+    clear: both;
+    display: table;
+    width: 100%;
 }
 #branding {
-  float: left;
   padding: 45px 0 48px 25px;
-  display: table;
+  display: table-cell;
 }
 .region-header {
-  float: right;
   padding: 45px 25px 48px 0;
+  display: table-cell;
+}
+.region-header .block {
+  float: right;
 }
 #logo {
   display: table-cell;
@@ -22,7 +29,7 @@
   vertical-align: middle;
 }
 #site-name {
-  font-size: 4.583em;
+  font-size: 4.5em;
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -32,7 +39,7 @@
   letter-spacing: -3px;
 }
 #site-slogan {
-  font-size: 1.077em;
+  font-size: 1.1em;
   font-weight: 400;
 }
 .site-name-hidden #logo,
@@ -58,7 +65,7 @@
 h1#page-title,
 .in-maintenance h1#page-title {
   border-bottom: none;
-  font-size: 2.167em;
+  font-size: 2.1em;
   line-height: 1;
   margin: 0 0 1em;
   padding: 0;
@@ -213,11 +220,9 @@ body.overlay {
 #overlay-container {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  -khtml-border-radius: 5px;
   border-radius: 5px;
   -webkit-border-top-right-radius: 0;
   -moz-border-radius-topright: 0;
-  -khtml-border-radius-topright: 0;
   border-top-right-radius: 0;
 }
 body.overlay #main-columns,
@@ -298,24 +303,6 @@ a.contextual-links-trigger {
   position:static;
   margin-bottom: 10px;
 }
-#palette .form-item {
-  width: auto;
-}
-.color-form .form-item {
-  height: 3em;
-}
-#palette .item-selected {
-  background: none;
-}
-#palette .lock {
-  background-position: 50% 2px;
-}
-#palette .unlocked {
-  background-position: 50% -22px;
-}
-#palette .hook {
-  margin-top: 0.6em;
-}
 #dashboard #disabled-blocks h2 {
   color: #fff;
 }
@@ -360,8 +347,11 @@ body.maintenance-page #content {
 }
 
 /* Messages */
+#messages {
+  margin: 0 10px;
+}
 div.messages {
-  margin: 10px 10px 15px;
+  margin-bottom: 15px;
 }
 #block-system-help,
 div.messages {
@@ -377,9 +367,30 @@ div.messages {
   margin: 0;
 }
 
-/* Override max-width 100% for Gmaps and Getlocations modules */
-.gmap img,
-.view-gmap img,
-#getlocations_map_canvas img {
-  max-width: none;
+/* Gutters - if gutters are set in theme settings they will override these
+   values: see Extensions > Modify Output > Design */
+#main-content,
+.block-inner,
+.pane-inner,
+.menu-wrapper,
+.branding-elements,
+.breadcrumb-wrapper,
+.attribution,
+.at-panel .rounded-corner,
+.block-panels-mini > .block-title,
+div.messages {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Panel pages need negative margin equal to the gutter width applied to #content,
+  this is taken care of in theme settings as per above for normal gutters */
+#content .panel-display,
+#content .panel-flexible {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+/* Contextual links */
+a.contextual-links-trigger:hover {
+  border-bottom: none;
 }

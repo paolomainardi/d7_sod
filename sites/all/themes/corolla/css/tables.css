@@ -74,7 +74,6 @@ tr:first-child td.container {
   border-top-width: 0;
 }
 #forum {
-  overflow-x: scroll;
 }
 body.page-forum ul.action-links {
   margin: 9px 0;
@@ -128,7 +127,7 @@ body.page-forum ul.action-links {
   height: 35px;
 }
 #forum td.icon .topic-status-hot {
-  background: url(images/forum-hoht.png) no-repeat center center;
+  background: url(images/forum-hot.png) no-repeat center center;
   width: 37px;
   height: 32px;
 }

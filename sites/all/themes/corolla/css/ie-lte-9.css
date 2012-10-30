@@ -1,13 +1,14 @@
 /* Corolla < IE9 */
-#menu-bar ul li {
+#branding * {
   display: block;
+}
+#branding,
+#logo,
+#branding hgroup {
   float: left;
 }
-#menu-bar ul li a {
-  padding-bottom: 1.09em;
-}
-#menu-bar .menu-wrapper ul li ul {
-  margin-top: 0.42em;
+.site-name-hidden #branding hgroup {
+  clear: left;
 }
 .article .user-picture {
   width: 50px;

@@ -189,10 +189,10 @@ function sod_base_menu_default_menu_links() {
     'menu_name' => 'navigation',
     'link_path' => 'node/add/blog',
     'router_path' => 'node/add/blog',
-    'link_title' => 'Articolo del blog',
+    'link_title' => 'Blog entry',
     'options' => array(
       'attributes' => array(
-        'title' => 'Utilizzare per blog multi-utente. Ogni utente avrà un blog personale.',
+        'title' => 'Use for multi-user blogs. Every user gets a personal blog.',
       ),
     ),
     'module' => 'system',
@@ -259,9 +259,9 @@ function sod_base_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Add content');
   t('Aiuto');
-  t('Articolo del blog');
   t('Basic page');
   t('Blog');
+  t('Blog entry');
   t('Blogs');
   t('Compose tips');
   t('Contact');

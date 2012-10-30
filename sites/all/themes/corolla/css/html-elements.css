@@ -1,15 +1,33 @@
 /* HTML Elements */
 html {
-  font-size: 81.3%; /* 16px x 81.3% = 13px */
+  font-size: 100%;
   word-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  height: 100%;
+  overflow-y: scroll;
 }
 body {
   font-family: Verdana, Geneva, "DejaVu Sans", sans-serif;
-  line-height: 1.5; /* Unit-less line-height means line height can scale. */
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility\9; /* Only IE, can mess with Android */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 /* Sizes match proper font scaling. */
 h1 {
-  font-size: 1.538em;
+  font-size: 1.5em;
 }
 h2 {
   font-size: 1.9em;
@@ -18,18 +36,14 @@ h2 {
   margin: 7px 0;
 }
 h3 {
-  font-size: 1.231em;
+  font-size: 1.2em;
 }
 h4 {
-  font-size: 1.077em;
+  font-size: 1.1em;
 }
 h5,
 h6 {
   font-size: 1em;
-}
-img {
-  max-width: 100%;
-  height: auto;
 }
 a img {
   border:none;
@@ -127,4 +141,81 @@ dt {
 }
 dd {
   margin: 0 0 1.5em 40px;
+}
+
+/* Reset HTML5 elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Flexible Media and Cross browser improvements
+ * - This can cause issues in table cells where no width is set on the column,
+ *   only in some versions of webkit and IE 7/8.
+ * - declaring the width attribute on image elements and using max-width causes
+ *   the "dissappering images" bug in IE8.
+ * - Google maps break also, see below for fixes.
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* /ht Ethan Marcotte - http://front.ie/l8rJaA */
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+/* Disable flexiblity for IE8 and below */
+.lt-ie9 img,
+.lt-ie9 object,
+.lt-ie9 embed,
+.lt-ie9 video {
+  max-width: none !important;
+}
+
+/* Override max-width 100% for map displays and widgets */
+#map img,
+.gmap img,
+.view-gmap img,
+.openlayers-map img,
+#getlocations_map_canvas img,
+#locationmap_map img,
+.geofieldMap img,
+.views_horizontal_slider img,
+.field-widget-imagefield-crop-widget img {
+  max-width: none !important;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+[hidden] {
+  display: none;
 }

@@ -386,10 +386,15 @@ function ctools_export_crud_disable($table, $object) {
  */
 function ctools_export_load_object($table, $type = 'all', $args = array()) {
   $cache = &drupal_static(__FUNCTION__);
+  $cache_table_exists = &drupal_static(__FUNCTION__ . '_table_exists', array());
   $cached_database = &drupal_static('ctools_export_load_object_all');
 
+  if (!array_key_exists($table, $cache_table_exists)) {
+    $cache_table_exists[$table] = db_table_exists($table);
+  }
+
   $schema = ctools_export_get_schema($table);
-  if (empty($schema) || !db_table_exists($table)) {
+  if (empty($schema) || !$cache_table_exists[$table]) {
     return array();
   }
 
@@ -1033,7 +1038,7 @@ function ctools_export_get_schema($table) {
  * Gets the schemas for all tables with ctools object metadata.
  */
 function ctools_export_get_schemas($for_export = FALSE) {
-  static $export_tables;
+  $export_tables = &drupal_static(__FUNCTION__);
   if (is_null($export_tables)) {
     $export_tables = array();
     $schemas = drupal_get_schema();

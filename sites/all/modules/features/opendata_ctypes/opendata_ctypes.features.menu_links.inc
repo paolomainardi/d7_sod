@@ -18,6 +18,7 @@ function opendata_ctypes_menu_default_menu_links() {
     'link_title' => 'Dati',
     'options' => array(
       'attributes' => array(),
+      'node_type' => 'page',
     ),
     'module' => 'menu',
     'hidden' => '0',

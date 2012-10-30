@@ -32,14 +32,21 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  padding: 6px;
+  padding: 4px;
   -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   border-radius: 3px;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .form-textarea-wrapper.resizable textarea{
   -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
+}
+input.form-text {
+  max-width: 100%;
 }
 input.form-text,
 input.form-password,
@@ -55,7 +62,10 @@ input.form-file {
 input.form-file,
 .block input.form-file {
   max-width: 240px;
-  width: 60%;
+  width: 100%;
+}
+#block-search-form input.form-text {
+  width: auto;
 }
 input.form-button,
 input.form-submit {
@@ -173,10 +183,23 @@ html.js fieldset.collapsible div.fieldset-wrapper {
   margin-top: 3em;
 }
 html.js input.form-autocomplete {
-  background-position: 99% 8px;
+  background-position: 99% 7px;
 }
 html.js input.throbbing {
-  background-position: 99% -12px;
+  background-position: 99% -13px;
+}
+#autocomplete ul li {
+  margin: 0;
+}
+#autocomplete ul li:hover {
+  background: none;
+}
+#autocomplete ul div {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 3px;
 }
 div.resizable-textarea textarea {
   margin-top: 0;
@@ -196,7 +219,6 @@ div.resizable-textarea textarea {
   margin-right: 0!important;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -khtml-box-sizing: border-box;
   box-sizing: border-box;
 }
 #search-block-form {
@@ -370,6 +392,24 @@ ul.vertical-tabs-list li.selected a {
 }
 .farbtastic .marker:after {
   content: "";
+}
+#palette .form-item {
+  width: auto;
+}
+.color-form .form-item {
+  height: 3em;
+}
+#palette .item-selected {
+  background: none;
+}
+#palette .lock {
+  background-position: 50% 2px;
+}
+#palette .unlocked {
+  background-position: 50% -22px;
+}
+#palette .hook {
+  margin-top: 0.6em;
 }
 .password-parent,
 div.form-item div.password-suggestions {

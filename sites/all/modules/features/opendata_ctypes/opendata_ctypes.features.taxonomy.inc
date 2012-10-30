@@ -16,6 +16,8 @@ function opendata_ctypes_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -39,6 +41,8 @@ function opendata_ctypes_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -62,6 +66,8 @@ function opendata_ctypes_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',
@@ -85,6 +91,8 @@ function opendata_ctypes_taxonomy_default_vocabularies() {
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',
+      'language' => 'und',
+      'i18n_mode' => '0',
       'rdf_mapping' => array(
         'rdftype' => array(
           0 => 'skos:ConceptScheme',

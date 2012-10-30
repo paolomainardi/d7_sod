@@ -26,47 +26,35 @@ function sod_base_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'menu_block-custom-1' => array(
-          'module' => 'menu_block',
-          'delta' => 'custom-1',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
-        ),
-        'user-login' => array(
-          'module' => 'user',
-          'delta' => 'login',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'system-navigation' => array(
+        'system-user-menu' => array(
           'module' => 'system',
-          'delta' => 'navigation',
-          'region' => 'sidebar_first',
-          'weight' => '-7',
-        ),
-        'boxes-twitter_widget_opendataitaly' => array(
-          'module' => 'boxes',
-          'delta' => 'twitter_widget_opendataitaly',
-          'region' => 'sidebar_first',
-          'weight' => '-6',
+          'delta' => 'user-menu',
+          'region' => 'menu_bar',
+          'weight' => 0,
         ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
           'region' => 'menu_bar',
-          'weight' => '-10',
+          'weight' => 1,
         ),
-        'system-user-menu' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'sidebar_first',
+          'weight' => 0,
+        ),
+        'system-navigation' => array(
           'module' => 'system',
-          'delta' => 'user-menu',
-          'region' => 'menu_bar',
-          'weight' => '-10',
+          'delta' => 'navigation',
+          'region' => 'sidebar_first',
+          'weight' => 1,
+        ),
+        'boxes-twitter_widget_opendataitaly' => array(
+          'module' => 'boxes',
+          'delta' => 'twitter_widget_opendataitaly',
+          'region' => 'sidebar_first',
+          'weight' => 2,
         ),
       ),
     ),
