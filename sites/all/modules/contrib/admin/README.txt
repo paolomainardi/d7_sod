@@ -36,8 +36,8 @@ Installation
    'use admin toolbar' permission will be able to use the toolbar.
 
 3. You can configure the layout, position, and enabled tools for the
-   admin toolbar on `admin/settings/admin`.
-
+   admin toolbar on `admin/config/user-interface/admin`, or by navigating
+	 to `Administration > Configuration > User interface > Administration tools`
 
 Implementing your own Admin "plugins"
 =====================================

@@ -1,5 +1,4 @@
 <?php
-// $Id: admin.module,v 1.1.2.23.2.26.2.6 2010/12/16 23:08:08 yhahn Exp $
 
 /**
  * Implements hook_block_info().
@@ -61,8 +60,11 @@ function admin_block_view($delta) {
       }
       break;
     case 'theme':
-      module_load_include('inc', 'admin', 'includes/admin.theme');
-      return admin_block_theme();
+      if (user_access('select different theme')) {
+        module_load_include('inc', 'admin', 'includes/admin.theme');
+        return admin_block_theme();
+      }
+      return NULL;
     case 'account':
       return admin_account_block();
     case 'menu':
@@ -190,7 +192,11 @@ function admin_permission() {
   return array(
     'use admin toolbar' => array(
       'title' => t('use admin toolbar'),
-      'description' => t('TODO Add a description for \'use admin toolbar\''),
+      'description' => t('Use the admin toolbar'),
+    ),
+    'select different theme' => array(
+      'title' => t('select different theme'),
+      'description' => t("Select different theme for the current user's session."),
     ),
   );
 }

@@ -1,4 +1,3 @@
-// $Id: admin.devel.js,v 1.1.2.1.2.2 2010/09/16 18:30:47 yhahn Exp $
 (function($) {
 
 Drupal.behaviors.adminDevel = {};

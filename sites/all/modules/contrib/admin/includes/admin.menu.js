@@ -1,4 +1,3 @@
-// $Id: admin.menu.js,v 1.1.2.9.2.2 2010/12/16 21:43:54 yhahn Exp $
 (function($) {
 
 Drupal.behaviors.adminToolbarMenu = {};
