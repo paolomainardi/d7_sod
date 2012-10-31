@@ -14,7 +14,7 @@ function base_system_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'admin_theme';
-  $strongarm->value = 'adaptivetheme_admin';
+  $strongarm->value = 'rubik';
   $export['admin_theme'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -56,7 +56,7 @@ function base_system_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'statistics_day_timestamp';
-  $strongarm->value = 1351595862;
+  $strongarm->value = 1351686835;
   $export['statistics_day_timestamp'] = $strongarm;
 
   $strongarm = new stdClass();

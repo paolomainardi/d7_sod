@@ -28,7 +28,10 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_block_ids';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 1,
+    1 => 2,
+  );
   $export['menu_block_ids'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -757,8 +760,33 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'sod';
+  $strongarm->value = 'sod_bootstrap';
   $export['theme_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_sod_bootstrap_settings';
+  $strongarm->value = array(
+    'toggle_logo' => 0,
+    'toggle_name' => 1,
+    'toggle_slogan' => 1,
+    'toggle_node_user_picture' => 1,
+    'toggle_comment_user_picture' => 1,
+    'toggle_comment_user_verification' => 1,
+    'toggle_favicon' => 0,
+    'toggle_main_menu' => 1,
+    'toggle_secondary_menu' => 0,
+    'toggle_search' => 1,
+    'default_logo' => 1,
+    'logo_path' => '',
+    'logo_upload' => '',
+    'default_favicon' => 1,
+    'favicon_path' => '',
+    'favicon_upload' => '',
+    'twitter_bootstrap_rebuild_registry' => 0,
+  );
+  $export['theme_sod_bootstrap_settings'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -802,7 +830,7 @@ function sod_base_strongarm() {
     'tablet_portrait_page_unit' => '%',
     'tablet_portrait_page_width' => '100',
     'tablet_portrait_media_query' => 'only screen and (min-width:481px) and (max-width:768px)',
-    'smartphone_landscape_layout' => 'one_col_vert',
+    'smartphone_landscape_layout' => 'one_col_stack',
     'smartphone_landscape_sidebar_unit' => '%',
     'smartphone_landscape_sidebar_first' => '50',
     'smartphone_landscape_sidebar_second' => '50',
@@ -816,12 +844,12 @@ function sod_base_strongarm() {
     'smartphone_portrait_sidebar_second' => '',
     'smartphone_portrait_sidebar_unit' => '',
     'smartphone_portrait_layout' => '',
-    'bigscreen_two_brick' => '',
     'bigscreen_two_66_33' => '',
-    'bigscreen_two_50' => '',
+    'bigscreen_two_brick' => '',
     'bigscreen_two_33_66' => '',
-    'bigscreen_three_50_25_25' => '',
+    'bigscreen_two_50' => '',
     'bigscreen_three_3x33' => '',
+    'bigscreen_three_50_25_25' => '',
     'bigscreen_three_25_50_25' => '',
     'bigscreen_three_25_25_50' => '',
     'bigscreen_four_4x25' => '',
@@ -829,12 +857,12 @@ function sod_base_strongarm() {
     'bigscreen_six_6x16' => '',
     'bigscreen_three_inset_right' => '',
     'bigscreen_three_inset_left' => '',
-    'tablet_landscape_two_brick' => '',
     'tablet_landscape_two_66_33' => '',
-    'tablet_landscape_two_50' => '',
+    'tablet_landscape_two_brick' => '',
     'tablet_landscape_two_33_66' => '',
-    'tablet_landscape_three_50_25_25' => '',
+    'tablet_landscape_two_50' => '',
     'tablet_landscape_three_3x33' => '',
+    'tablet_landscape_three_50_25_25' => '',
     'tablet_landscape_three_25_50_25' => '',
     'tablet_landscape_three_25_25_50' => '',
     'tablet_landscape_four_4x25' => '',
@@ -842,12 +870,12 @@ function sod_base_strongarm() {
     'tablet_landscape_six_6x16' => '',
     'tablet_landscape_three_inset_right' => '',
     'tablet_landscape_three_inset_left' => '',
-    'tablet_portrait_two_brick' => '',
     'tablet_portrait_two_66_33' => '',
-    'tablet_portrait_two_50' => '',
+    'tablet_portrait_two_brick' => '',
     'tablet_portrait_two_33_66' => '',
-    'tablet_portrait_three_50_25_25' => '',
+    'tablet_portrait_two_50' => '',
     'tablet_portrait_three_3x33' => '',
+    'tablet_portrait_three_50_25_25' => '',
     'tablet_portrait_three_25_50_25' => '',
     'tablet_portrait_three_25_25_50' => '',
     'tablet_portrait_four_4x25' => '',
@@ -855,12 +883,12 @@ function sod_base_strongarm() {
     'tablet_portrait_six_6x16' => '',
     'tablet_portrait_three_inset_right' => '',
     'tablet_portrait_three_inset_left' => '',
-    'smartphone_landscape_two_brick' => '',
     'smartphone_landscape_two_66_33' => '',
-    'smartphone_landscape_two_50' => '',
+    'smartphone_landscape_two_brick' => '',
     'smartphone_landscape_two_33_66' => '',
-    'smartphone_landscape_three_50_25_25' => '',
+    'smartphone_landscape_two_50' => '',
     'smartphone_landscape_three_3x33' => '',
+    'smartphone_landscape_three_50_25_25' => '',
     'smartphone_landscape_three_25_50_25' => '',
     'smartphone_landscape_three_25_25_50' => '',
     'smartphone_landscape_four_4x25' => '',
@@ -900,7 +928,7 @@ function sod_base_strongarm() {
     'enable_context_regions' => 0,
     'enable_float_region_blocks' => 0,
     'enable_markup_overides' => 0,
-    'at-settings__active_tab' => 'edit-bigscreen',
+    'at-settings__active_tab' => 'edit-extend',
     'base_font_type' => 'gwf',
     'base_font' => 'bf-l',
     'base_font_gwf' => 'Open Sans',
@@ -921,7 +949,7 @@ function sod_base_strongarm() {
     'base_font_gwf_add_charsets_khmer' => 0,
     'base_font_gwf_add_charsets_vietnamese' => 0,
     'base_font_cfs' => '',
-    'base_font_size' => '87.5%',
+    'base_font_size' => '93.8%',
     'site_name_font_type' => '<none>',
     'site_name_font' => 'bf-sss',
     'site_name_font_gwf' => '',

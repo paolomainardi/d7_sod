@@ -1,0 +1,12 @@
+
+  name        = SOD Bootstrap
+  description = SOD Bootstrap subtheme
+  core        = 7.x
+  engine      = phptemplate
+  screenshot  = screenshot.png
+  base theme  = twitter_bootstrap
+
+;----------// Modular stylesheets
+stylesheets[all][]   = css/sod.css
+
+
