@@ -149,7 +149,7 @@ function twitter_bootstrap_preprocess_page(&$variables) {
     $variables['secondary_nav'] = theme('twitter_bootstrap_btn_dropdown', array(
       'links' => $variables['secondary_menu'],
       'label' => $secondary_menu['title'],
-      'type' => 'success',
+      'type' => 'warning',
       'attributes' => array(
         'id' => 'user-menu',
         'class' => array('pull-right'),
