@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Hart memcache feature.
+ */
+
+include_once 'hart_memcache.features.inc';

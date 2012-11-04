@@ -1,0 +1,12 @@
+name = Hart memcache
+description = Memcache
+core = 7.x
+package = TIM
+version = 7.x-1.0
+project = hart_memcache
+dependencies[] = memcache
+dependencies[] = memcache_admin
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = show_memcache_statistics
