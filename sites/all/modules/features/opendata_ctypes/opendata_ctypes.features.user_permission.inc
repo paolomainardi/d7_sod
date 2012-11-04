@@ -22,21 +22,27 @@ function opendata_ctypes_user_default_permissions() {
   // Exported permission: delete any data content.
   $permissions['delete any data content'] = array(
     'name' => 'delete any data content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete own data content.
   $permissions['delete own data content'] = array(
     'name' => 'delete own data content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'administrator',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: edit any data content.
   $permissions['edit any data content'] = array(
     'name' => 'edit any data content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'administrator',
+    ),
     'module' => 'node',
   );
 

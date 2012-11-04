@@ -21,11 +21,11 @@ function opendata_ctypes_menu_default_menu_links() {
       'node_type' => 'page',
     ),
     'module' => 'menu',
-    'hidden' => '0',
+    'hidden' => '1',
     'external' => '0',
-    'has_children' => '1',
+    'has_children' => '0',
     'expanded' => '0',
-    'weight' => '1',
+    'weight' => '-48',
   );
   // Exported menu link: main-menu:node/5
   $menu_links['main-menu:node/5'] = array(
@@ -35,7 +35,7 @@ function opendata_ctypes_menu_default_menu_links() {
     'link_title' => 'Richiedi dati',
     'options' => array(),
     'module' => 'menu',
-    'hidden' => '0',
+    'hidden' => '1',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',

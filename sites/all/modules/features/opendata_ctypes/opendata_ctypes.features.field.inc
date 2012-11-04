@@ -694,7 +694,7 @@ function opendata_ctypes_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          'Utente esperto' => 'Utente esperto, ma non programmatore',
+          'Utente esperto' => 'Utente esperto',
           'Programmatore' => 'Programmatore',
           'Tutti gli utenti' => 'Tutti gli utenti',
         ),

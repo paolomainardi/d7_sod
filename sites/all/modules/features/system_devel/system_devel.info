@@ -18,7 +18,6 @@ features[user_permission][] = masquerade as admin
 features[user_permission][] = masquerade as user
 features[user_permission][] = switch users
 features[variable][] = devel_api_url
-features[variable][] = devel_error_handler
 features[variable][] = devel_execution
 features[variable][] = devel_krumo_skin
 features[variable][] = devel_page_alter
