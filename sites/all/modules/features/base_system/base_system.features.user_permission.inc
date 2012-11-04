@@ -88,6 +88,7 @@ function base_system_user_default_permissions() {
     'name' => 'access statistics',
     'roles' => array(
       0 => 'authenticated user',
+      1 => 'editor',
     ),
     'module' => 'statistics',
   );
@@ -143,6 +144,7 @@ function base_system_user_default_permissions() {
     'name' => 'administer comments',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'comment',
   );
@@ -206,6 +208,7 @@ function base_system_user_default_permissions() {
     'name' => 'administer menu',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'menu',
   );
@@ -224,6 +227,7 @@ function base_system_user_default_permissions() {
     'name' => 'administer nodes',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -278,6 +282,7 @@ function base_system_user_default_permissions() {
     'name' => 'administer taxonomy',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'taxonomy',
   );
@@ -332,6 +337,7 @@ function base_system_user_default_permissions() {
     'name' => 'bypass node access',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -368,6 +374,7 @@ function base_system_user_default_permissions() {
     'name' => 'delete revisions',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -413,6 +420,7 @@ function base_system_user_default_permissions() {
     'name' => 'revert revisions',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -450,6 +458,7 @@ function base_system_user_default_permissions() {
     'name' => 'translate interface',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'locale',
   );
@@ -468,6 +477,7 @@ function base_system_user_default_permissions() {
     'name' => 'use admin toolbar',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'admin',
   );
@@ -523,6 +533,7 @@ function base_system_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -532,6 +543,7 @@ function base_system_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       0 => 'administrator',
+      1 => 'editor',
     ),
     'module' => 'system',
   );

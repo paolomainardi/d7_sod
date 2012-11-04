@@ -5,6 +5,7 @@ package = SOD
 php = 5.2.4
 version = 7.x-3.2
 project = sod_base
+dependencies[] = admin
 dependencies[] = boxes
 dependencies[] = ckeditor
 dependencies[] = context
