@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SOD Translations feature.
+ */
+
+include_once 'sod_translations.features.inc';
