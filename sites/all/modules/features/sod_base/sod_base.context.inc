@@ -26,30 +26,6 @@ function sod_base_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'boxes-sod_apps_links' => array(
-          'module' => 'boxes',
-          'delta' => 'sod_apps_links',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
-        ),
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'system-navigation' => array(
-          'module' => 'system',
-          'delta' => 'navigation',
-          'region' => 'sidebar_first',
-          'weight' => '-7',
-        ),
-        'boxes-twitter_widget_opendataitaly' => array(
-          'module' => 'boxes',
-          'delta' => 'twitter_widget_opendataitaly',
-          'region' => 'sidebar_first',
-          'weight' => '-6',
-        ),
         'superfish-1' => array(
           'module' => 'superfish',
           'delta' => '1',
@@ -61,6 +37,24 @@ function sod_base_context_default_contexts() {
           'delta' => 'user-menu',
           'region' => 'menu_bar',
           'weight' => '-9',
+        ),
+        'boxes-sod_apps_links' => array(
+          'module' => 'boxes',
+          'delta' => 'sod_apps_links',
+          'region' => 'sidebar_first',
+          'weight' => 0,
+        ),
+        'system-navigation' => array(
+          'module' => 'system',
+          'delta' => 'navigation',
+          'region' => 'sidebar_first',
+          'weight' => 1,
+        ),
+        'boxes-twitter_widget_opendataitaly' => array(
+          'module' => 'boxes',
+          'delta' => 'twitter_widget_opendataitaly',
+          'region' => 'sidebar_first',
+          'weight' => 2,
         ),
       ),
     ),

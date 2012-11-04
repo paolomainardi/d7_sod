@@ -26,7 +26,7 @@ function sod_base_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '6',
+    'weight' => '-43',
   );
   // Exported menu link: main-menu:home
   $menu_links['main-menu:home'] = array(
@@ -50,11 +50,11 @@ function sod_base_menu_default_menu_links() {
     'link_title' => 'Strumenti',
     'options' => array(),
     'module' => 'menu',
-    'hidden' => '0',
+    'hidden' => '1',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '2',
+    'weight' => '-47',
   );
   // Exported menu link: main-menu:node/3
   $menu_links['main-menu:node/3'] = array(
@@ -64,11 +64,11 @@ function sod_base_menu_default_menu_links() {
     'link_title' => 'La memoria',
     'options' => array(),
     'module' => 'menu',
-    'hidden' => '0',
+    'hidden' => '1',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '3',
+    'weight' => '-46',
   );
   // Exported menu link: main-menu:node/4
   $menu_links['main-menu:node/4'] = array(
@@ -78,11 +78,11 @@ function sod_base_menu_default_menu_links() {
     'link_title' => 'Aiuto',
     'options' => array(),
     'module' => 'menu',
-    'hidden' => '0',
+    'hidden' => '1',
     'external' => '0',
-    'has_children' => '1',
+    'has_children' => '0',
     'expanded' => '0',
-    'weight' => '4',
+    'weight' => '-45',
   );
   // Exported menu link: navigation:aggregator
   $menu_links['navigation:aggregator'] = array(
