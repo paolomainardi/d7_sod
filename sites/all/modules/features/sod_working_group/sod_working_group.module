@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SOD Working group feature.
+ */
+
+include_once 'sod_working_group.features.inc';
