@@ -1,185 +1,188 @@
 <?php
-
 /**
  * @file
- * Stand alone module file to handle AddThis button integration
+ * Hook implementations for the AddThis-module. Most of the logic is defined
+ * in a separate AddThis-class to keep the .module-file clean.
  */
 
+module_load_include('inc', 'addthis', 'includes/addthis.block');
+module_load_include('inc', 'addthis', 'includes/addthis.field');
+
 /**
- * Implement hook_permission().
+ * Implements hook_hook_info().
+ *
+ * Define hook_addthis_display_markup in the addthis group so that
+ * $module.addthis.inc files will be included. See addthis.addthis.inc for
+ * examples of the hook implementation.
+ */
+function addthis_hook_info() {
+  $hooks['addthis_display_markup'] = array(
+    'group' => 'addthis',
+  );
+  return $hooks;
+}
+
+/**
+ * Implements hook_help().
+ */
+function addthis_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#addthis':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>';
+      $output .= t('The AddThis module defines AddThis field type for the Field module. A AddThis field may contain a button, toolbox, sharecount or customized sharing tool using <a href="http://addthis.com/">AddThis.com</a>.');
+      $output .= '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_filter_format_update().
+ */
+function addthis_filter_format_update($format) {
+  field_cache_clear();
+}
+
+/**
+ * Implements hook_filter_format_disable().
+ */
+function addthis_filter_format_disable($format) {
+  field_cache_clear();
+}
+
+
+/**
+ * Implements hook_menu().
+ */
+function addthis_menu() {
+  $menu_items['admin/config/user-interface/addthis'] = array(
+    'title' => 'AddThis',
+    'description' => 'Configure AddThis settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('addthis_admin_settings_form'),
+    'access arguments' => array(AddThis::PERMISSION_ADMINISTER_ADDTHIS),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => AddThis::ADMIN_INCLUDE_FILE,
+  );
+  return $menu_items;
+}
+
+/**
+ * Implements hook_permission().
  */
 function addthis_permission() {
   return array(
-    'administer addthis' => array(
-      'title' => 'Administer Addthis sharing widget',
-      'description' => 'Change which services are shown, color, etc and add addthis.com usename',
+    AddThis::PERMISSION_ADMINISTER_ADDTHIS => array(
+      'title' => t('Administer AddThis'),
+      'description' => t('Perform maintenance tasks for AddThis.'),
     ),
-    'view addthis' => array(
-      'title' => 'View the addthis widget',
-      'description' => 'User can see the button which allows them to share posts',
+    AddThis::PERMISSION_ADMINISTER_ADVANCED_ADDTHIS => array(
+      'title' => t('Administer advanced AddThis'),
+      'description' => t('Perform advanced maintenance tasks for AddThis.'),
     ),
   );
 }
 
 /**
- * Implement hook_node_view().
+ * Implements hook_page_alter().
  */
-function addthis_node_view($node, $build_mode) {
-  $links = array();
-  if (user_access('view addthis')) {
-    if (($node && variable_get('addthis_nodetype_' . $node->type, 1)) &&
-      (($build_mode == 'teaser' && variable_get('addthis_display_in_teasers', '0')) ||
-      ($build_mode == 'full' && variable_get('addthis_display_in_links', '0')))) {
-      $node->content['addthis'] = array(
-        '#markup' => _addthis_create_button(array('build_mode' => $build_mode))
-      );
+function addthis_page_alter(&$page) {
+  AddThis::getInstance()->addWidgetJs();
+  AddThis::getInstance()->addConfigurationOptionsJs();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Hide the instance fieldset because there aren't any values per instance.
+ */
+function addthis_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#field']['type'] == AddThis::FIELD_TYPE && $form['#field']['type'] == AddThis::MODULE_NAME) {
+    $form['field']['#access'] = FALSE;
+    $form['instance']['required']['#access'] = FALSE;
+    $form['instance']['description']['#access'] = FALSE;
+    $form['instance']['default_value_widget']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_rdf_namespaces()
+ */
+function addthis_rdf_namespaces() {
+  if (AddThis::getInstance()->isFacebookLikeCountSupportEnabled()) {
+    return array(
+      'fb' => 'http://www.facebook.com/2008/fbml',
+    );
+  }
+  return array();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function addthis_theme($existing, $type, $theme, $path) {
+  return array(
+    'addthis_wrapper' => array(
+      'render element' => 'addthis_wrapper',
+    ),
+    'addthis_element' => array(
+      'render element' => 'addthis_element',
+    ),
+    'addthis' => array(
+      'render element' => 'addthis',
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess() for theme_addthis.
+ */
+function template_preprocess_addthis(&$variables) {
+  if (isset($variables[0]) && count($variables) == 3) {
+    $variables['#display'] = $variables[0];
+    unset($variables[0]);
+  }
+}
+
+function theme_addthis($variables) {
+  $markup = AddThis::getInstance()->getDisplayMarkup($variables['#display']);
+  return render($markup);
+}
+
+function theme_addthis_wrapper($variables) {
+  $element = $variables['addthis_wrapper'];
+  $output = '<' . $element['#tag'] . drupal_attributes($element['#attributes']) . '>';
+  $children = element_children($element);
+
+  if (count($children) > 0) {
+    foreach ($children as $child) {
+      $output .= render($element[$child]);
     }
   }
+
+  $output .= '</' . $element['#tag'] . ">\n";
+  return $output;
 }
 
 /**
- * Implement of hook_menu().
+ * Theme the elements that are created in the AddThis module. This is
+ * created with hook_addthis_element.
  */
-function addthis_menu() {
-  $items = array();
+function theme_addthis_element($variables) {
+  $element = $variables['addthis_element'];
 
-  $items['admin/config/system/addthis'] = array(
-    'title'            => t('AddThis'),
-    'description'      => t('Set username and customize look and feel for <a href="http://www.addthis.com/">AddThis</a> button.'),
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('addthis_admin_settings'),
-    'access arguments' => array('administer addthis'),
-    'file'             => 'addthis.admin.inc',
-  );
-
-  return $items;
-}
-
-
-/**
- * Implement hook_block_info();
- */
-function addthis_block_info() {
-  return array(
-    'addthis' => array (
-      'info' => t('Add this button'),
-      'cache' => DRUPAL_CACHE_PER_PAGE, 
-    )
-  );
-}
-
-/**
- * Implement hook_block_view();
- */
-function addthis_block_view($delta) {
-  if ($delta != 'addthis' || !user_access('view addthis')) {
-    return;
-  }
-  return array(
-    'subject' => t('Addthis'),
-    'content' => _addthis_create_button(array('build_mode' => 'block')),
-  );
-}
-
-/**
- * Implement hook_form_FORM_ID_alter().
- */
-function addthis_form_node_type_form_alter(&$form, $form_state) {
-  $form['addthis'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Addthis settings'),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
-    '#group' => 'additional_settings',
-  );
-  $form['addthis']['addthis_nodetype'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show AddThis button on this type of node'),
-    '#default_value' => variable_get('addthis_nodetype_' . $form['#node_type']->type, 1),
-    '#description' => t('Select whether the AddThis button should be shown or not on this type of node.'),
-  );
-}
-
-/**
- * Implement of hook_theme().
- */
-function addthis_theme() {
-  return array(
-    'addthis_button' => array(
-      'arguments' => array(
-        'node' => NULL,
-        'teaser' => NULL,
-      ),
-    ),
-  );
-}
-
-/**
- * Internal function to generate code for AddThis button
- *
- * @return
- *   String containing html code for the button
- */
-function _addthis_create_button($build_mode) {
-  global $_addthis_counter;
-  $_addthis_counter++;
-  if ($_addthis_counter == 1) {
-      drupal_add_css((drupal_get_path('module', 'addthis') .'/addthis.css'));
-      drupal_add_js(sprintf('
-	    addthis_pub = \'%s\';
-	    addthis_logo = \'%s\';
-	    addthis_logo_background = \'%s\';
-	    addthis_logo_color = \'%s\';
-	    addthis_brand = \'%s\';
-	    addthis_options = \'%s\';
-	    addthis_disable_flash = \'%s\';
-	',
-        addslashes(check_plain(variable_get('addthis_username', 'my-username'))),
-        addslashes(check_plain(variable_get('addthis_logo', 'http://www.addthis.com/images/yourlogo.png'))),
-        addslashes(check_plain(variable_get('addthis_logo_background', 'EFEFFF'))),
-        addslashes(check_plain(variable_get('addthis_logo_color', '666699'))),
-        addslashes(check_plain(variable_get('addthis_brand', 'Your Site'))),
-        addslashes(check_plain(variable_get('addthis_options', 'favorites, email, digg, delicious, myspace, facebook, google, live, more'))),
-        variable_get('addthis_options', FALSE) ? 'true' : 'false'
-      ), 'inline');
+  if (!isset($element['#value'])) {
+    return '<' . $element['#tag'] . drupal_attributes($element['#attributes']) . " />\n";
   }
 
-  return theme('addthis_button', array('build_mode' => $build_mode));
-}
-
-/**
- * Theme the AddThis button.
- */
-function theme_addthis_button($variables) {
-  $build_mode = $variables['build_mode'];
-  $https = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on';
-  if (variable_get('addthis_dropdown_disabled', '0')) {
-    return ( sprintf('
-      <a href="http://www.addthis.com/bookmark.php"
-        onclick="addthis_url   = location.href; addthis_title = document.title; return addthis_click(this);">
-      <img src="%s" width="%d" height="%d" %s /></a>
-      ',
-      $https ? addslashes(variable_get('addthis_image_secure', 'https://secure.addthis.com/button1-share.gif')) : addslashes(variable_get('addthis_image', 'http://s9.addthis.com/button1-share.gif')),
-      addslashes(variable_get('addthis_image_width', '125')),
-      addslashes(variable_get('addthis_image_height', '16')),
-      addslashes(variable_get('addthis_image_attributes', 'alt=""'))
-    ));
+  $output = '<' . $element['#tag'] . drupal_attributes($element['#attributes']) . '>';
+  if (isset($element['#value_prefix'])) {
+    $output .= $element['#value_prefix'];
   }
-  else {
-    return ( sprintf('
-      <a href="http://www.addthis.com/bookmark.php"
-        onmouseover="return addthis_open(this, \'\', \'%s\', \'%s\')"
-        onmouseout="addthis_close()"
-        onclick="return addthis_sendto()"><img src="%s" width="%d" height="%d" %s /></a>
-      <script type="text/javascript" src="%s/js/' . variable_get('addthis_widget_version', '152') . '/addthis_widget.js"></script>
-      ',
-      ($build_mode == 'teaser') ? url('node/'. $node->nid, array('absolute' => 1) ) : '[URL]',
-      ($build_mode == 'teaser') ? addslashes($node->title) : '[TITLE]',
-      $https == 'on' ? addslashes(check_plain(variable_get('addthis_image_secure', 'https://secure.addthis.com/button1-share.gif'))) : addslashes(check_plain(variable_get('addthis_image', 'http://s9.addthis.com/button1-share.gif'))),
-      addslashes(variable_get('addthis_image_width', '125')),
-      addslashes(variable_get('addthis_image_height', '16')),
-      filter_xss(variable_get('addthis_image_attributes', 'alt=""')),
-      $https == 'on' ? 'https://secure.addthis.com' : 'http://s7.addthis.com'
-    ));
+  $output .= $element['#value'];
+  if (isset($element['#value_suffix'])) {
+    $output .= $element['#value_suffix'];
   }
+  $output .= '</' . $element['#tag'] . ">\n";
+  return $output;
 }
