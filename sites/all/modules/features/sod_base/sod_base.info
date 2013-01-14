@@ -14,6 +14,7 @@ dependencies[] = features
 dependencies[] = image
 dependencies[] = imce
 dependencies[] = libraries
+dependencies[] = jquery_update
 dependencies[] = menu
 dependencies[] = menu_block
 dependencies[] = menu_block_export
