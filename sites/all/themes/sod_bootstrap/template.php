@@ -4,7 +4,8 @@
  * A function to change jQuery and jQuery UI version
  * 
  */
-function sod_bootstrap_js_alter(&$scripts) {
+/*
+function styloola_bootstrap_js_alter(&$scripts) {
   // dpm($javascript, 'BEFORE');
   $theme_path = drupal_get_path('theme','sod_bootstrap');
   $new_jquery = $theme_path . '/js/jquery-1.8.2.min.js';
@@ -25,3 +26,4 @@ function sod_bootstrap_js_alter(&$scripts) {
   }
   // dpm($scripts);
 }
+*/

@@ -91,7 +91,14 @@ function sod_working_group_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'og_group_ref',
-      'foreign keys' => array(),
+      'foreign keys' => array(
+        'node' => array(
+          'columns' => array(
+            'target_id' => 'nid',
+          ),
+          'table' => 'node',
+        ),
+      ),
       'indexes' => array(
         'target_id' => array(
           0 => 'target_id',
@@ -413,10 +420,89 @@ function sod_working_group_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-working_group-og_roles_permissions'.
+  $fields['node-working_group-og_roles_permissions'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'og_roles_permissions',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Use default roles and permissions',
+          1 => 'Override default roles and permissions',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'working_group',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'og_roles_permissions',
+      'label' => 'Group roles and permissions',
+      'required' => TRUE,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'view modes' => array(
+        'full' => array(
+          'custom settings' => FALSE,
+          'label' => 'Completo',
+          'type' => 'list_default',
+        ),
+        'teaser' => array(
+          'custom settings' => FALSE,
+          'label' => 'Anteprima',
+          'type' => 'list_default',
+        ),
+      ),
+      'widget' => array(
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => 42,
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
   t('Determine if this is an OG group.');
+  t('Group roles and permissions');
   t('Group visibility');
   t('Groups audience');
   t('Gruppo');

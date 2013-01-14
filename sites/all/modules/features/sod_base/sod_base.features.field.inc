@@ -360,7 +360,7 @@ function sod_base_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -388,7 +388,7 @@ function sod_base_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '-4',
+        'weight' => '2',
       ),
     ),
   );
@@ -426,17 +426,17 @@ function sod_base_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'blog',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Questa immagine verrà visualizzata sopra al testo del post.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '1',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -447,8 +447,8 @@ function sod_base_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_immagine_blog_entry',
-      'label' => 'Immagine blog entry',
-      'required' => FALSE,
+      'label' => 'Immagine',
+      'required' => 0,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
@@ -461,13 +461,14 @@ function sod_base_field_default_fields() {
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'image',
         'settings' => array(
           'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '31',
+        'weight' => '1',
       ),
     ),
   );
@@ -625,7 +626,7 @@ function sod_base_field_default_fields() {
   t('Body');
   t('Comment');
   t('Immagine');
-  t('Immagine blog entry');
+  t('Questa immagine verrà visualizzata sopra al testo del post.');
 
   return $fields;
 }

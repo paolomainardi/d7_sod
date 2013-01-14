@@ -389,7 +389,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_blog_pattern';
-  $strongarm->value = 'blog/[node:author]/[node:source:created:custom:Y]/[node:source:created:custom:m]/[node:source:created:custom:d]/[node:source:title]';
+  $strongarm->value = 'blog/[node:author]/[node:title]';
   $export['pathauto_node_blog_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -403,7 +403,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_page_pattern';
-  $strongarm->value = '[node:source:menu-link:parents:first]/[node:source:title]';
+  $strongarm->value = 'page/[node:menu-link:parent]/[node:title]';
   $export['pathauto_node_page_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -417,7 +417,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
-  $strongarm->value = 'content/[node:source:title]';
+  $strongarm->value = 'content/[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1059,7 +1059,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'sod_bootstrap';
+  $strongarm->value = 'styloola';
   $export['theme_default'] = $strongarm;
 
   $strongarm = new stdClass();

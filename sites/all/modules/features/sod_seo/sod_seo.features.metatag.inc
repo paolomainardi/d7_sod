@@ -20,9 +20,6 @@ function sod_seo_metatag_export_default() {
       'description' => array(
         'value' => '[site:slogan]',
       ),
-      'keywords' => array(
-        'value' => 'opendata, data, opengov',
-      ),
       'generator' => array(
         'value' => 'Drupal 7 (http://drupal.org)',
       ),
@@ -37,6 +34,9 @@ function sod_seo_metatag_export_default() {
       ),
       'og:title' => array(
         'value' => '[current-page:title]',
+      ),
+      'og:description' => array(
+        'value' => '[site:slogan]',
       ),
       'og:type' => array(
         'value' => 'article',

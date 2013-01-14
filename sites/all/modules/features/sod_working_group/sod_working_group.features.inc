@@ -39,7 +39,7 @@ function sod_working_group_node_info() {
       'base' => 'node_content',
       'description' => t('Documento'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titolo'),
       'help' => '',
     ),
     'working_group' => array(
@@ -47,7 +47,7 @@ function sod_working_group_node_info() {
       'base' => 'node_content',
       'description' => t('Working group'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titolo'),
       'help' => '',
     ),
   );

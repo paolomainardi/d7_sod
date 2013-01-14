@@ -14,7 +14,8 @@ function opendata_ctypes_user_default_permissions() {
   $permissions['create data content'] = array(
     'name' => 'create data content',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -50,7 +51,8 @@ function opendata_ctypes_user_default_permissions() {
   $permissions['edit own data content'] = array(
     'name' => 'edit own data content',
     'roles' => array(
-      0 => 'authenticated user',
+      0 => 'administrator',
+      1 => 'authenticated user',
     ),
     'module' => 'node',
   );

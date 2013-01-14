@@ -32,18 +32,18 @@ function sod_base_default_box() {
   $box->api_version = 1;
   $box->delta = 'twitter_widget_opendataitaly';
   $box->plugin_key = 'simple';
-  $box->title = '#opendataitaly';
-  $box->description = 'Twitter Widget opendataitaly';
+  $box->title = 'Da Twitter';
+  $box->description = 'Twitter Widget';
   $box->options = array(
     'body' => array(
       'value' => '<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script><script>
 new TWTR.Widget({
   version: 2,
   type: \'search\',
-  search: \'#opendataitaly\',
+  search: \'#opendataitaly OR #SOD13\',
   interval: 30000,
-  title: \'Spaghetti Opendata\',
-  subject: \'#opendataitaly\',
+  title: \'Spaghetti Open Data\',
+  subject: \'\',
   width: 200,
   height: 300,
   theme: {
@@ -81,9 +81,22 @@ new TWTR.Widget({
   $box->options = array(
     'body' => array(
       'value' => '<h1>
-	<img alt="Foto: Medhin Paolos" src="http://www.cottica.net/wp-content/uploads/2012/06/LOTEpicjpg.jpeg" style="width: 600px; height: 450px;" /></h1>
+	<img alt="Foto: Medhin Paolos" src="http://www.cottica.net/wp-content/uploads/2012/06/LOTEpicjpg.jpeg" style="width: 500px; height: 375px;" /></h1>
 <p>Siamo un gruppo di cittadini italiani interessati al rilascio di&nbsp;<strong>dati pubblici in formato aperto, in modo da renderne facile l&#39;accesso e il riuso (open data)</strong>. Ci sembra che questa pratica sia utile per alimentare la discussione sulle scelte che ci attendono; rendendo facilmente accessibili informazioni di qualit&agrave; alta, contribuir&agrave; a renderla pi&ugrave; razionale, allargata e fondata sui dati. Con tutti i suoi difetti, la nostra democrazia &egrave; un grandissimo dono che ci hanno fatto le generazioni passate: il minimo che possiamo fare, tutti insieme, &egrave; cercare di averne cura.</p>
-',
+<p>Parliamo di dati su <a href="https://groups.google.com/d/forum/spaghettiopendata">questa mailing list</a> da settembre 2010. Abbiamo anche un <a href="https://github.com/spaghetti-open-data">repo Github</a>.</p>
+<iframe id="forum_embed"
+  src="javascript:void(0)"
+  scrolling="no"
+  frameborder="0"
+  width="900"
+  height="300">
+</iframe>
+<script type="text/javascript">
+  document.getElementById(\'forum_embed\').src =
+     \'https://groups.google.com/forum/embed/?place=forum/spaghettiopendata\'
+     + \'&showsearch=false&showpopout=true&showtabs=false&hideforumtitle=true\'
+     + \'&parenturl=\' + encodeURIComponent(window.location.href);
+</script>',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

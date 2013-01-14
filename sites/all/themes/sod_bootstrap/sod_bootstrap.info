@@ -1,12 +1,21 @@
+name = SOD Bootstrap
+description = SOD Bootstrap subtheme
+version = 0.5
+core = 7.x
+base theme = bootstrap
 
-  name        = SOD Bootstrap
-  description = SOD Bootstrap subtheme
-  core        = 7.x
-  engine      = phptemplate
-  screenshot  = screenshot.png
-  base theme  = twitter_bootstrap
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
 
-;----------// Modular stylesheets
-stylesheets[all][]   = css/sod.css
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/bootstrap-responsive.css
+stylesheets[all][] = css/sod_bootstrap.css
 
-
+settings[toggle_name] = 0
+settings[toggle_search] = 1
