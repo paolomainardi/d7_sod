@@ -1,6 +1,6 @@
 
-  name        = SOD Bootstrap
-  description = SOD Bootstrap subtheme
+  name        = SOD Bootstrap OLD
+  description = SOD Bootstrap subtheme - old not to be used anymore
   core        = 7.x
   engine      = phptemplate
   screenshot  = screenshot.png
