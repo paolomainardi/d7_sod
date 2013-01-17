@@ -30,6 +30,7 @@ dependencies[] = options
 dependencies[] = path
 dependencies[] = php
 dependencies[] = search
+dependencies[] = spambot
 dependencies[] = statistics
 dependencies[] = strongarm
 dependencies[] = syslog
