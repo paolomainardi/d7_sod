@@ -5,6 +5,8 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
+includes/deploy
+
 *.sql
 *.tar.gz
 *.bz2
