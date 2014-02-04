@@ -1,28 +1,11 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
-sites/*/settings.php
-sites/default
-sites/sites.php
-.DS_Store
 
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-sites/*/tmp
-.htaccess
-db
-nbproject
-languages
-.settings
 
-# Ignore local modules / themes
-sites/antinori/modules
-
-# Other files
-.project
-*.sql.bz2
-
-html_template/js/libs/colorbox.zip
-html_template/crc
-htaccess
-
+*.sql
+*.tar.gz
+*.bz2
+*.zip
