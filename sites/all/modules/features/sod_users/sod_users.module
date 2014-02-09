@@ -5,3 +5,34 @@
  */
 
 include_once 'sod_users.features.inc';
+
+/**
+ * Implementation of hook_field_widget_form_alter()
+ */
+function sod_users_field_widget_form_alter(&$element, &$form_state, $context) {
+  // hide addressfield elements #3372
+  if ($element['#field_name'] == 'field_profile_address') {
+    $element['#process'][] = 'sod_users_addressfield_processing';
+  }
+}
+
+/**
+ * field_profile_address field processing
+ */
+function sod_users_addressfield_processing($element, &$form_state, $complete_form) {
+  unset($element['street_block']);
+  return $element;
+}
+
+
+/**
+ * Implements of hook_admin_paths()
+ */
+function sod_users_admin_paths() {
+  $paths = array(
+    'user/*/cancel' => TRUE,
+    'user/*/edit' => TRUE,
+    'user/*/edit/*' => TRUE,
+  );
+  return $paths;
+}
