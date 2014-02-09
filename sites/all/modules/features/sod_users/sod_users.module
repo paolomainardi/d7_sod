@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SOD Users feature.
+ */
+
+include_once 'sod_users.features.inc';
