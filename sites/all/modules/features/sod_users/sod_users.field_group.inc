@@ -25,6 +25,7 @@ function sod_users_field_group_info() {
     'children' => array(
       0 => 'field_profile_income_with_od',
       1 => 'field_profile_classe_di_reddito',
+      2 => 'field_profile_extra_consenso',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -32,7 +33,7 @@ function sod_users_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => 'Se vuoi dire più di te, qui puoi aggiungere il reddito generato con gli OD e la tua classe di reddito.',
+        'description' => 'Queste informazioni sono private e saranno utilizzate solamente ai fini statistici',
       ),
       'formatter' => 'closed',
     ),
@@ -66,7 +67,7 @@ function sod_users_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-profile-info field-group-tab',
-        'description' => 'Qui puoi inserire le informazioni sul tuo Nome, Città, Comunità di appartenenza, keywords ed una tua breve bio.',
+        'description' => '',
       ),
       'formatter' => 'closed',
     ),
@@ -120,7 +121,7 @@ function sod_users_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => 'Inserisci qui i tuoi account social e l\'indirizzo del tuo blog.',
+        'description' => '',
       ),
       'formatter' => 'closed',
     ),

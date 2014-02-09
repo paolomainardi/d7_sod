@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function sod_users_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -109,6 +112,9 @@ function sod_users_rdf_default_mappings() {
     'field_profile_income_with_od' => array(
       'predicates' => array(),
     ),
+    'field_profile_extra_consenso' => array(
+      'predicates' => array(),
+    ),
   );
 
   // Exported RDF mapping: user_interest_tags
@@ -157,6 +163,9 @@ function sod_users_rdf_default_mappings() {
         0 => 'foaf:page',
       ),
       'type' => 'rel',
+    ),
+    'field_user_privacy_polici' => array(
+      'predicates' => array(),
     ),
     'url' => array(
       'predicates' => array(
