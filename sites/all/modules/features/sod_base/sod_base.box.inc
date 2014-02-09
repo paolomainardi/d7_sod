@@ -15,11 +15,13 @@ function sod_base_default_box() {
   $box->api_version = 1;
   $box->delta = 'sod_apps_links';
   $box->plugin_key = 'simple';
-  $box->title = 'A Bologna!';
+  $box->title = 'A Perugia!';
   $box->description = 'Raduno';
   $box->options = array(
     'body' => array(
-      'value' => '<p>Il primo raduno di Spaghetti Open Data si terr&agrave; a <strong>Bologna, dal 18 al 20 gennaio 2013</strong>. Sar&agrave; un&#39;occasione per conoscerci e fare insieme cose con i dati. Tutti benvenuti! <a href="http://www.spaghettiopendata.org/it/node/53">Info</a></p>
+      'value' => '<p><span>Spaghetti Open Data al Festival Internazionale del Giornalismo con un hackathon dedicato agli Open Data. <strong>Ci vediamo a Perugia sabato 27 aprile 2013.</strong> Tutti benvenuti! </span></p>
+<p><span><a href="http://www.spaghettiopendata.org/it/blog/maracinquepalmi/spaghetti-open-data-al-festival-di-giornalismo-di-perugia#.UVP7hxdrio0">Clicca qui per le informazioni.</a></span><br />
+	&nbsp;</p>
 ',
       'format' => 'filtered_html',
     ),

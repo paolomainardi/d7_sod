@@ -123,9 +123,6 @@ function sod_seo_metatag_export_default() {
       'og:title' => array(
         'value' => '[user:name]',
       ),
-      'og:image' => array(
-        'value' => '[user:picture:url]',
-      ),
     ),
   );
 

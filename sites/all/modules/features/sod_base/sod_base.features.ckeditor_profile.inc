@@ -15,7 +15,7 @@ function sod_base_ckeditor_profile_defaults() {
         'filters' => array(
           'filter_html' => 1,
         ),
-        'ss' => '2',
+        'ss' => 2,
         'default' => 't',
         'show_toggle' => 't',
         'skin' => 'kama',
@@ -56,7 +56,7 @@ function sod_base_ckeditor_profile_defaults() {
         'UserFilesPath' => '%b%f/',
         'UserFilesAbsolutePath' => '%d%b%f/',
         'ckeditor_load_method' => 'ckeditor.js',
-        'ckeditor_load_time_out' => '0',
+        'ckeditor_load_time_out' => 0,
         'forcePasteAsPlainText' => 'f',
         'html_entities' => 't',
         'scayt_autoStartup' => 'f',
@@ -96,9 +96,7 @@ function sod_base_ckeditor_profile_defaults() {
           ),
         ),
       ),
-      'input_formats' => array(
-        'filtered_html' => 'Filtered HTML',
-      ),
+      'input_formats' => array(),
     ),
     'CKEditor Global Profile' => array(
       'name' => 'CKEditor Global Profile',
@@ -110,7 +108,7 @@ function sod_base_ckeditor_profile_defaults() {
     'Full' => array(
       'name' => 'Full',
       'settings' => array(
-        'ss' => '2',
+        'ss' => 2,
         'default' => 't',
         'show_toggle' => 't',
         'skin' => 'kama',
@@ -162,7 +160,7 @@ function sod_base_ckeditor_profile_defaults() {
         'UserFilesPath' => '%b%f/',
         'UserFilesAbsolutePath' => '%d%b%f/',
         'ckeditor_load_method' => 'ckeditor.js',
-        'ckeditor_load_time_out' => '0',
+        'ckeditor_load_time_out' => 0,
         'forcePasteAsPlainText' => 'f',
         'html_entities' => 't',
         'scayt_autoStartup' => 'f',
