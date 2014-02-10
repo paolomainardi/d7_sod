@@ -184,7 +184,7 @@ $databases = array (
     array (
       'database' => 'drupal7_sod',
       'username' => 'sod',
-      'password' => '4n8V9umFprfSnNtP',
+      'password' => 'D8bEP76DYQJZcP7E',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
