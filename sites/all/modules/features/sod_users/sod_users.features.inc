@@ -27,6 +27,38 @@ function sod_users_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function sod_users_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: avatar_thumb_small.
+  $styles['avatar_thumb_small'] = array(
+    'name' => 'avatar_thumb_small',
+    'label' => 'Avatar thumb small',
+    'effects' => array(
+      2 => array(
+        'label' => 'Scala e ritaglia',
+        'help' => 'Scala e ritaglia preserva il rapporto di dimensioni dell\'immagine originale per poi ritagliare la dimensione in eccesso. Questo metodo è utile nei casi in cui si desidera ottenere delle miniature perfettamente quadrate senza deformare l\'immagine.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 120,
+          'height' => 120,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_default_profile2_type().
  */
 function sod_users_default_profile2_type() {
