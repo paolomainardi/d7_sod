@@ -109,42 +109,6 @@ function sod_users_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'profile2-main-field_profile_citta'
-  $field_instances['profile2-main-field_profile_citta'] = array(
-    'bundle' => 'main',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Città dove sei più attivo/a. <br>
-Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu quale livello di precisione utilizzare.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'profile2',
-    'field_name' => 'field_profile_citta',
-    'label' => 'Citta',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_field_privacy' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 120,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 13,
-    ),
-  );
-
   // Exported field_instance: 'profile2-main-field_profile_classe_di_reddito'
   $field_instances['profile2-main-field_profile_classe_di_reddito'] = array(
     'bundle' => 'main',
@@ -204,7 +168,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -239,7 +203,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -357,7 +321,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
       'module' => 'geocoder',
       'settings' => array(
         'delta_handling' => 'default',
-        'geocoder_field' => 'field_profile_citta',
+        'geocoder_field' => 'field_profiles_address_citta',
         'geocoder_handler' => 'mapquest_nominatim',
         'handler_settings' => array(
           'google' => array(
@@ -373,7 +337,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
         ),
       ),
       'type' => 'geocoder',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -442,7 +406,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
         'size' => 60,
       ),
       'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -577,6 +541,55 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_profiles_address_citta'
+  $field_instances['profile2-main-field_profiles_address_citta'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'addressfield',
+        'settings' => array(
+          'format_handlers' => array(
+            0 => 'address',
+          ),
+          'use_widget_handlers' => 1,
+        ),
+        'type' => 'addressfield_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_profiles_address_citta',
+    'label' => 'Citta di cui mi interesso',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'addressfield',
+      'settings' => array(
+        'available_countries' => array(
+          'IT' => 'IT',
+        ),
+        'format_handlers' => array(
+          'address' => 'address',
+          'address-hide-country' => 'address-hide-country',
+          'optional-country' => 'optional-country',
+          'organisation' => 0,
+          'name-full' => 0,
+          'name-oneline' => 0,
+        ),
+      ),
+      'type' => 'addressfield_standard',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_user_privacy_polici'
   $field_instances['user-user-field_user_privacy_polici'] = array(
     'bundle' => 'user',
@@ -624,9 +637,7 @@ Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu 
 ');
   t('Avatar');
   t('Blog personale');
-  t('Citta');
-  t('Città dove sei più attivo/a. <br>
-Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu quale livello di precisione utilizzare.');
+  t('Citta di cui mi interesso');
   t('Classe di reddito');
   t('Comunità di appartenenza');
   t('Consenso al trattamento dei dati');

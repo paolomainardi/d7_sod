@@ -120,6 +120,12 @@ function sod_users_rdf_default_mappings() {
         0 => 'schema:addressLocality',
       ),
     ),
+    'field_profiles_address_citta' => array(
+      'predicates' => array(
+        0 => 'schema:addressLocality',
+      ),
+      'type' => 'property',
+    ),
     'field_profile_geocode' => array(
       'predicates' => array(),
     ),
