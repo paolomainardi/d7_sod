@@ -15,7 +15,6 @@ function opendata_ctypes_user_default_permissions() {
     'name' => 'create data content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -52,7 +51,6 @@ function opendata_ctypes_user_default_permissions() {
     'name' => 'edit own data content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );

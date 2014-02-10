@@ -58,16 +58,15 @@ function sod_users_context_default_contexts() {
     'path' => array(
       'values' => array(
         'community' => 'community',
-        'community/*' => 'community/*',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views--exp-sod_users_user_search-page' => array(
+        'views-75da15a99a2718dc4789ef2c6c7e600f' => array(
           'module' => 'views',
-          'delta' => '-exp-sod_users_user_search-page',
+          'delta' => '75da15a99a2718dc4789ef2c6c7e600f',
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
