@@ -879,21 +879,3 @@ function profile2_user_get_properties($account, array $options, $name) {
   return $profile ? $profile : NULL;
 }
 
-/**
- * Implement hook_menu().
- */
-function profile2_menu() {
-  $items = array();
-  // generate profile2 for user.
-  if (module_exists('devel')) {
-    $items['admin/config/development/generate/profile2'] = array(
-      'title' => 'Generate profiles',
-      'description' => 'Generate a given number of profiles for users. Optionally override current user profiles.',
-      'access arguments' => array('administer profile2'),
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('profile2_generate_form'),
-      'file' => 'profile2.devel.inc',
-    );
-  }
-  return $items;
-}
