@@ -238,23 +238,16 @@ class leaflet_views_plugin_style extends views_plugin_style {
 
         if (!empty($geofield)) {
           $entity = FALSE;
-
-          // render name field
-          if ($this->options['name_field']) {
-            $description = $this->rendered_fields[$id][$this->options['name_field']];
-          }
-
           // Render the entity with the selected view mode:
           if ($this->options['description_field'] === '#rendered_entity' && is_object($result)) {
             $entity = entity_load_single($this->entity_type, $result->{$this->entity_info['entity keys']['id']});
             $build = entity_view($this->entity_type, array($entity), $this->options['view_mode']);
-            $description .= drupal_render($build);
+            $description = drupal_render($build);
           }
           // Normal rendering via fields:
           elseif ($this->options['description_field']) {
-            $description .= $this->rendered_fields[$id][$this->options['description_field']];
+            $description = $this->rendered_fields[$id][$this->options['description_field']];
           }
-
 
           $points = leaflet_process_geofield($geofield);
           // Attach pop-ups if we have rendered into $description:
@@ -279,12 +272,10 @@ class leaflet_views_plugin_style extends views_plugin_style {
         }
       }
       leaflet_apply_map_settings($map, $data, $this->options, $this->entity_type);
-      if (isset($this->options['hide_empty']) && $this->options['hide_empty']) {
+      if (empty($data) && !empty($this->options['hide_empty'])) {
         return '';
       }
-      else {
-        return leaflet_build_map($map, $data, $this->options['height'] . 'px');
-      }
+      return leaflet_build_map($map, $data, $this->options['height'] . 'px');
     }
     return '';
   }

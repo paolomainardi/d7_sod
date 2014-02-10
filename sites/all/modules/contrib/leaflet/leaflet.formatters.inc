@@ -368,6 +368,7 @@ function leaflet_apply_map_settings(&$map, &$features, $map_settings, $entity_ty
       $icon = 'none';
     }
   }
+
   $vector_settings = FALSE;
   if (!empty($map_settings['vector_display']) && $map_settings['vector_display']['stroke_override']) {
     $vector_settings = TRUE;
@@ -379,7 +380,9 @@ function leaflet_apply_map_settings(&$map, &$features, $map_settings, $entity_ty
     $entity = !empty($feat['entity']) ? $feat['entity'] : NULL;
     $token_args = array('data' => array($entity_type => $entity), 'options' => array('clear' => TRUE));
     foreach ($token_by_entity as $key) {
-      array_walk_recursive($settings[$key], 'leaflet_token_replace', $token_args);
+      if (isset($settings[$key])) {
+        array_walk_recursive($settings[$key], 'leaflet_token_replace', $token_args);
+      }
     }
 
     if (isset($settings['popup']['show']) && $settings['popup']['show']) {
@@ -388,7 +391,13 @@ function leaflet_apply_map_settings(&$map, &$features, $map_settings, $entity_ty
 
     // Apply Icon settings:
     if ($icon == 'html') {
-      $icon_field = field_view_field($entity_type, $feat['entity'], $settings['icon']['html'], array('label' => 'hidden'));
+      $icon_config = array(
+        'label' => 'hidden',
+        'settings' => array(
+          'image_style' => isset($settings['icon']['iconImageStyle']) ? $settings['icon']['iconImageStyle'] : '',
+        ),
+      );
+      $icon_field = field_view_field($entity_type, $feat['entity'], $settings['icon']['html'], $icon_config);
       if (!empty($settings['icon']['iconSize']['x']) || !empty($settings['icon']['iconSize']['y'])) {
         // We hand the size off to the API, but the rendered HTML will dictate
         // its own size, so we override that as well.
@@ -415,13 +424,6 @@ function leaflet_apply_map_settings(&$map, &$features, $map_settings, $entity_ty
       unset($feat['icon']['html_class']);
     }
 
-    // detect if this is a relative drupal path
-    if (isset($feat['icon']['iconUrl'])) {
-      if (!valid_url($feat['icon']['iconUrl'], true)) {
-        $feat['icon']['iconUrl'] = base_path() . $feat['icon']['iconUrl'];
-      }
-    }
-
     // Apply vector display settings:
     if ($vector_settings) {
       if ($feat['type'] != 'point') {
@@ -432,6 +434,8 @@ function leaflet_apply_map_settings(&$map, &$features, $map_settings, $entity_ty
         $feat['options'] = $options;
       }
     }
+    // Unset the entity here so it does not get returned to the client in JS.
+    unset($feat['entity']);
   }
 }
 
@@ -449,16 +453,16 @@ function leaflet_token_replace(&$subject, $key, $data = array()) {
 
 /**
  * Helper function to standardize forms between views and field formatters.
- *
+ * 
  * $group - String
  *  The name of the group element to generate.
- *
+ * 
  * $settings - Array
  *  Current form settings (for defaults, etc)
- *
+ * 
  * $options - Array
  *  Special options needed for this form element, if necessary.
- *
+ * 
  * Return - A fully loaded form element.
  */
 function leaflet_form_elements($group, $settings, $options = NULL) {
@@ -586,6 +590,7 @@ function leaflet_form_elements($group, $settings, $options = NULL) {
         '#description' => t('Field to use as output for a map marker.'),
         '#options' => array_merge(array('' => ''), $options['fields']),
         '#default_value' => isset($settings[$group]['html']) ? $settings[$group]['html'] : '',
+        '#empty_option' => t('-- Select --'),
         '#states' => array(
           'visible' => array(
             ':input[name="' . $options['path'] . '[icon][iconType]"]' => array('value' => 'html'),
@@ -595,22 +600,37 @@ function leaflet_form_elements($group, $settings, $options = NULL) {
           ),
         ),
       );
-      $form_element['htmlClass'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Marker HTML class'),
-        '#description' => t('Optional class name for the div used to wrap field output. For multiple classes, separate with a space.'),
-        '#default_value' => isset($settings[$group]['htmlClass']) ? $settings[$group]['htmlClass'] : '',
+      $form_element['iconImageStyle'] = array(
+        '#title' => t('Icon image style'),
+        '#type' => 'select',
+        '#default_value' => isset($settings[$group]['iconImageStyle']) ? $settings[$group]['iconImageStyle'] : '',
+        '#empty_option' => t('None (original image)'),
+        '#options' => image_style_options(FALSE, PASS_THROUGH),
         '#states' => array(
           'visible' => array(
             ':input[name="' . $options['path'] . '[icon][iconType]"]' => array('value' => 'html'),
           ),
         ),
       );
+      $form_element['htmlClass'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Marker HTML class'),
+        '#description' => t('Required class name for the div used to wrap field output. For multiple classes, separate with a space.'),
+        '#default_value' => isset($settings[$group]['htmlClass']) ? $settings[$group]['htmlClass'] : 'leaflet_map_icon',
+        '#states' => array(
+          'visible' => array(
+            ':input[name="' . $options['path'] . '[icon][iconType]"]' => array('value' => 'html'),
+          ),
+          'required' => array(
+            ':input[name="' . $options['path'] . '[icon][iconType]"]' => array('value' => 'html'),
+          ),
+        ),
+      );
       $form_element['iconSize'] = array(
         '#title' => t('Icon Size'),
+        '#description' => "It is usually preferable to leave this blank and use the image style system to size the icons. Sizes are in pixels.",
         '#type' => 'fieldset',
         '#collapsible' => TRUE,
-        '#description' => t('Size of the icon image in pixels.'),
       );
       $form_element['iconSize']['x'] = array(
         '#title' => t('Width'),

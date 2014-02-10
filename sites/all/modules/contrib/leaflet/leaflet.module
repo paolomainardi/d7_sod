@@ -27,11 +27,11 @@ function leaflet_libraries_info() {
     // Only used in administrative UI of Libraries API.
     'name' => 'Leaflet JavaScript Library',
     'vendor url' => 'http://leafletjs.com/',
-    'download url' => 'http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.zip',
+    'download url' => 'http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.1.zip',
     // .7: version="0.7"
     'version arguments' => array(
       'file' => 'leaflet.js',
-      'pattern' => '/version="(\d+\.\d+\.\d+)"/',
+      'pattern' => '/version="([\d+\.]*\d+)"/',
     ),
     'files' => array(
       'js' => array(
@@ -118,13 +118,14 @@ function leaflet_build_map($map, $features = array(), $height = '400px') {
   );
 
   // Load the leaflet library, which includes integration files.
-  $load = libraries_load('leaflet');
+  libraries_load('leaflet');
+
   return $build;
 }
 
 /**
  * DEPRECATED. Use leaflet_build_map() instead.
- *
+ * 
  * Load all Leaflet required client files and return markup for a map.
  *
  * @param array $map
