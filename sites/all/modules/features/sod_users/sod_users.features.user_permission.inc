@@ -593,6 +593,15 @@ function sod_users_user_default_permissions() {
     'module' => 'rdfx',
   );
 
+  // Exported permission: 'administer realname'.
+  $permissions['administer realname'] = array(
+    'name' => 'administer realname',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'realname',
+  );
+
   // Exported permission: 'administer search'.
   $permissions['administer search'] = array(
     'name' => 'administer search',

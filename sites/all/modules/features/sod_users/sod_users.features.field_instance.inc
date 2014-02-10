@@ -10,67 +10,10 @@
 function sod_users_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'profile2-main-field_profile_address'
-  $field_instances['profile2-main-field_profile_address'] = array(
-    'bundle' => 'main',
-    'default_value' => array(
-      0 => array(
-        'element_key' => 'profile2|main|field_profile_address|und|0',
-        'thoroughfare' => '',
-        'premise' => '',
-        'postal_code' => '',
-        'locality' => '',
-        'administrative_area' => '',
-        'country' => 'IT',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'addressfield',
-        'settings' => array(
-          'format_handlers' => array(
-            0 => 'address',
-          ),
-          'use_widget_handlers' => 1,
-        ),
-        'type' => 'addressfield_default',
-        'weight' => 5,
-      ),
-    ),
-    'entity_type' => 'profile2',
-    'field_name' => 'field_profile_address',
-    'label' => 'Città dove sei più attivo/a',
-    'required' => 0,
-    'settings' => array(
-      'user_field_privacy' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'addressfield',
-      'settings' => array(
-        'available_countries' => array(
-          'IT' => 'IT',
-        ),
-        'format_handlers' => array(
-          'address' => 'address',
-          'address-hide-country' => 'address-hide-country',
-          'organisation' => 0,
-          'name-full' => 0,
-          'name-oneline' => 0,
-        ),
-      ),
-      'type' => 'addressfield_standard',
-      'weight' => 13,
-    ),
-  );
-
   // Exported field_instance: 'profile2-main-field_profile_avatar'
   $field_instances['profile2-main-field_profile_avatar'] = array(
     'bundle' => 'main',
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -79,7 +22,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'medium',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -94,21 +37,26 @@ function sod_users_field_default_field_instances() {
       'default_image' => 0,
       'file_directory' => 'user_avatars',
       'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => 500,
+      'max_filesize' => '500 KB',
       'max_resolution' => '',
-      'min_resolution' => '128x128',
+      'min_resolution' => '100x100',
       'title_field' => 0,
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'imagefield_crop',
       'settings' => array(
-        'preview_image_style' => 'thumbnail',
+        'collapsible' => 2,
+        'croparea' => '500x500',
+        'enforce_minimum' => 1,
+        'enforce_ratio' => 1,
+        'preview_image_style' => '',
         'progress_indicator' => 'throbber',
+        'resolution' => '250x250',
       ),
-      'type' => 'image_image',
+      'type' => 'imagefield_crop_widget',
       'weight' => 11,
     ),
   );
@@ -125,7 +73,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'profile2',
@@ -161,6 +109,42 @@ function sod_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_profile_citta'
+  $field_instances['profile2-main-field_profile_citta'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Città dove sei più attivo/a. <br>
+Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu quale livello di precisione utilizzare.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_profile_citta',
+    'label' => 'Citta',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 120,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'profile2-main-field_profile_classe_di_reddito'
   $field_instances['profile2-main-field_profile_classe_di_reddito'] = array(
     'bundle' => 'main',
@@ -172,7 +156,7 @@ function sod_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'profile2',
@@ -204,7 +188,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'profile2',
@@ -236,7 +220,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'profile2',
@@ -272,10 +256,9 @@ function sod_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 13,
+        'type' => 'hidden',
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'profile2',
@@ -309,7 +292,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'profile2',
@@ -358,7 +341,7 @@ function sod_users_field_default_field_instances() {
           'data' => 'full',
         ),
         'type' => 'geofield_wkt',
-        'weight' => 6,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'profile2',
@@ -374,7 +357,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'geocoder',
       'settings' => array(
         'delta_handling' => 'default',
-        'geocoder_field' => 'field_profile_address',
+        'geocoder_field' => 'field_profile_citta',
         'geocoder_handler' => 'mapquest_nominatim',
         'handler_settings' => array(
           'google' => array(
@@ -405,7 +388,7 @@ function sod_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'profile2',
@@ -437,7 +420,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 4,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'profile2',
@@ -475,7 +458,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 10,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'profile2',
@@ -558,7 +541,7 @@ function sod_users_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 9,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'profile2',
@@ -641,7 +624,9 @@ function sod_users_field_default_field_instances() {
 ');
   t('Avatar');
   t('Blog personale');
-  t('Città dove sei più attivo/a');
+  t('Citta');
+  t('Città dove sei più attivo/a. <br>
+Questo campo viene automaticamente geolocalizzato (tramite Mapquest), decidi tu quale livello di precisione utilizzare.');
   t('Classe di reddito');
   t('Comunità di appartenenza');
   t('Consenso al trattamento dei dati');

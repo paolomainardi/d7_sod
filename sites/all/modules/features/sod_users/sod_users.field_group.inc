@@ -60,6 +60,7 @@ function sod_users_field_group_info() {
       4 => 'field_profile_comunita_appartene',
       5 => 'field_profile_geocode',
       6 => 'field_profile_avatar',
+      7 => 'field_profile_citta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

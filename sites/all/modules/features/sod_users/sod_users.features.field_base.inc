@@ -10,24 +10,6 @@
 function sod_users_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_profile_address'
-  $field_bases['field_profile_address'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_profile_address',
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'addressfield',
-    'settings' => array(
-      'profile2_private' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'addressfield',
-  );
-
   // Exported field_base: 'field_profile_avatar'
   $field_bases['field_profile_avatar'] = array(
     'active' => 1,
@@ -88,6 +70,36 @@ function sod_users_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_profile_citta'
+  $field_bases['field_profile_citta'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_profile_citta',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_profile_classe_di_reddito'
@@ -241,7 +253,7 @@ function sod_users_field_default_field_bases() {
   // Exported field_base: 'field_profile_geocode'
   $field_bases['field_profile_geocode'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_profile_geocode',
@@ -283,7 +295,7 @@ function sod_users_field_default_field_bases() {
     'module' => 'geofield',
     'settings' => array(
       'backend' => 'default',
-      'profile2_private' => 0,
+      'profile2_private' => 1,
       'srid' => 4326,
     ),
     'translatable' => 0,
