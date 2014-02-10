@@ -11,7 +11,7 @@ include_once 'sod_users.features.inc';
  */
 function sod_users_field_widget_form_alter(&$element, &$form_state, $context) {
   // hide addressfield elements #3372
-  if ($element['#field_name'] == 'field_profile_address') {
+  if ($element['#field_name'] == 'field_profiles_address_citta') {
     $element['#process'][] = 'sod_users_addressfield_processing';
   }
 }
@@ -36,3 +36,4 @@ function sod_users_admin_paths() {
   );
   return $paths;
 }
+

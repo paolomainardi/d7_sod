@@ -393,7 +393,8 @@ function addressfield_default_values($available_countries = NULL) {
 function addressfield_field_is_empty($item, $field) {
   // Every address field must have at least a country value or it is considered
   // empty, even if it has name information.
-  return empty($item['country']);
+  $bool = empty($item['country']) || (empty($item['locality']));
+  return $bool;
 }
 
 /**
