@@ -184,7 +184,7 @@ $databases = array (
     array (
       'database' => 'drupal7_sod',
       'username' => 'sod',
-      'password' => 'pXUeH9F5urBRKyK6',
+      'password' => 'rZAFAvdaKGjhC6Rt',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
@@ -502,7 +502,7 @@ $conf['404_fast_html'] = '<html xmlns="http://www.w3.org/1999/xhtml"><head><titl
  */
 # $conf['allow_authorize_operations'] = FALSE;
 /* Memcache configuration */
-#$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
-#$conf['cache_default_class'] = 'MemCacheDrupal';
-#$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
-#$conf['memcache_key_prefix'] = 'sod_production';
+$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
+$conf['cache_default_class'] = 'MemCacheDrupal';
+$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
+$conf['memcache_key_prefix'] = 'sod_production';
