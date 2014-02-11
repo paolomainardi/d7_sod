@@ -39,7 +39,7 @@ function sod_users_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '500 KB',
       'max_resolution' => '',
-      'min_resolution' => '100x100',
+      'min_resolution' => '250x250',
       'title_field' => 0,
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
