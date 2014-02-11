@@ -10,16 +10,6 @@
 function sod_users_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access admin theme'.
-  $permissions['access admin theme'] = array(
-    'name' => 'access admin theme',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'admin_theme',
-  );
-
   // Exported permission: 'access administration menu'.
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',

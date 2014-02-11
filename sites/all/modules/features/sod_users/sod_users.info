@@ -125,7 +125,6 @@ features[schemaorg][] = profile2-main
 features[schemaorg][] = taxonomy_term-user_interest_tags
 features[schemaorg][] = user-user
 features[taxonomy][] = user_interest_tags
-features[user_permission][] = access admin theme
 features[user_permission][] = access administration menu
 features[user_permission][] = access administration pages
 features[user_permission][] = access all views

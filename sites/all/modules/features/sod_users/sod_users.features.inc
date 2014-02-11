@@ -161,12 +161,18 @@ function sod_users_rdf_default_mappings() {
     ),
     'field_profiles_address_citta' => array(
       'predicates' => array(
-        0 => 'schema:addressLocality',
+        0 => 'schema:jobLocation',
       ),
       'type' => 'property',
     ),
     'field_profile_geocode' => array(
       'predicates' => array(),
+    ),
+    'field_profile_dove_vivo' => array(
+      'predicates' => array(
+        0 => 'schema:homeLocation',
+      ),
+      'type' => 'property',
     ),
   );
 

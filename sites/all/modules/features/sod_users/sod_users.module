@@ -11,7 +11,8 @@ include_once 'sod_users.features.inc';
  */
 function sod_users_field_widget_form_alter(&$element, &$form_state, $context) {
   // hide addressfield elements #3372
-  if ($element['#field_name'] == 'field_profiles_address_citta') {
+  $fields = array('field_profiles_address_citta', 'field_profile_dove_vivo');
+  if (in_array($element['#field_name'], $fields)) {
     $element['#process'][] = 'sod_users_addressfield_processing';
   }
 }
@@ -21,6 +22,7 @@ function sod_users_field_widget_form_alter(&$element, &$form_state, $context) {
  */
 function sod_users_addressfield_processing($element, &$form_state, $complete_form) {
   unset($element['street_block']);
+  unset($element['locality_block']['postal_code']);
   return $element;
 }
 
