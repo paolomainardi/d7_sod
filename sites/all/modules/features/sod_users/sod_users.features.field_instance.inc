@@ -143,7 +143,7 @@ function sod_users_field_default_field_instances() {
   // Exported field_instance: 'profile2-main-field_profile_comunita_appartene'
   $field_instances['profile2-main-field_profile_comunita_appartene'] = array(
     'bundle' => 'main',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -167,7 +167,7 @@ function sod_users_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(),
-      'type' => 'options_select',
+      'type' => 'options_buttons',
       'weight' => 16,
     ),
   );
