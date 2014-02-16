@@ -5,3 +5,26 @@
  */
 
 include_once 'sod_sessions.features.inc';
+
+/**
+ * Implements of hook_block_view_alter()
+ */
+function sod_sessions_block_view_alter(&$data, $block) {
+  $contexts = array('sod_users_map', 'sod_users_community_search');
+  if (isset($block->context) && (in_array($block->context, $contexts))) {
+    $data['title'] = t('Cerca utenti');
+  }
+}
+
+/**
+ * Implements of hook_form_alter()
+ */
+function sod_sessions_form_views_exposed_form_alter(&$form, &$form_state) {
+  ctools_include('address', 'addressfield', 'plugins/format');
+  $options = country_administrative_areas('IT');
+  asort($options);
+  $form['provincia']['#type'] = 'select';
+  $form['provincia']['#multiple'] = false;
+  $form['provincia']['#options'] = $options;
+  $form['provincia']['#size'] = 1;
+}

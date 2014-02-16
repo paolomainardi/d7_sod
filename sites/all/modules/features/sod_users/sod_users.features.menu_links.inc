@@ -484,7 +484,7 @@ function sod_users_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => TRUE,
+      'alter' => FALSE,
       'menu_token_link_uuid' => 'menutoken/5300fb4f419d9',
       'identifier' => 'user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9',
     ),

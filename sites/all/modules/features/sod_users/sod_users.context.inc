@@ -69,7 +69,7 @@ function sod_users_context_default_contexts() {
           'module' => 'views',
           'delta' => '75da15a99a2718dc4789ef2c6c7e600f',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-26',
         ),
       ),
     ),

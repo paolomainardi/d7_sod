@@ -17,6 +17,12 @@ function sod_sessions_context_default_contexts() {
   $context->description = '';
   $context->tag = 'sessions';
   $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '-community' => '-community',
+        '-community/*' => '-community/*',
+      ),
+    ),
     'user' => array(
       'values' => array(
         'authenticated user' => 'authenticated user',
