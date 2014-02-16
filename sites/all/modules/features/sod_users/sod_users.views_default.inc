@@ -128,7 +128,7 @@ function sod_users_views_default_views() {
     4 => 0,
   );
   $handler->display->display_options['filters']['field_profile_keywords_tid']['vocabulary'] = 'user_interest_tags';
-  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Locality (i.e. City) */
+  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Località (Città) */
   $handler->display->display_options['filters']['field_profiles_address_citta_locality']['id'] = 'field_profiles_address_citta_locality';
   $handler->display->display_options['filters']['field_profiles_address_citta_locality']['table'] = 'field_data_field_profiles_address_citta';
   $handler->display->display_options['filters']['field_profiles_address_citta_locality']['field'] = 'field_profiles_address_citta_locality';
@@ -146,7 +146,7 @@ function sod_users_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Administrative area (i.e. State / Province) */
+  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Area amministrativa (Provincia/stato) */
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['id'] = 'field_profiles_address_citta_administrative_area';
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['table'] = 'field_data_field_profiles_address_citta';
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['field'] = 'field_profiles_address_citta_administrative_area';
