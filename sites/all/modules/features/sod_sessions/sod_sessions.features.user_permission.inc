@@ -15,6 +15,7 @@ function sod_sessions_user_default_permissions() {
     'name' => 'create session content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -33,6 +34,7 @@ function sod_sessions_user_default_permissions() {
     'name' => 'delete own session content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );
@@ -60,6 +62,7 @@ function sod_sessions_user_default_permissions() {
     'name' => 'edit own session content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
   );

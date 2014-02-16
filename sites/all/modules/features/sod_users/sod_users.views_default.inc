@@ -128,24 +128,6 @@ function sod_users_views_default_views() {
     4 => 0,
   );
   $handler->display->display_options['filters']['field_profile_keywords_tid']['vocabulary'] = 'user_interest_tags';
-  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Località (Città) */
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['id'] = 'field_profiles_address_citta_locality';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['table'] = 'field_data_field_profiles_address_citta';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['field'] = 'field_profiles_address_citta_locality';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['operator'] = 'contains';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['group'] = 1;
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['expose']['operator_id'] = 'field_profiles_address_citta_locality_op';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['expose']['label'] = 'Citta';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['expose']['operator'] = 'field_profiles_address_citta_locality_op';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['expose']['identifier'] = 'citta';
-  $handler->display->display_options['filters']['field_profiles_address_citta_locality']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
   /* Criterio del filtro: Profilo: Citta di cui mi interesso - Area amministrativa (Provincia/stato) */
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['id'] = 'field_profiles_address_citta_administrative_area';
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['table'] = 'field_data_field_profiles_address_citta';
@@ -169,6 +151,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['table'] = 'field_data_field_profile_comunita_appartene';
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['field'] = 'field_profile_comunita_appartene_value';
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['group'] = 1;
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['operator_id'] = 'field_profile_comunita_appartene_value_op';
   $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['label'] = 'Categoria';
@@ -180,6 +163,23 @@ function sod_users_views_default_views() {
     3 => 0,
     4 => 0,
   );
+  /* Criterio del filtro: Profilo: Pubblicazione dei dati (field_profile_extra_consenso) */
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['id'] = 'field_profile_extra_consenso_value';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['table'] = 'field_data_field_profile_extra_consenso';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['field'] = 'field_profile_extra_consenso_value';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
+  /* Criterio del filtro: Utente: Consenso alla pubblicazione dei dati (field_user_privacy_polici) */
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['field'] = 'field_user_privacy_polici_value';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['group'] = 1;
 
   /* Display: User search page */
   $handler = $view->new_display('page', 'User search page', 'page_community');
@@ -245,7 +245,6 @@ function sod_users_views_default_views() {
     t('Nessun utente trovato con questi criteri di ricerca.'),
     t('Profilo'),
     t('Parole chiave'),
-    t('Citta'),
     t('Provincia'),
     t('Categoria'),
     t('User search page'),

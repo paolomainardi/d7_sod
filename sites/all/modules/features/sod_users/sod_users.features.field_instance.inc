@@ -57,7 +57,7 @@ function sod_users_field_default_field_instances() {
         'resolution' => '250x250',
       ),
       'type' => 'imagefield_crop_widget',
-      'weight' => 12,
+      'weight' => 16,
     ),
   );
 
@@ -168,7 +168,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 16,
+      'weight' => 19,
     ),
   );
 
@@ -203,7 +203,7 @@ function sod_users_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 18,
+      'weight' => 21,
     ),
   );
 
@@ -216,7 +216,8 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ?',
+    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br>
+Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -240,7 +241,7 @@ function sod_users_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 14,
     ),
   );
 
@@ -337,7 +338,7 @@ function sod_users_field_default_field_instances() {
         ),
       ),
       'type' => 'geocoder',
-      'weight' => 15,
+      'weight' => 18,
     ),
   );
 
@@ -406,7 +407,7 @@ function sod_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 17,
+      'weight' => 20,
     ),
   );
 
@@ -489,7 +490,7 @@ function sod_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 15,
     ),
   );
 
@@ -585,7 +586,7 @@ function sod_users_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 14,
+      'weight' => 17,
     ),
   );
 
@@ -635,7 +636,8 @@ Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalme
 Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ');
-  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ?');
+  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br>
+Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.');
   t('Avatar');
   t('Blog personale');
   t('Carica una tua immagine');
