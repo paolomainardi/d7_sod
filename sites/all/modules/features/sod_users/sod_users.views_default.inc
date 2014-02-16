@@ -206,7 +206,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'leaflet';
   $handler->display->display_options['style_options']['data_source'] = 'field_profile_geocode';
   $handler->display->display_options['style_options']['name_field'] = 'name';
-  $handler->display->display_options['style_options']['description_field'] = 'field_profile_avatar';
+  $handler->display->display_options['style_options']['description_field'] = 'name';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
   $handler->display->display_options['style_options']['height'] = '600';
   $handler->display->display_options['style_options']['zoom']['initialZoom'] = '-1';
