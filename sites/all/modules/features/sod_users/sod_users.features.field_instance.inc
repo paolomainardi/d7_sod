@@ -69,7 +69,7 @@ function sod_users_field_default_field_instances() {
     'description' => 'Inserisci qui il link al tuo blog',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
@@ -94,7 +94,7 @@ function sod_users_field_default_field_instances() {
       'enable_tokens' => 1,
       'title' => 'value',
       'title_maxlength' => 128,
-      'title_value' => 'Blog',
+      'title_value' => 'Blog personale',
       'url' => 0,
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
@@ -148,7 +148,7 @@ function sod_users_field_default_field_instances() {
     'description' => 'Inserisci la tua comunità di appertenenza',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -378,10 +378,10 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     'description' => 'Delle keywords che descrivono i tuoi interessi',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'i18n_taxonomy',
+        'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'taxonomy_term_reference_plain',
         'weight' => 5,
       ),
     ),
@@ -544,7 +544,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'La città dove vivi ed altre di cui ti interessi. Questi campi verranno geolocalizzati automaticamente e visualizzati su mappa.',
+    'description' => 'La città dove vivi ed altre di cui ti interessi',
     'display' => array(
       'default' => array(
         'label' => 'above',
