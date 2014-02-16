@@ -20,7 +20,7 @@ function sod_users_menu_default_menu_links() {
       'identifier' => 'navigation_:l10n_client/save',
     ),
     'module' => 'system',
-    'hidden' => 0,
+    'hidden' => 1,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
@@ -37,7 +37,7 @@ function sod_users_menu_default_menu_links() {
       'identifier' => 'navigation_add-content:node/add',
     ),
     'module' => 'system',
-    'hidden' => 1,
+    'hidden' => 0,
     'external' => 0,
     'has_children' => 1,
     'expanded' => 0,
@@ -63,7 +63,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_blog-post:node/add/blog
   $menu_links['navigation_blog-post:node/add/blog'] = array(
@@ -84,7 +84,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_blogs:blog
   $menu_links['navigation_blogs:blog'] = array(
@@ -173,7 +173,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_documento:node/add/documento
   $menu_links['navigation_documento:node/add/documento'] = array(
@@ -194,7 +194,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_feed-aggregator:aggregator
   $menu_links['navigation_feed-aggregator:aggregator'] = array(
@@ -286,7 +286,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_my-blog:blog/%
   $menu_links['navigation_my-blog:blog/%'] = array(
@@ -342,7 +342,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_sources:aggregator/sources
   $menu_links['navigation_sources:aggregator/sources'] = array(
@@ -360,7 +360,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'navigation_aggregatore-di-feed:aggregator',
+    'parent_identifier' => 'navigation_feed-aggregator:aggregator',
   );
   // Exported menu link: navigation_tool:node/add/strumento
   $menu_links['navigation_tool:node/add/strumento'] = array(
@@ -381,7 +381,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_translate-strings:locale
   $menu_links['navigation_translate-strings:locale'] = array(
@@ -419,7 +419,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_working-group:node/add/working-group
   $menu_links['navigation_working-group:node/add/working-group'] = array(
@@ -440,7 +440,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
+    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: user-menu_il-mio-account:user
   $menu_links['user-menu_il-mio-account:user'] = array(
@@ -484,7 +484,7 @@ function sod_users_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => FALSE,
+      'alter' => TRUE,
       'menu_token_link_uuid' => 'menutoken/5300fb4f419d9',
       'identifier' => 'user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9',
     ),
