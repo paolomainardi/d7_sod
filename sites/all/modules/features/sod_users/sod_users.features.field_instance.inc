@@ -34,7 +34,7 @@ function sod_users_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
-      'default_image' => 0,
+      'default_image' => 61,
       'file_directory' => 'user_avatars',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '500 KB',
@@ -587,6 +587,43 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     ),
   );
 
+  // Exported field_instance: 'user-user-field_user_newsletter_approval'
+  $field_instances['user-user-field_user_newsletter_approval'] = array(
+    'bundle' => 'user',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_user_newsletter_approval',
+    'label' => 'Consenso invio comunicazioni',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => 0,
+      'user_register_form' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_user_privacy_polici'
   $field_instances['user-user-field_user_privacy_polici'] = array(
     'bundle' => 'user',
@@ -623,12 +660,13 @@ Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalme
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?');
   t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati online all\'interno di questo sito mediante strumenti di visualizzazione anche usando mappe ? <br>
 Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
@@ -642,6 +680,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Classe di reddito');
   t('Comunità di appartenenza');
   t('Consenso alla pubblicazione dei dati');
+  t('Consenso invio comunicazioni');
   t('Delle keywords che descrivono i tuoi interessi');
   t('Descrizione');
   t('Facebook');

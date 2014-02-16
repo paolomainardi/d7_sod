@@ -63,7 +63,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
+    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
   );
   // Exported menu link: navigation_blogs:blog
   $menu_links['navigation_blogs:blog'] = array(
@@ -240,7 +240,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'navigation_feed-aggregator:aggregator',
+    'parent_identifier' => 'navigation_aggregatore-di-feed:aggregator',
   );
   // Exported menu link: navigation_translate-strings:locale
   $menu_links['navigation_translate-strings:locale'] = array(
