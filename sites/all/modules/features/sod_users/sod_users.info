@@ -6,7 +6,6 @@ version = 7.x-1.5
 project = sod_users
 dependencies[] = addressfield
 dependencies[] = admin_menu
-dependencies[] = admin_theme
 dependencies[] = aggregator
 dependencies[] = autocomplete_deluxe
 dependencies[] = block
