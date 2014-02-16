@@ -39,7 +39,3 @@ function sod_users_admin_paths() {
   return $paths;
 }
 
-function sod_users_field_display_alter(&$display, $context) {
-  dsm($display);
-}
-

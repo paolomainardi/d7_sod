@@ -544,7 +544,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'La città dove vivi ed altre di cui ti interessi',
+    'description' => 'La città dove vivi ed altre di cui ti interessi. Questi campi verranno geolocalizzati automaticamente e visualizzati su mappa.',
     'display' => array(
       'default' => array(
         'label' => 'above',

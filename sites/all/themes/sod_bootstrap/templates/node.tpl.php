@@ -15,7 +15,7 @@
       </span>
     <?php endif; ?>
 
-    <?php if ($page && ($node->type !== 'page')) : ?>
+    <?php if ($page && ($node->type !== 'page') && ($node->status)) : ?>
       <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style" style="margin-top: 10px;">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
