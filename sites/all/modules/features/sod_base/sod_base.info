@@ -29,6 +29,7 @@ dependencies[] = sod_working_group
 dependencies[] = strongarm
 dependencies[] = superfish
 dependencies[] = text
+dependencies[] = uuid_features
 features[box][] = sod_apps_links
 features[box][] = twitter_widget_opendataitaly
 features[box][] = welcome

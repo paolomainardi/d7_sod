@@ -92,9 +92,9 @@ function sod_users_field_default_field_instances() {
         'url_cutoff' => 80,
       ),
       'enable_tokens' => 1,
-      'title' => 'optional',
+      'title' => 'value',
       'title_maxlength' => 128,
-      'title_value' => '',
+      'title_value' => 'Blog',
       'url' => 0,
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
@@ -546,7 +546,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'La città dove vivi ed altre di cui ti interessi',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -580,8 +580,8 @@ function sod_users_field_default_field_instances() {
           'address' => 'address',
           'address-hide-country' => 'address-hide-country',
           'organisation' => 0,
-          'name-full' => 0,
           'name-oneline' => 0,
+          'name-full' => 0,
         ),
       ),
       'type' => 'addressfield_standard',
@@ -636,16 +636,22 @@ function sod_users_field_default_field_instances() {
 ');
   t('Avatar');
   t('Blog personale');
+  t('Carica una tua immagine');
   t('Citta di cui mi interesso');
   t('Classe di reddito');
   t('Comunità di appartenenza');
   t('Consenso al trattamento dei dati');
+  t('Delle keywords che descrivono i tuoi interessi');
   t('Descrizione');
   t('Facebook');
   t('Geocode');
   t('Inserire l\'url completo es: http://facebook.com/nomeutente');
   t('Inserire l\'url completo es: http://linkedin.com/nomeutente');
   t('Inserire l\'url completo es: http://twitter.com/nomeutente');
+  t('Inserisci la tua comunità di appertenenza');
+  t('Inserisci qui il link al tuo blog');
+  t('Inserisci qui il tuo nome che vuoi venga visualizzato.');
+  t('La città dove vivi ed altre di cui ti interessi');
   t('Linkedin');
   t('Nome');
   t('Puoi trovare la privacy policy qui: <a href="http://www.spaghettiopendata.org/privacy-policy"> http://www.spaghettiopendata.org/privacy-policy </a>');
@@ -653,6 +659,7 @@ function sod_users_field_default_field_instances() {
   t('Tag con cui ti identifichi ');
   t('Trattamento dei dati e privacy policy');
   t('Twitter');
+  t('Una tua breve bio');
 
   return $field_instances;
 }
