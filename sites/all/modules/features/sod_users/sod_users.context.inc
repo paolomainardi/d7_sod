@@ -32,6 +32,32 @@ function sod_users_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('users');
+  $export['sod_users'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'sod_users_auth';
+  $context->description = '';
+  $context->tag = 'users';
+  $context->conditions = array(
+    'user' => array(
+      'values' => array(
+        'authenticated user' => 'authenticated user',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
         'system-user-menu' => array(
           'module' => 'system',
           'delta' => 'user-menu',
@@ -46,7 +72,7 @@ function sod_users_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('users');
-  $export['sod_users'] = $context;
+  $export['sod_users_auth'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

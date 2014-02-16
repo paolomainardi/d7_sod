@@ -265,7 +265,7 @@ function sod_users_field_default_field_bases() {
     'module' => 'geofield',
     'settings' => array(
       'backend' => 'default',
-      'profile2_private' => 0,
+      'profile2_private' => 1,
       'srid' => 4326,
     ),
     'translatable' => 0,
