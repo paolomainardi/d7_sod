@@ -341,5 +341,12 @@ Il tuo profilo su [site:name] è stato cancellato.
   $strongarm->value = 0;
   $export['user_signatures'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'workbench_moderation_default_state_session';
+  $strongarm->value = 'needs_review';
+  $export['workbench_moderation_default_state_session'] = $strongarm;
+
   return $export;
 }
