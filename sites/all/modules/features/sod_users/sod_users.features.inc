@@ -151,9 +151,6 @@ function sod_users_rdf_default_mappings() {
     'field_profile_income_with_od' => array(
       'predicates' => array(),
     ),
-    'field_profile_extra_consenso' => array(
-      'predicates' => array(),
-    ),
     'field_profile_citta' => array(
       'predicates' => array(
         0 => 'schema:addressLocality',
@@ -222,9 +219,6 @@ function sod_users_rdf_default_mappings() {
         0 => 'foaf:page',
       ),
       'type' => 'rel',
-    ),
-    'field_user_privacy_polici' => array(
-      'predicates' => array(),
     ),
     'url' => array(
       'predicates' => array(

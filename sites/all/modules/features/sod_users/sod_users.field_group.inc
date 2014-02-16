@@ -23,9 +23,8 @@ function sod_users_field_group_info() {
     'label' => 'Informazioni aggiuntive',
     'weight' => '3',
     'children' => array(
-      0 => 'field_profile_income_with_od',
-      1 => 'field_profile_classe_di_reddito',
-      2 => 'field_profile_extra_consenso',
+      0 => 'field_profile_classe_di_reddito',
+      1 => 'field_profile_income_with_od',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -53,14 +52,14 @@ function sod_users_field_group_info() {
     'label' => 'Informazioni',
     'weight' => '1',
     'children' => array(
-      0 => 'field_profile_nome',
-      1 => 'field_profile_keywords',
+      0 => 'field_profile_avatar',
+      1 => 'field_profile_comunita_appartene',
       2 => 'field_profile_descrizione',
-      3 => 'field_profile_comunita_appartene',
+      3 => 'field_profile_extra_consenso',
       4 => 'field_profile_geocode',
-      5 => 'field_profile_avatar',
-      6 => 'field_profiles_address_citta',
-      7 => 'field_profile_dove_vivo',
+      5 => 'field_profile_keywords',
+      6 => 'field_profile_nome',
+      7 => 'field_profiles_address_citta',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -113,8 +112,8 @@ function sod_users_field_group_info() {
     'children' => array(
       0 => 'field_profile_blog_personale',
       1 => 'field_profile_facebook',
-      2 => 'field_profile_twitter',
-      3 => 'field_profile_linkedin',
+      2 => 'field_profile_linkedin',
+      3 => 'field_profile_twitter',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

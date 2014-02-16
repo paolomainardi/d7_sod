@@ -123,7 +123,6 @@ features[menu_custom][] = user-menu
 features[menu_links][] = user-menu_il-mio-account:user
 features[menu_links][] = user-menu_invia-una-proposta-per-sod14:node/add/session
 features[menu_links][] = user-menu_le-mie-proposte-inviate:my-sessions
-features[menu_links][] = user-menu_log-out:user/logout
 features[menu_links][] = user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9
 features[profile2_type][] = main
 features[schemaorg][] = profile2-main

@@ -57,7 +57,7 @@ function sod_users_field_default_field_instances() {
         'resolution' => '250x250',
       ),
       'type' => 'imagefield_crop_widget',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -136,7 +136,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 13,
     ),
   );
 
@@ -216,7 +216,7 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Puoi trovare la privacy policy qui: <a href="http://www.spaghettiopendata.org/privacy-policy"> http://www.spaghettiopendata.org/privacy-policy </a>',
+    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -227,8 +227,8 @@ function sod_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_profile_extra_consenso',
-    'label' => 'Consenso al trattamento dei dati',
-    'required' => 0,
+    'label' => 'Pubblicazione dei dati',
+    'required' => 1,
     'settings' => array(
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
@@ -368,7 +368,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 12,
     ),
   );
 
@@ -489,7 +489,7 @@ function sod_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -598,8 +598,9 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
-<a href="http://www.spaghettiopendata.org">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
+    'description' => 'Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati online all\'interno di questo sito mediante strumenti di visualizzazione anche usando mappe ? <br>
+Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
+<a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ',
     'display' => array(
       'default' => array(
@@ -611,7 +612,7 @@ function sod_users_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_user_privacy_polici',
-    'label' => 'Trattamento dei dati e privacy policy',
+    'label' => 'Consenso alla pubblicazione dei dati',
     'required' => 1,
     'settings' => array(
       'user_field_privacy' => 0,
@@ -630,16 +631,18 @@ function sod_users_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
-<a href="http://www.spaghettiopendata.org">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
+  t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati online all\'interno di questo sito mediante strumenti di visualizzazione anche usando mappe ? <br>
+Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
+<a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ');
+  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ?');
   t('Avatar');
   t('Blog personale');
   t('Carica una tua immagine');
   t('Citta di cui mi interesso');
   t('Classe di reddito');
   t('Comunità di appartenenza');
-  t('Consenso al trattamento dei dati');
+  t('Consenso alla pubblicazione dei dati');
   t('Delle keywords che descrivono i tuoi interessi');
   t('Descrizione');
   t('Facebook');
@@ -653,10 +656,9 @@ function sod_users_field_default_field_instances() {
   t('La città dove vivi ed altre di cui ti interessi');
   t('Linkedin');
   t('Nome');
-  t('Puoi trovare la privacy policy qui: <a href="http://www.spaghettiopendata.org/privacy-policy"> http://www.spaghettiopendata.org/privacy-policy </a>');
+  t('Pubblicazione dei dati');
   t('Reddito generato con gli OD');
   t('Tag con cui ti identifichi ');
-  t('Trattamento dei dati e privacy policy');
   t('Twitter');
   t('Una tua breve bio');
 
