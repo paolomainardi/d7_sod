@@ -64,6 +64,13 @@ function sod_sessions_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Comportamento se non ci sono risultati: Globale: Area di testo */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Non hai ancora inviato una proposta.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Campo: Contenuto: Titolo */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -130,6 +137,7 @@ function sod_sessions_views_default_views() {
     t('‹ precedente'),
     t('seguente ›'),
     t('ultima »'),
+    t('Non hai ancora inviato una proposta.'),
     t('Titolo'),
     t('Stato'),
     t('Tutti'),
