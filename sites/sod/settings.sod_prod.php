@@ -506,3 +506,19 @@ $conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
 $conf['cache_default_class'] = 'MemCacheDrupal';
 $conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
 $conf['memcache_key_prefix'] = 'sod_production';
+
+
+
+$conf['cache'] = 1;
+
+// Block caching - enabled.
+$conf['block_cache'] = 1;
+
+// Expiration of cached pages - 5 minutes.
+$conf['page_cache_maximum_age'] = 300;
+
+// Aggregate and compress CSS files in Drupal - on.
+$conf['preprocess_css'] = 1;
+
+// Aggregate JavaScript files in Drupal - on.
+$conf['preprocess_js'] = 1;
