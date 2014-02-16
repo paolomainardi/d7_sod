@@ -14,7 +14,7 @@ function sod_sessions_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_session';
-  $strongarm->value = 'edit-rdf-settings';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_session'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -49,14 +49,14 @@ function sod_sessions_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_session';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_preview_session'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_session';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['comment_session'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -114,9 +114,7 @@ function sod_sessions_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_session';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_session'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -131,8 +129,8 @@ function sod_sessions_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_session';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_session'] = $strongarm;
 
@@ -154,7 +152,7 @@ function sod_sessions_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'rdf_rdftype_session';
-  $strongarm->value = '';
+  $strongarm->value = 'sioc:Item, foaf:Document';
   $export['rdf_rdftype_session'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -168,7 +166,7 @@ function sod_sessions_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'rdf_title_predicates_session';
-  $strongarm->value = '';
+  $strongarm->value = 'dc:title';
   $export['rdf_title_predicates_session'] = $strongarm;
 
   $strongarm = new stdClass();
