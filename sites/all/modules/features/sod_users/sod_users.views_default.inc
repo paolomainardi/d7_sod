@@ -97,6 +97,26 @@ function sod_users_views_default_views() {
     'data' => 'full',
   );
   $handler->display->display_options['fields']['field_profile_geocode']['delta_offset'] = '0';
+  /* Campo: Profilo: Avatar */
+  $handler->display->display_options['fields']['field_profile_avatar_1']['id'] = 'field_profile_avatar_1';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['table'] = 'field_data_field_profile_avatar';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['field'] = 'field_profile_avatar';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['label'] = '';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_profile_avatar_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_profile_avatar_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_profile_avatar_1']['settings'] = array(
+    'image_style' => 'avatar_thumb_small',
+    'image_link' => 'content',
+  );
+  /* Campo: Globale: Testo personalizzato */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[name] <br>
+[field_profile_avatar_1] ';
   /* Criterio di ordinamento: Utente: Data creazione */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
@@ -206,7 +226,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'leaflet';
   $handler->display->display_options['style_options']['data_source'] = 'field_profile_geocode';
   $handler->display->display_options['style_options']['name_field'] = 'name';
-  $handler->display->display_options['style_options']['description_field'] = 'name';
+  $handler->display->display_options['style_options']['description_field'] = 'nothing';
   $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
   $handler->display->display_options['style_options']['height'] = '600';
   $handler->display->display_options['style_options']['zoom']['initialZoom'] = '-1';
@@ -244,6 +264,9 @@ function sod_users_views_default_views() {
     t('ultima »'),
     t('Nessun utente trovato con questi criteri di ricerca.'),
     t('Profilo'),
+    t('Testo personalizzato'),
+    t('[name] <br>
+[field_profile_avatar_1] '),
     t('Parole chiave'),
     t('Provincia'),
     t('Categoria'),

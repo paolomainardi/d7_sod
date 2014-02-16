@@ -44,27 +44,6 @@ function sod_users_menu_default_menu_links() {
     'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: navigation_basic-page:node/add/page
-  $menu_links['navigation_basic-page:node/add/page'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/page',
-    'router_path' => 'node/add/page',
-    'link_title' => 'Basic page',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Use <em>basic pages</em> for your static content, such as an \'About us\' page.',
-      ),
-      'identifier' => 'navigation_basic-page:node/add/page',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
-  );
   // Exported menu link: navigation_blog-post:node/add/blog
   $menu_links['navigation_blog-post:node/add/blog'] = array(
     'menu_name' => 'navigation',
@@ -84,7 +63,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
+    'parent_identifier' => 'navigation_aggiungi-contenuto:node/add',
   );
   // Exported menu link: navigation_blogs:blog
   $menu_links['navigation_blogs:blog'] = array(
@@ -153,48 +132,6 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -44,
     'customized' => 1,
-  );
-  // Exported menu link: navigation_dati:node/add/data
-  $menu_links['navigation_dati:node/add/data'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/data',
-    'router_path' => 'node/add/data',
-    'link_title' => 'Dati',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Opendata Content type',
-      ),
-      'identifier' => 'navigation_dati:node/add/data',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
-  );
-  // Exported menu link: navigation_documento:node/add/documento
-  $menu_links['navigation_documento:node/add/documento'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/documento',
-    'router_path' => 'node/add/documento',
-    'link_title' => 'Documento',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Documento',
-      ),
-      'identifier' => 'navigation_documento:node/add/documento',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: navigation_feed-aggregator:aggregator
   $menu_links['navigation_feed-aggregator:aggregator'] = array(
@@ -270,42 +207,6 @@ function sod_users_menu_default_menu_links() {
     'weight' => -41,
     'customized' => 1,
   );
-  // Exported menu link: navigation_iscrizione-al-raduno-sod:node/add/iscrizione-raduno-sod
-  $menu_links['navigation_iscrizione-al-raduno-sod:node/add/iscrizione-raduno-sod'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/iscrizione-raduno-sod',
-    'router_path' => 'node/add/iscrizione-raduno-sod',
-    'link_title' => 'Iscrizione al raduno SOD',
-    'options' => array(
-      'identifier' => 'navigation_iscrizione-al-raduno-sod:node/add/iscrizione-raduno-sod',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
-  );
-  // Exported menu link: navigation_my-blog:blog/%
-  $menu_links['navigation_my-blog:blog/%'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'blog/%',
-    'router_path' => 'blog/%',
-    'link_title' => 'My blog',
-    'options' => array(
-      'identifier' => 'navigation_my-blog:blog/%',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_blog:blog',
-  );
   // Exported menu link: navigation_search:search
   $menu_links['navigation_search:search'] = array(
     'menu_name' => 'navigation',
@@ -323,27 +224,6 @@ function sod_users_menu_default_menu_links() {
     'weight' => -45,
     'customized' => 1,
   );
-  // Exported menu link: navigation_session:node/add/session
-  $menu_links['navigation_session:node/add/session'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/session',
-    'router_path' => 'node/add/session',
-    'link_title' => 'Session',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Form di caricamento proposte per il raduno SOD14',
-      ),
-      'identifier' => 'navigation_session:node/add/session',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
-  );
   // Exported menu link: navigation_sources:aggregator/sources
   $menu_links['navigation_sources:aggregator/sources'] = array(
     'menu_name' => 'navigation',
@@ -360,28 +240,7 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'parent_identifier' => 'navigation_feed-aggregator:aggregator',
-  );
-  // Exported menu link: navigation_tool:node/add/strumento
-  $menu_links['navigation_tool:node/add/strumento'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/strumento',
-    'router_path' => 'node/add/strumento',
-    'link_title' => 'Tool',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Opendata manipulation software',
-      ),
-      'identifier' => 'navigation_tool:node/add/strumento',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
+    'parent_identifier' => 'navigation_aggregatore-di-feed:aggregator',
   );
   // Exported menu link: navigation_translate-strings:locale
   $menu_links['navigation_translate-strings:locale'] = array(
@@ -399,48 +258,6 @@ function sod_users_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -38,
     'customized' => 1,
-  );
-  // Exported menu link: navigation_webform:node/add/webform
-  $menu_links['navigation_webform:node/add/webform'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/webform',
-    'router_path' => 'node/add/webform',
-    'link_title' => 'Webform',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Create a new form or questionnaire accessible to users. Submission results and statistics are recorded and accessible to privileged users.',
-      ),
-      'identifier' => 'navigation_webform:node/add/webform',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
-  );
-  // Exported menu link: navigation_working-group:node/add/working-group
-  $menu_links['navigation_working-group:node/add/working-group'] = array(
-    'menu_name' => 'navigation',
-    'link_path' => 'node/add/working-group',
-    'router_path' => 'node/add/working-group',
-    'link_title' => 'Working group',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Working group',
-      ),
-      'identifier' => 'navigation_working-group:node/add/working-group',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 0,
-    'parent_identifier' => 'navigation_add-content:node/add',
   );
   // Exported menu link: user-menu_il-mio-account:user
   $menu_links['user-menu_il-mio-account:user'] = array(
@@ -463,65 +280,22 @@ function sod_users_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9
-  $menu_links['user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9'] = array(
-    'menu_name' => 'user-menu',
-    'link_path' => 'menutoken/5300fb4f419d9',
-    'router_path' => 'menutoken/%',
-    'link_title' => 'Modifica il mio profilo',
-    'options' => array(
-      'menu_token_link_path' => 'user/[current-user:uid]/edit/main',
-      'menu_token_data' => array(
-        'user' => array(
-          'type' => 'user',
-          'plugin' => 'user_context',
-          'options' => array(),
-        ),
-      ),
-      'menu_token_options' => array(
-        'clear' => 0,
-      ),
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => FALSE,
-      'menu_token_link_uuid' => 'menutoken/5300fb4f419d9',
-      'identifier' => 'user-menu_modifica-il-mio-profilo:menutoken/5300fb4f419d9',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Add content');
-  t('Basic page');
   t('Blog post');
   t('Blogs');
   t('Books');
   t('Compose tips');
   t('Contact');
-  t('Dati');
-  t('Documento');
   t('Feed aggregator');
   t('Il mio account');
   t('Import');
   t('Import core RDF vocabularies');
   t('Import external RDF vocabulary');
-  t('Iscrizione al raduno SOD');
-  t('Modifica il mio profilo');
-  t('My blog');
   t('Search');
-  t('Session');
   t('Sources');
-  t('Tool');
   t('Translate strings');
-  t('Webform');
-  t('Working group');
 
 
   return $menu_links;
