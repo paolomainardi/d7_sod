@@ -216,7 +216,8 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br>
+    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
+Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.',
     'display' => array(
       'default' => array(
@@ -671,7 +672,8 @@ Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalme
 Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ');
-  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br>
+  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
+Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.');
   t('Avatar');
   t('Blog personale');
