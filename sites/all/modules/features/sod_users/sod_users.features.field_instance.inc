@@ -15,7 +15,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Carica una tua immagine',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -66,7 +66,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Inserisci qui il link al tuo blog',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -145,7 +145,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Inserisci la tua comunità di appertenenza',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -177,7 +177,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Una tua breve bio',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -377,7 +377,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Delle keywords che descrivono i tuoi interessi',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -463,7 +463,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Inserisci qui il tuo nome che vuoi venga visualizzato.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
