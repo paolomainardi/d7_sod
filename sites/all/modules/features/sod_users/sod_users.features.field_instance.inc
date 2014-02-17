@@ -634,8 +634,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
       ),
     ),
     'deleted' => 0,
-    'description' => 'Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati online all\'interno di questo sito mediante strumenti di visualizzazione anche usando mappe ? <br>
-Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
+    'description' => 'Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ',
     'display' => array(
@@ -648,7 +647,7 @@ Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalme
     ),
     'entity_type' => 'user',
     'field_name' => 'field_user_privacy_polici',
-    'label' => 'Consenso alla pubblicazione dei dati',
+    'label' => 'Informativa trattamento dati',
     'required' => 1,
     'settings' => array(
       'user_field_privacy' => 0,
@@ -667,11 +666,10 @@ Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalme
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?');
-  t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati online all\'interno di questo sito mediante strumenti di visualizzazione anche usando mappe ? <br>
-Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
+  t('Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
 ');
+  t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?');
   t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
 Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.');
@@ -681,12 +679,12 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Citta di cui mi interesso');
   t('Classe di reddito');
   t('Comunità di appartenenza');
-  t('Consenso alla pubblicazione dei dati');
   t('Consenso invio comunicazioni');
   t('Delle keywords che descrivono i tuoi interessi');
   t('Descrizione');
   t('Facebook');
   t('Geocode');
+  t('Informativa trattamento dati');
   t('Inserire l\'url completo es: http://facebook.com/nomeutente');
   t('Inserire l\'url completo es: http://linkedin.com/nomeutente');
   t('Inserire l\'url completo es: http://twitter.com/nomeutente');

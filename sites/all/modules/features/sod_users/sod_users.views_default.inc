@@ -192,7 +192,7 @@ function sod_users_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Utente: Consenso alla pubblicazione dei dati (field_user_privacy_polici) */
+  /* Criterio del filtro: Utente: Informativa trattamento dati (field_user_privacy_polici) */
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['field'] = 'field_user_privacy_polici_value';
