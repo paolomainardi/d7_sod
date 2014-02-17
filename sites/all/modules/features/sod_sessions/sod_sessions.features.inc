@@ -29,11 +29,11 @@ function sod_sessions_views_api($module = NULL, $api = NULL) {
 function sod_sessions_node_info() {
   $items = array(
     'session' => array(
-      'name' => t('Session'),
+      'name' => t('Sessione'),
       'base' => 'node_content',
       'description' => t('Form di caricamento proposte per il raduno SOD14'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titolo'),
       'help' => '',
     ),
   );

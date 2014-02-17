@@ -216,7 +216,7 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
+    'description' => 'Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
 Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.',
     'display' => array(
@@ -376,7 +376,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Delle keywords che descrivono i tuoi interessi',
+    'description' => 'Delle keywords che descrivono i tuoi interessi (evita tag personali)',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -597,7 +597,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
       ),
     ),
     'deleted' => 0,
-    'description' => 'Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?',
+    'description' => 'Acconsenti alla ricezione di comunicazioni relative alle iniziative della community SOD ?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -634,8 +634,8 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
       ),
     ),
     'deleted' => 0,
-    'description' => 'Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
-<a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
+    'description' => 'Acconsenti al trattamento dei dati relativi alla registrazione e alla navigazione per i fini <a href="http://www.spaghettiopendata.org/privacy-policy">descritti nell\'informativa</a> ? <br>
+<a href="http://www.spaghettiopendata.org/privacy-policy">Leggi qui il testo integrale dell\'informativa</a>
 ',
     'display' => array(
       'default' => array(
@@ -647,7 +647,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     ),
     'entity_type' => 'user',
     'field_name' => 'field_user_privacy_polici',
-    'label' => 'Informativa trattamento dati',
+    'label' => 'Consenso al trattamento dei dati',
     'required' => 1,
     'settings' => array(
       'user_field_privacy' => 0,
@@ -666,11 +666,11 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Accedendo a "SpaghettiOpendata” l’utente accetta di essere vincolato legalmente alle seguenti condizioni d’uso. <br>
-<a href="http://www.spaghettiopendata.org/privacy-policy">Maggiori informazioni sul trattamento dei dati e privacy policy</a>
+  t('Acconsenti al trattamento dei dati relativi alla registrazione e alla navigazione per i fini <a href="http://www.spaghettiopendata.org/privacy-policy">descritti nell\'informativa</a> ? <br>
+<a href="http://www.spaghettiopendata.org/privacy-policy">Leggi qui il testo integrale dell\'informativa</a>
 ');
-  t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della SOD ?');
-  t('Ad esclusione della posta elettronica e dei dati di geolocalizzazione acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
+  t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della community SOD ?');
+  t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati in formato RDF con licenza CC0 per favorirne il riuso ? <br> 
 Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.');
   t('Avatar');
@@ -679,12 +679,12 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Citta di cui mi interesso');
   t('Classe di reddito');
   t('Comunità di appartenenza');
+  t('Consenso al trattamento dei dati');
   t('Consenso invio comunicazioni');
-  t('Delle keywords che descrivono i tuoi interessi');
+  t('Delle keywords che descrivono i tuoi interessi (evita tag personali)');
   t('Descrizione');
   t('Facebook');
   t('Geocode');
-  t('Informativa trattamento dati');
   t('Inserire l\'url completo es: http://facebook.com/nomeutente');
   t('Inserire l\'url completo es: http://linkedin.com/nomeutente');
   t('Inserire l\'url completo es: http://twitter.com/nomeutente');

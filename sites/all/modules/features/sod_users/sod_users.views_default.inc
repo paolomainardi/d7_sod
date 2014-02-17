@@ -31,7 +31,6 @@ function sod_users_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Applica';
-  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Ripristina';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordina per';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Disc';
@@ -192,7 +191,7 @@ function sod_users_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Utente: Informativa trattamento dati (field_user_privacy_polici) */
+  /* Criterio del filtro: Utente: Consenso al trattamento dei dati (field_user_privacy_polici) */
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['field'] = 'field_user_privacy_polici_value';

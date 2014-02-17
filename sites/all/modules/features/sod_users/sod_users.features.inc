@@ -162,6 +162,9 @@ function sod_users_rdf_default_mappings() {
       ),
       'type' => 'property',
     ),
+    'field_profile_geocode' => array(
+      'predicates' => array(),
+    ),
     'field_profile_dove_vivo' => array(
       'predicates' => array(
         0 => 'schema:homeLocation',
