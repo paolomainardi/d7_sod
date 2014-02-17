@@ -56,7 +56,7 @@ function sod_sessions_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -99,10 +99,10 @@ function sod_sessions_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'i18n_taxonomy',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 1,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
