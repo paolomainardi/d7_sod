@@ -86,6 +86,10 @@ DirectoryIndex index.php index.html index.htm
   # uncomment the following:
   RewriteCond %{HTTP_HOST} !^www\. [NC]
   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^(www\.)?spaghettiopendata\.org$ [NC]
+  RewriteRule ^(it|en)/(.*)$ /$2 [R,L]
+
   #
   # To redirect all users to access the site WITHOUT the 'www.' prefix,
   # (http://www.example.com/... will be redirected to http://example.com/...)
