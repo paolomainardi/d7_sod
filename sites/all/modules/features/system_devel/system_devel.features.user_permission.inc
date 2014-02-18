@@ -10,56 +10,56 @@
 function system_devel_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: access devel information.
+  // Exported permission: 'access devel information'.
   $permissions['access devel information'] = array(
     'name' => 'access devel information',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );
 
-  // Exported permission: administer masquerade.
+  // Exported permission: 'administer masquerade'.
   $permissions['administer masquerade'] = array(
     'name' => 'administer masquerade',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'masquerade',
   );
 
-  // Exported permission: execute php code.
+  // Exported permission: 'execute php code'.
   $permissions['execute php code'] = array(
     'name' => 'execute php code',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );
 
-  // Exported permission: masquerade as admin.
+  // Exported permission: 'masquerade as admin'.
   $permissions['masquerade as admin'] = array(
     'name' => 'masquerade as admin',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'masquerade',
   );
 
-  // Exported permission: masquerade as user.
+  // Exported permission: 'masquerade as user'.
   $permissions['masquerade as user'] = array(
     'name' => 'masquerade as user',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'masquerade',
   );
 
-  // Exported permission: switch users.
+  // Exported permission: 'switch users'.
   $permissions['switch users'] = array(
     'name' => 'switch users',
     'roles' => array(
-      0 => 'administrator',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );

@@ -11,3 +11,4 @@ includes/deploy
 *.tar.gz
 *.bz2
 *.zip
+*.tar

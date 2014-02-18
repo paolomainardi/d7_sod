@@ -25,3 +25,14 @@ function sod_base_menu_block_blocks() {
     ),
   );
 }
+
+/**
+ * Implements of hook_block_view_alter()
+ */
+function sod_base_block_view_alter(&$data, $block) {
+  if ($block->delta == 'powered-by') {
+    $content = str_replace('</span>', ' ', $data['content']);
+    $content .= 'e sviluppato da <a href="http://www.twinbit.it" target="_blank"> Twinbit </a> </span>';
+    $data['content'] = $content;
+  }
+}

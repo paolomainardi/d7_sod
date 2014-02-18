@@ -1,3 +1,7 @@
 div.container a.logo img {
   margin-top: 10px;
 }
+
+div.view-id-sod_users_user_search table td {
+  border-top: 0;
+}

@@ -104,19 +104,26 @@ function sod_base_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '2',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '3',
+        ),
+        'metatags' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
         'language' => array(
           'default' => array(
             'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1070,20 +1077,21 @@ function sod_base_strongarm() {
     'toggle_logo' => 0,
     'toggle_name' => 1,
     'toggle_slogan' => 1,
-    'toggle_node_user_picture' => 1,
+    'toggle_node_user_picture' => 0,
     'toggle_comment_user_picture' => 1,
     'toggle_comment_user_verification' => 1,
     'toggle_favicon' => 0,
     'toggle_main_menu' => 1,
     'toggle_secondary_menu' => 1,
-    'toggle_search' => 1,
     'default_logo' => 1,
     'logo_path' => '',
     'logo_upload' => '',
     'default_favicon' => 1,
     'favicon_path' => '',
     'favicon_upload' => '',
-    'twitter_bootstrap_rebuild_registry' => 0,
+    'bootstrap_rebuild_registry' => 0,
+    'cdn_bootstrap' => 0,
+    'cdn_jquery' => 0,
   );
   $export['theme_sod_bootstrap_settings'] = $strongarm;
 
