@@ -37,6 +37,7 @@ dependencies[] = imagefield_crop
 dependencies[] = imce
 dependencies[] = l10n_client
 dependencies[] = leaflet_views
+dependencies[] = leaflet_markercluster
 dependencies[] = link
 dependencies[] = list
 dependencies[] = locale
