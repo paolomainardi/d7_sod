@@ -13,7 +13,7 @@ function sod_users_field_default_field_instances() {
   // Exported field_instance: 'profile2-main-field__b_partecipo_a_sod14_b_'
   $field_instances['profile2-main-field__b_partecipo_a_sod14_b_'] = array(
     'bundle' => 'main',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ',
     'display' => array(
@@ -27,7 +27,7 @@ function sod_users_field_default_field_instances() {
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field__b_partecipo_a_sod14_b_',
-    'label' => '<b>Partecipo a SOD14!</b>',
+    'label' => 'Partecipo a SOD14!',
     'required' => 1,
     'settings' => array(
       'user_field_privacy' => FALSE,
@@ -36,11 +36,9 @@ function sod_users_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 16,
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 15,
     ),
   );
 
@@ -522,7 +520,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -946,7 +944,6 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<b>Partecipo a SOD14!</b>');
   t('Acconsenti al trattamento dei dati relativi alla registrazione e alla navigazione per i fini <a href="http://www.spaghettiopendata.org/privacy-policy">descritti nell\'informativa</a> ? <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Leggi qui il testo integrale dell\'informativa</a>
 ');
@@ -975,6 +972,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('La città dove vivi ed altre di cui ti interessi');
   t('Linkedin');
   t('Nome');
+  t('Partecipo a SOD14!');
   t('Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ');
   t('Pubblicazione dei dati');
   t('Reddito generato con gli OD');

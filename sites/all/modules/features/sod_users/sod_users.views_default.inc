@@ -48,6 +48,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'seguente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'ultima »';
   $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Comportamento se non ci sono risultati: Globale: Area di testo */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -245,12 +246,13 @@ function sod_users_views_default_views() {
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = 'field_profile_geocode';
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_longitude'] = 'field_profile_geocode';
   $handler->display->display_options['style_options']['center_option'] = '0';
+  $handler->display->display_options['style_options']['map'] = 'mapbox-tmcw';
   $handler->display->display_options['style_options']['map_height'] = '600';
   $handler->display->display_options['style_options']['cluster_radius'] = '80';
   $handler->display->display_options['style_options']['tooltips']['marker_tooltip'] = 'nothing';
-  $handler->display->display_options['style_options']['map_options']['maxzoom'] = '18';
+  $handler->display->display_options['style_options']['map_options']['maxzoom'] = '17';
   $handler->display->display_options['style_options']['map_options']['zoom'] = '2';
-  $handler->display->display_options['style_options']['map_options']['scrollwheelzoom'] = '1';
+  $handler->display->display_options['style_options']['map_options']['scrollwheelzoom'] = '0';
   $handler->display->display_options['style_options']['map_options']['dragging'] = '1';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
