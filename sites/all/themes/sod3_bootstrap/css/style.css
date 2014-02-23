@@ -6,3 +6,7 @@
 .navbar.container {
   margin-top: 0px;
 }
+
+table.views-view-grid td {
+  padding-right: 100px;
+}

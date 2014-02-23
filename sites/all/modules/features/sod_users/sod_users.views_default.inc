@@ -48,7 +48,6 @@ function sod_users_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'seguente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'ultima »';
   $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Comportamento se non ci sono risultati: Globale: Area di testo */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -258,6 +257,92 @@ function sod_users_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Criterio del filtro: Utente: Attivo */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Criterio del filtro: Profilo: Tag con cui ti identifichi  (field_profile_keywords) */
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['id'] = 'field_profile_keywords_tid';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['table'] = 'field_data_field_profile_keywords';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['field'] = 'field_profile_keywords_tid';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['value'] = '';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator_id'] = 'field_profile_keywords_tid_op';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['label'] = 'Parole chiave';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator'] = 'field_profile_keywords_tid_op';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['identifier'] = 'keywords';
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_profile_keywords_tid']['vocabulary'] = 'user_interest_tags';
+  /* Criterio del filtro: Profilo: Citta di cui mi interesso - Area amministrativa (Provincia/stato) */
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['id'] = 'field_profiles_address_citta_administrative_area';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['table'] = 'field_data_field_profiles_address_citta';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['field'] = 'field_profiles_address_citta_administrative_area';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['group'] = 1;
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['expose']['operator_id'] = 'field_profiles_address_citta_administrative_area_op';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['expose']['label'] = 'Provincia';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['expose']['operator'] = 'field_profiles_address_citta_administrative_area_op';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['expose']['identifier'] = 'provincia';
+  $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Criterio del filtro: Profilo: Comunità di appartenenza (field_profile_comunita_appartene) */
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['id'] = 'field_profile_comunita_appartene_value';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['table'] = 'field_data_field_profile_comunita_appartene';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['field'] = 'field_profile_comunita_appartene_value';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['operator_id'] = 'field_profile_comunita_appartene_value_op';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['label'] = 'Categoria';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['operator'] = 'field_profile_comunita_appartene_value_op';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['identifier'] = 'appartenenza';
+  $handler->display->display_options['filters']['field_profile_comunita_appartene_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Criterio del filtro: Profilo: Pubblicazione dei dati (field_profile_extra_consenso) */
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['id'] = 'field_profile_extra_consenso_value';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['table'] = 'field_data_field_profile_extra_consenso';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['field'] = 'field_profile_extra_consenso_value';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
+  /* Criterio del filtro: Utente: Consenso al trattamento dei dati (field_user_privacy_polici) */
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['field'] = 'field_user_privacy_polici_value';
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_user_privacy_polici_value']['group'] = 1;
+  /* Criterio del filtro: Profilo: Geocode (field_profile_geocode:lat) */
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['id'] = 'field_profile_geocode_lat';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['table'] = 'field_data_field_profile_geocode';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['field'] = 'field_profile_geocode_lat';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'community/map';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Mappa';
