@@ -11,6 +11,9 @@ function sod_sessions_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
+  if ($module == "path_breadcrumbs" && $api == "path_breadcrumbs") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -21,6 +24,53 @@ function sod_sessions_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function sod_sessions_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_flag_default_flags().
+ */
+function sod_sessions_flag_default_flags() {
+  $flags = array();
+  // Exported flag: "Partecipo".
+  $flags['partecipo'] = array(
+    'entity_type' => 'node',
+    'title' => 'Partecipo',
+    'global' => 0,
+    'types' => array(
+      0 => 'session',
+    ),
+    'flag_short' => 'Partecipo',
+    'flag_long' => 'Voglio partecipare a questa sessione',
+    'flag_message' => 'Parteciperai a questa sessione',
+    'unflag_short' => 'Non voglio più partecipare',
+    'unflag_long' => 'Non voglio partecipare',
+    'unflag_message' => 'Non parteciperai più a questa sessione',
+    'unflag_denied_text' => '',
+    'link_type' => 'toggle',
+    'weight' => 0,
+    'show_in_links' => array(
+      'full' => 0,
+      'teaser' => 0,
+      'rss' => 0,
+      'search_index' => 0,
+      'search_result' => 0,
+      'print' => 0,
+      'diff_standard' => 0,
+      'token' => 0,
+    ),
+    'show_as_field' => 0,
+    'show_on_form' => 0,
+    'access_author' => '',
+    'show_contextual_link' => 0,
+    'i18n' => 0,
+    'api_version' => 3,
+    'module' => 'sod_sessions',
+    'locked' => array(
+      0 => 'name',
+    ),
+  );
+  return $flags;
+
 }
 
 /**
@@ -121,6 +171,7 @@ function sod_sessions_rdf_default_mappings() {
       'predicates' => array(
         0 => 'content:encoded',
       ),
+      'type' => 'property',
     ),
     'uid' => array(
       'predicates' => array(
@@ -150,6 +201,7 @@ function sod_sessions_rdf_default_mappings() {
       'predicates' => array(
         0 => 'dc:title',
       ),
+      'type' => 'property',
     ),
   );
 
