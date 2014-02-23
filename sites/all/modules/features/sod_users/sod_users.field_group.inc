@@ -20,7 +20,7 @@ function sod_users_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Informazioni aggiuntive',
+    'label' => 'Partecipa all\'indagine sull\'economia degli open data',
     'weight' => '3',
     'children' => array(
       0 => 'field_profile_classe_di_reddito',
@@ -28,11 +28,11 @@ function sod_users_field_group_info() {
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Informazioni aggiuntive',
+      'label' => 'Partecipa all\'indagine sull\'economia degli open data',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
-        'description' => 'Queste informazioni sono private e saranno utilizzate solamente ai fini statistici',
+        'description' => 'Sì, "il nuovo petrolio", ok. Ma quanto valgono veramente gli open data in Italia? Quanti posti di lavoro? Quanto PIL?  Prova a misurare queste grandezze insieme alla comunità di Spaghetti Open Data. Queste informazioni NON sono open, ma private e saranno utilizzate solamente ai fini statistici',
       ),
       'formatter' => 'closed',
     ),
@@ -60,6 +60,7 @@ function sod_users_field_group_info() {
       5 => 'field_profile_keywords',
       6 => 'field_profile_nome',
       7 => 'field_profiles_address_citta',
+      8 => 'field__b_partecipo_a_sod14_b_',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

@@ -148,9 +148,6 @@ function sod_users_rdf_default_mappings() {
       ),
       'type' => 'rel',
     ),
-    'field_profile_income_with_od' => array(
-      'predicates' => array(),
-    ),
     'field_profile_citta' => array(
       'predicates' => array(
         0 => 'schema:addressLocality',

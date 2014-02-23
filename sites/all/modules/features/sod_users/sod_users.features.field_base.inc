@@ -10,6 +10,33 @@
 function sod_users_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field__b_partecipo_a_sod14_b_'
+  $field_bases['field__b_partecipo_a_sod14_b_'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field__b_partecipo_a_sod14_b_',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_profile_avatar'
   $field_bases['field_profile_avatar'] = array(
     'active' => 1,
