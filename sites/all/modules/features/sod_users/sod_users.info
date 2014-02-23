@@ -39,6 +39,7 @@ dependencies[] = ip_geoloc
 dependencies[] = l10n_client
 dependencies[] = leaflet
 dependencies[] = leaflet_markercluster
+dependencies[] = leaflet_more_maps
 dependencies[] = link
 dependencies[] = list
 dependencies[] = locale

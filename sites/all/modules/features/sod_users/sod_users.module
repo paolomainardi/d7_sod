@@ -40,8 +40,47 @@ function sod_users_admin_paths() {
 }
 
 /**
- * Implements hook_leaflet_map_prebuild_alter().
+ * Implements hook_leaflet_map_info().
+ *
+ *
  */
-function sod_users_leaflet_map_prebuild_alter(&$vars = NULL) {
-  die('qui');
+function sod_users_leaflet_map_info() {
+  $default_settings = array(
+    'attributionControl' => TRUE,
+    'closePopupOnClick'  => TRUE,
+    'doubleClickZoom'    => TRUE,
+    'dragging'           => TRUE,
+    'fadeAnimation'      => TRUE,
+    'layerControl'       => FALSE,
+    'maxZoom'            => 18,
+    'minZoom'            => 0,
+    'scrollWheelZoom'    => TRUE,
+    'touchZoom'          => TRUE,
+    'trackResize'        => TRUE,
+    // Don't specify, if you want to use Auto-box.
+    // 'zoom'               =>  2,
+    'zoomAnimation'      => TRUE,
+    'zoomControl'        => TRUE,
+  );
+
+  $prot = '//';
+  $zxy = '{z}/{x}/{y}.png';
+  $attr_mapbox = 'Tiles by <a target="attr" href="http://mapbox.com">MapBox</a>. Map data &copy; <a href="http://openstreetap.org">OpenStreetMap</a> and contributors';
+
+  $code = 'tmcw';
+  $label = "MapBox tmcw (zoom 0..17)";
+  $url_template = $prot . "{s}.tiles.mapbox.com/v3/tmcw.map-7s15q36b/$zxy";
+  $map_info["mapbox-$code"] = array(
+    'label' => 'Mapbox tmcw',
+    'description' => $label,
+    'settings' => array('maxZoom' => 17) + $default_settings,
+    'layers' => array(
+      'layer' => array(
+        'urlTemplate' => $url_template,
+        'options' => array('attribution' => $attr_mapbox),
+      ),
+    ),
+  );
+  return $map_info;
 }
+
