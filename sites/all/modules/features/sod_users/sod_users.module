@@ -39,3 +39,9 @@ function sod_users_admin_paths() {
   return $paths;
 }
 
+/**
+ * Implements hook_leaflet_map_prebuild_alter().
+ */
+function sod_users_leaflet_map_prebuild_alter(&$vars = NULL) {
+  die('qui');
+}

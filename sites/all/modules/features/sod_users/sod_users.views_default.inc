@@ -22,7 +22,7 @@ function sod_users_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Community';
+  $handler->display->display_options['title'] = 'Mappa community';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'altro';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -31,6 +31,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Applica';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Ripristina';
   $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Ordina per';
   $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Disc';
@@ -216,24 +217,41 @@ function sod_users_views_default_views() {
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'main-menu';
 
-  /* Display: User map */
-  $handler = $view->new_display('page', 'User map', 'community_map');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Mappa community';
+  /* Display: User map (ip_geoloc) */
+  $handler = $view->new_display('page', 'User map (ip_geoloc)', 'community_map');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Voci per pagina';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Tutto -';
+  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Scostamento';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« prima';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ precedente';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seguente ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'ultima »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'leaflet';
-  $handler->display->display_options['style_options']['data_source'] = 'field_profile_geocode';
-  $handler->display->display_options['style_options']['name_field'] = 'name';
-  $handler->display->display_options['style_options']['description_field'] = 'nothing';
-  $handler->display->display_options['style_options']['map'] = 'OSM Mapnik';
-  $handler->display->display_options['style_options']['height'] = '600';
-  $handler->display->display_options['style_options']['zoom']['initialZoom'] = '-1';
-  $handler->display->display_options['style_options']['zoom']['minZoom'] = '0';
-  $handler->display->display_options['style_options']['zoom']['maxZoom'] = '18';
-  $handler->display->display_options['style_options']['vector_display']['stroke'] = 0;
-  $handler->display->display_options['style_options']['vector_display']['fill'] = 0;
-  $handler->display->display_options['style_options']['vector_display']['clickable'] = 0;
+  $handler->display->display_options['style_plugin'] = 'ip_geoloc_leaflet';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => '',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = 'field_profile_geocode';
+  $handler->display->display_options['style_options']['ip_geoloc_views_plugin_longitude'] = 'field_profile_geocode';
+  $handler->display->display_options['style_options']['center_option'] = '0';
+  $handler->display->display_options['style_options']['map_height'] = '600';
+  $handler->display->display_options['style_options']['cluster_radius'] = '80';
+  $handler->display->display_options['style_options']['tooltips']['marker_tooltip'] = 'nothing';
+  $handler->display->display_options['style_options']['map_options']['maxzoom'] = '18';
+  $handler->display->display_options['style_options']['map_options']['zoom'] = '2';
+  $handler->display->display_options['style_options']['map_options']['scrollwheelzoom'] = '1';
+  $handler->display->display_options['style_options']['map_options']['dragging'] = '1';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
@@ -241,13 +259,13 @@ function sod_users_views_default_views() {
   $handler->display->display_options['path'] = 'community/map';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Mappa';
-  $handler->display->display_options['menu']['description'] = 'Mappa utenti ';
+  $handler->display->display_options['menu']['description'] = 'Mappa utenti';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $translatables['sod_users_user_search'] = array(
     t('Master'),
-    t('Community'),
+    t('Mappa community'),
     t('altro'),
     t('Applica'),
     t('Ripristina'),
@@ -270,8 +288,7 @@ function sod_users_views_default_views() {
     t('Provincia'),
     t('Categoria'),
     t('User search page'),
-    t('User map'),
-    t('Mappa community'),
+    t('User map (ip_geoloc)'),
   );
   $export['sod_users_user_search'] = $view;
 
