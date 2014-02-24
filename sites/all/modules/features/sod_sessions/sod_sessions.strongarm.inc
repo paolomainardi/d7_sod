@@ -142,6 +142,103 @@ function sod_sessions_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_debug';
+  $strongarm->value = '';
+  $export['ip_geoloc_debug'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_exclude_pages';
+  $strongarm->value = 'admin/*
+sites/default/*';
+  $export['ip_geoloc_exclude_pages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_google_to_reverse_geocode';
+  $strongarm->value = 0;
+  $export['ip_geoloc_google_to_reverse_geocode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_include_pages';
+  $strongarm->value = '*';
+  $export['ip_geoloc_include_pages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_location_check_interval';
+  $strongarm->value = '60';
+  $export['ip_geoloc_location_check_interval'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_marker_anchor_pos';
+  $strongarm->value = 'bottom';
+  $export['ip_geoloc_marker_anchor_pos'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_marker_dimensions';
+  $strongarm->value = '21 x 34';
+  $export['ip_geoloc_marker_dimensions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_marker_directory';
+  $strongarm->value = 'sites/all/modules/contrib/ip_geoloc/markers';
+  $export['ip_geoloc_marker_directory'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_num_location_marker_layers';
+  $strongarm->value = '3';
+  $export['ip_geoloc_num_location_marker_layers'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_page_refresh';
+  $strongarm->value = 0;
+  $export['ip_geoloc_page_refresh'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_roles_to_reverse_geocode';
+  $strongarm->value = array(
+    1 => 0,
+    2 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $export['ip_geoloc_roles_to_reverse_geocode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_smart_ip_as_backup';
+  $strongarm->value = 0;
+  $export['ip_geoloc_smart_ip_as_backup'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ip_geoloc_sync_batch_size';
+  $strongarm->value = '500';
+  $export['ip_geoloc_sync_batch_size'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_session';
   $strongarm->value = '0';
   $export['language_content_type_session'] = $strongarm;
