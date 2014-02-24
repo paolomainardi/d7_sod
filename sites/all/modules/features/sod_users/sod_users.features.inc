@@ -69,7 +69,7 @@ function sod_users_default_profile2_type() {
     "type" : "main",
     "label" : "Il mio profilo",
     "weight" : "0",
-    "data" : { "registration" : 0 },
+    "data" : { "registration" : 0, "use_page" : 0 },
     "metatags" : [],
     "rdf_mapping" : []
   }');
