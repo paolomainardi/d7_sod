@@ -721,25 +721,6 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Criterio del filtro: Profilo: Tag con cui ti identifichi  (field_profile_keywords) */
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['id'] = 'field_profile_keywords_tid';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['table'] = 'field_data_field_profile_keywords';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['field'] = 'field_profile_keywords_tid';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator_id'] = 'field_profile_keywords_tid_op';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['label'] = 'Parole chiave';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator'] = 'field_profile_keywords_tid_op';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['identifier'] = 'keywords';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['vocabulary'] = 'user_interest_tags';
   /* Criterio del filtro: Profilo: Citta di cui mi interesso - Area amministrativa (Provincia/stato) */
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['id'] = 'field_profiles_address_citta_administrative_area';
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['table'] = 'field_data_field_profiles_address_citta';
@@ -884,25 +865,6 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Criterio del filtro: Profilo: Tag con cui ti identifichi  (field_profile_keywords) */
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['id'] = 'field_profile_keywords_tid';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['table'] = 'field_data_field_profile_keywords';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['field'] = 'field_profile_keywords_tid';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['value'] = '';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator_id'] = 'field_profile_keywords_tid_op';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['label'] = 'Parole chiave';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['operator'] = 'field_profile_keywords_tid_op';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['identifier'] = 'keywords';
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['filters']['field_profile_keywords_tid']['vocabulary'] = 'user_interest_tags';
   /* Criterio del filtro: Profilo: Citta di cui mi interesso - Area amministrativa (Provincia/stato) */
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['id'] = 'field_profiles_address_citta_administrative_area';
   $handler->display->display_options['filters']['field_profiles_address_citta_administrative_area']['table'] = 'field_data_field_profiles_address_citta';
@@ -961,6 +923,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['field_profile_geocode_lat']['field'] = 'field_profile_geocode_lat';
   $handler->display->display_options['filters']['field_profile_geocode_lat']['relationship'] = 'profile';
   $handler->display->display_options['filters']['field_profile_geocode_lat']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['group'] = 1;
   /* Criterio del filtro: Profilo: Partecipo a SOD14! (field__b_partecipo_a_sod14_b_) */
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['id'] = 'field__b_partecipo_a_sod14_b__value';
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['table'] = 'field_data_field__b_partecipo_a_sod14_b_';
@@ -969,6 +932,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['value'] = array(
     1 => '1',
   );
+  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['group'] = 1;
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator_id'] = 'field__b_partecipo_a_sod14_b__value_op';
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['label'] = 'Partecipo a SOD14';
   $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator'] = 'field__b_partecipo_a_sod14_b__value_op';
@@ -1007,7 +971,6 @@ function sod_sessions_views_default_views() {
     t('Testo personalizzato'),
     t('[name] <br>
 [field_profile_avatar_1] '),
-    t('Parole chiave'),
     t('Provincia'),
     t('Categoria'),
     t('Partecipo a SOD14'),
