@@ -14,3 +14,13 @@ table.views-view-grid td {
 div.field-name-field-immagine-blog-entry img {
   margin-bottom: 15px;
 }
+
+/** flag bootstrap style */
+span.flag-wrapper a {
+  color: white;
+}
+
+span.flag-wrapper .flag-message {
+  display: none !important;
+}
+

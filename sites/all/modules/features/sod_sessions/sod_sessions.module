@@ -28,3 +28,38 @@ function sod_sessions_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['provincia']['#options'] = $options;
   $form['provincia']['#size'] = 1;
 }
+
+
+/**
+ * Create an extra field in order to have a flag link orderable on the content type interface ()
+ * Implements hook_field_extra_fields().
+ *
+ */
+function sod_sessions_field_extra_fields() {
+  // The levels of the array that we return correspond to the
+  // entity type, bundle and then either 'display' or 'form'.
+  // In this case, we apply to 'page' nodes, when we display them.
+  $extra['node']['session']['display'] = array(
+    'sod_sessions_flag_link' => array(
+      'label' => t('Flag: session subscribe'),
+      'description' => t('Flag subscribe link.'),
+      'weight' => 10,
+    ),
+  );
+  return $extra;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function sod_sessions_node_view($node, $view_mode, $langcode) {
+  switch ($node->type) {
+    case 'session':
+      $node->content['sod_sessions_flag_link'] = array(
+        '#prefix' => '<div class="field field-label-above field-session-subscribe"><div class="field-label">'. t('Iscrizione') .'</div>',
+        '#suffix' => '</div>',
+        '#markup' => flag_create_link('partecipo', $node->nid),
+      );
+      break;
+  }
+}
