@@ -24,3 +24,7 @@ span.flag-wrapper .flag-message {
   display: none !important;
 }
 
+form#sod14-sessions-subscribe-form {
+  margin-bottom: 25px;
+}
+

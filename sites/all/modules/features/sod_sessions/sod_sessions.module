@@ -10,7 +10,7 @@ include_once 'sod_sessions.features.inc';
  * Implements of hook_block_view_alter()
  */
 function sod_sessions_block_view_alter(&$data, $block) {
-  $contexts = array('sod_users_map', 'sod_users_community_search');
+  $contexts = array('sod_users_map', 'sod_users_community_search', 'sod14_users_list', 'sod14_users_map');
   if (isset($block->context) && (in_array($block->context, $contexts))) {
     $data['title'] = t('Cerca utenti');
   }
@@ -64,7 +64,9 @@ function sod_sessions_node_view($node, $view_mode, $langcode) {
   }
 }
 
-
+/**
+ * Render the flag link handling also the anonymous users markup
+ */
 function sod_sessions_flag_create_link($flag_name, $nid) {
   $flag = flag_create_link($flag_name, $nid);
   if (!$flag) {
@@ -72,3 +74,84 @@ function sod_sessions_flag_create_link($flag_name, $nid) {
   }
   return $flag;
 }
+
+function sod_sessions_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+  if ($view->name == 'sod14_users') {
+
+    // get the users total calling the views without filters
+    $view = views_get_view('sod14_users');
+    $view->init_display('sod14_user_list');
+    $view->exposed_input[] = array();
+    $view->set_items_per_page(0);
+    $view->execute();
+    $total = count($view->result);
+
+    $vars['header'] = render(drupal_get_form('sod14_sessions_subscribe_form'));
+  }
+}
+
+function sod14_sessions_subscribe_form($form, &$form_state) {
+  global $user;
+
+  // load user profile just for autenticated users
+  $subscribed = false;
+  if ($user->uid) {
+    $profile = profile2_load_by_user($user);
+    if (isset($profile['main']->field__b_partecipo_a_sod14_b_)) {
+      $subscribed = (bool) $profile['main']->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'];
+    }
+  }
+
+  // get the users total calling the views without filters
+  $view = views_get_view('sod14_users');
+  $view->init_display('sod14_user_list');
+  $view->exposed_input[] = array();
+  $view->set_items_per_page(0);
+  $view->execute();
+  $total = count($view->result);
+
+
+  // header text
+  $text =  '<p class="lead"> Ci sono già <strong>' . $total . ' </strong> utenti sono già iscritti. </p>';
+  $form['sod14_subscribe_text']['#markup'] = $text;
+
+  // form actions
+  $submit_text = (!$subscribed ? t('Clicca qui per iscriverti ora') : t('Non posso più partecipare'));
+  $submit_class = (!$subscribed ? 'btn-primary' : 'btn-warning');
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array('#type' => 'submit',
+    '#value' => $submit_text,
+    '#attributes' => array('class' => array($submit_class)),
+    '#suffix' => '<br>'
+  );
+
+  return $form;
+}
+
+function sod14_sessions_subscribe_form_submit($form, &$form_state) {
+  global $user;
+  if (!$user->uid) {
+    drupal_set_message(t('Per iscriverti deve essere avere un account, leggi questo post per capire come fare.'));
+    drupal_goto('node/116');
+    exit();
+  }
+
+  // load user profile
+  $profile = profile2_load_by_user($user, 'main');
+
+  $sub = false;
+  if (isset($profile->field__b_partecipo_a_sod14_b_)) {
+    $sub = (int) !$profile->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'];
+  }
+
+  // set the value
+  $profile->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'] = $sub;
+  profile2_save($profile);
+
+  // thanks to user and exit
+  $confirm_message = ($sub ? t('Grazie, ora sei iscritto al raduno SOD14') : t('Non sei più iscritto al raduno SOD14'));
+  drupal_set_message($confirm_message);
+}
+
+

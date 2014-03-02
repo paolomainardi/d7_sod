@@ -93,6 +93,9 @@ function sod_sessions_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -109,7 +112,13 @@ function sod_sessions_strongarm() {
       'display' => array(
         'sessions_lista_partecipanti_entity_view_1' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '3',
+            'visible' => TRUE,
+          ),
+        ),
+        'sod_sessions_flag_link' => array(
+          'default' => array(
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),

@@ -39,7 +39,7 @@ function sod_sessions_flag_default_flags() {
     'types' => array(
       0 => 'session',
     ),
-    'flag_short' => 'Partecipo',
+    'flag_short' => 'Voglio partecipare',
     'flag_long' => 'Voglio partecipare a questa sessione',
     'flag_message' => 'Parteciperai a questa sessione',
     'unflag_short' => 'Non voglio più partecipare',
