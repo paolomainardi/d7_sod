@@ -114,6 +114,9 @@ function sod14_sessions_subscribe_form($form, &$form_state) {
 
   // header text
   $text =  '<p class="lead"> Ci sono già <strong>' . $total . ' </strong> utenti sono già iscritti. </p>';
+  if (!$user->uid) {
+    $text .= '<p> Se non hai ancora un account ' . l('clicca qui per tutte le informazioni.', 'node/116') . '</p>';
+  }
   $form['sod14_subscribe_text']['#markup'] = $text;
 
   // form actions
