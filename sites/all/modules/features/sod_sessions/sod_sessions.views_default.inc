@@ -502,7 +502,6 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'seguente ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'ultima »';
   $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '6';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Comportamento se non ci sono risultati: Globale: Area di testo */
   $handler->display->display_options['empty']['area']['id'] = 'area';
