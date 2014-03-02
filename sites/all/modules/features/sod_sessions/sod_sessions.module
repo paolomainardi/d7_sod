@@ -143,6 +143,7 @@ function sod14_sessions_subscribe_form_submit($form, &$form_state) {
   // load user profile
   $profile = profile2_load_by_user($user, 'main');
 
+  // sub/unsubscribe
   $sub = false;
   if (isset($profile->field__b_partecipo_a_sod14_b_)) {
     $sub = (int) !$profile->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'];
