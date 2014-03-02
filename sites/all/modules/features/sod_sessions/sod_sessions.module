@@ -58,8 +58,17 @@ function sod_sessions_node_view($node, $view_mode, $langcode) {
       $node->content['sod_sessions_flag_link'] = array(
         '#prefix' => '<div class="field field-label-above field-session-subscribe"><div class="field-label">'. t('Iscrizione') .'</div>',
         '#suffix' => '</div>',
-        '#markup' => flag_create_link('partecipo', $node->nid),
+        '#markup' => sod_sessions_flag_create_link('partecipo', $node->nid),
       );
       break;
   }
+}
+
+
+function sod_sessions_flag_create_link($flag_name, $nid) {
+  $flag = flag_create_link($flag_name, $nid);
+  if (!$flag) {
+    $flag = '<span class="btn btn-primary flag-wrapper">' . l(t('Devi essere loggato per iscriverti a questa sessione'), 'user/login', array('query' => drupal_get_destination())) . '</span>';
+  }
+  return $flag;
 }
