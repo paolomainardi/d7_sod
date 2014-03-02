@@ -802,15 +802,6 @@ function sod_users_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create iscrizione_raduno_sod content'.
-  $permissions['create iscrizione_raduno_sod content'] = array(
-    'name' => 'create iscrizione_raduno_sod content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create new books'.
   $permissions['create new books'] = array(
     'name' => 'create new books',
@@ -905,15 +896,6 @@ function sod_users_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any iscrizione_raduno_sod content'.
-  $permissions['delete any iscrizione_raduno_sod content'] = array(
-    'name' => 'delete any iscrizione_raduno_sod content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any page content'.
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
@@ -963,15 +945,6 @@ function sod_users_user_default_permissions() {
   // Exported permission: 'delete own documento content'.
   $permissions['delete own documento content'] = array(
     'name' => 'delete own documento content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own iscrizione_raduno_sod content'.
-  $permissions['delete own iscrizione_raduno_sod content'] = array(
-    'name' => 'delete own iscrizione_raduno_sod content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -1117,15 +1090,6 @@ function sod_users_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any iscrizione_raduno_sod content'.
-  $permissions['edit any iscrizione_raduno_sod content'] = array(
-    'name' => 'edit any iscrizione_raduno_sod content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any main profile'.
   $permissions['edit any main profile'] = array(
     'name' => 'edit any main profile',
@@ -1213,15 +1177,6 @@ function sod_users_user_default_permissions() {
   // Exported permission: 'edit own documento content'.
   $permissions['edit own documento content'] = array(
     'name' => 'edit own documento content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own iscrizione_raduno_sod content'.
-  $permissions['edit own iscrizione_raduno_sod content'] = array(
-    'name' => 'edit own iscrizione_raduno_sod content',
     'roles' => array(
       'administrator' => 'administrator',
     ),

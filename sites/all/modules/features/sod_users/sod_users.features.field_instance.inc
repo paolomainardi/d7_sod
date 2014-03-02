@@ -13,7 +13,7 @@ function sod_users_field_default_field_instances() {
   // Exported field_instance: 'profile2-main-field__b_partecipo_a_sod14_b_'
   $field_instances['profile2-main-field__b_partecipo_a_sod14_b_'] = array(
     'bundle' => 'main',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => 'Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ',
     'display' => array(
