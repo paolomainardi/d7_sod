@@ -264,7 +264,7 @@ function sod_users_views_default_views() {
   $handler->display->display_options['style_options']['map'] = 'mapbox-tmcw';
   $handler->display->display_options['style_options']['map_height'] = '600';
   $handler->display->display_options['style_options']['cluster_radius'] = '80';
-  $handler->display->display_options['style_options']['tooltips']['marker_tooltip'] = 'nothing';
+  $handler->display->display_options['style_options']['tooltips']['marker_tooltip'] = 'name';
   $handler->display->display_options['style_options']['map_options']['maxzoom'] = '17';
   $handler->display->display_options['style_options']['map_options']['zoom'] = '2';
   $handler->display->display_options['style_options']['map_options']['scrollwheelzoom'] = '0';
