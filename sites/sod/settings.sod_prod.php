@@ -501,11 +501,14 @@ $conf['404_fast_html'] = '<html xmlns="http://www.w3.org/1999/xhtml"><head><titl
  * Remove the leading hash signs to disable.
  */
 # $conf['allow_authorize_operations'] = FALSE;
-/* Memcache configuration */
-$conf['cache_backends'][] = 'sites/all/modules/contrib/memcache/memcache.inc';
-$conf['cache_default_class'] = 'MemCacheDrupal';
-$conf['cache_class_cache_form'] = 'DrupalDatabaseCache';
-$conf['memcache_key_prefix'] = 'sod_production';
+
+/* Varnish configuration */
+$conf['cache_backends'] = array('sites/all/modules/contrib/varnish/varnish.cache.inc');
+$conf['cache_class_cache_page'] = 'VarnishCache';
+
+// Drupal 7 does not cache pages when we invoke hooks during bootstrap.
+// This needs to be disabled.
+$conf['page_cache_invoke_hooks'] = FALSE;
 
 
 
