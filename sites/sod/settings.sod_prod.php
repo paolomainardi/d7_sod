@@ -510,12 +510,63 @@ $conf['cache_class_cache_page'] = 'VarnishCache';
 // This needs to be disabled.
 $conf['page_cache_invoke_hooks'] = FALSE;
 
+/**
+ * Enable this setting to determine the correct IP address of the remote
+ * client by examining information stored in the X-Forwarded-For headers.
+ * X-Forwarded-For headers are a standard mechanism for identifying client
+ * systems connecting through a reverse proxy server, such as Squid or
+ * Pound. Reverse proxy servers are often used to enhance the performance
+ * of heavily visited sites and may also provide other site caching,
+ * security or encryption benefits. If this Drupal installation operates
+ * behind a reverse proxy, this setting should be enabled so that correct
+ * IP address information is captured in Drupal's session management,
+ * logging, statistics and access management systems; if you are unsure
+ * about this setting, do not have a reverse proxy, or Drupal operates in
+ * a shared hosting environment, this setting should remain commented out.
+ */
+$conf['reverse_proxy'] = true;
 
-
+/**
+ * Set this value if your proxy server sends the client IP in a header other
+ * than X-Forwarded-For.
+ *
+ * The "X-Forwarded-For" header is a comma+space separated list of IP addresses,
+ * only the last one (the left-most) will be used.
+ */
+$conf['reverse_proxy_header'] = 'HTTP_X_FORWARDED_FOR';
+/**
+ * reverse_proxy accepts an array of IP addresses.
+ *
+ * Each element of this array is the IP address of any of your reverse
+ * proxies. Filling this array Drupal will trust the information stored
+ * in the X-Forwarded-For headers only if Remote IP address is one of
+ * these, that is the request reaches the web server from one of your
+ * reverse proxies. Otherwise, the client could directly connect to
+ * your web server spoofing the X-Forwarded-For headers.
+ */
+$conf['reverse_proxy_addresses'] = array('127.0.0.1');
+/**
+ * Page caching:
+ *
+ * By default, Drupal sends a "Vary: Cookie" HTTP header for anonymous page
+ * views. This tells a HTTP proxy that it may return a page from its local
+ * cache without contacting the web server, if the user sends the same Cookie
+ * header as the user who originally requested the cached page. Without "Vary:
+ * Cookie", authenticated users would also be served the anonymous page from
+ * the cache. If the site has mostly anonymous users except a few known
+ * editors/administrators, the Vary header can be omitted. This allows for
+ * better caching in HTTP proxies (including reverse proxies), i.e. even if
+ * clients send different cookies, they still get content served from the cache
+ * if aggressive caching is enabled and the minimum cache time is non-zero.
+ * However, authenticated users should access the site directly (i.e. not use an
+ * HTTP proxy, and bypass the reverse proxy if one is used) in order to avoid
+ * getting cached pages from the proxy.
+ */
+$conf['omit_vary_cookie'] = true;
 $conf['cache'] = 1;
 
 // Block caching - enabled.
-$conf['block_cache'] = 1;
+$conf['block_cache'] = 0;
 
 // Expiration of cached pages - 5 minutes.
 $conf['page_cache_maximum_age'] = 300;
