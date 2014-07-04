@@ -566,7 +566,7 @@ $conf['omit_vary_cookie'] = true;
 $conf['cache'] = 1;
 
 // Block caching - enabled.
-$conf['block_cache'] = 0;
+$conf['block_cache'] = 1;
 
 // Expiration of cached pages - 5 minutes.
 $conf['page_cache_maximum_age'] = 300;
