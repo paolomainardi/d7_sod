@@ -477,6 +477,34 @@ function sod_users_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
+  // Exported field_base: 'field_test'
+  $field_bases['field_test'] = array(
+    'active' => 1,
+    'cardinality' => 2,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_test',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'no' => 'no',
+        'venerdì 28' => 'venerdì 28',
+        'sabato 29' => 'sabato 29',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_user_newsletter_approval'
   $field_bases['field_user_newsletter_approval'] = array(
     'active' => 1,

@@ -60,7 +60,6 @@ function sod_users_field_group_info() {
       5 => 'field_profile_keywords',
       6 => 'field_profile_nome',
       7 => 'field_profiles_address_citta',
-      8 => 'field__b_partecipo_a_sod14_b_',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -128,6 +127,34 @@ function sod_users_field_group_info() {
     ),
   );
   $export['group_profile_social|profile2|main|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_sod14|profile2|main|form';
+  $field_group->group_name = 'group_sod14';
+  $field_group->entity_type = 'profile2';
+  $field_group->bundle = 'main';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'SOD14',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field__b_partecipo_a_sod14_b_',
+      1 => 'field_test',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-sod14 field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_sod14|profile2|main|form'] = $field_group;
 
   return $export;
 }

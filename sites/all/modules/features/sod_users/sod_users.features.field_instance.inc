@@ -13,22 +13,21 @@ function sod_users_field_default_field_instances() {
   // Exported field_instance: 'profile2-main-field__b_partecipo_a_sod14_b_'
   $field_instances['profile2-main-field__b_partecipo_a_sod14_b_'] = array(
     'bundle' => 'main',
-    'default_value' => array(),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'list',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 14,
+        'type' => 'hidden',
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field__b_partecipo_a_sod14_b_',
     'label' => 'Partecipo a SOD14!',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_field_privacy' => FALSE,
       'user_register_form' => FALSE,
@@ -38,7 +37,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 15,
+      'weight' => 17,
     ),
   );
 
@@ -89,7 +88,7 @@ function sod_users_field_default_field_instances() {
         'resolution' => '250x250',
       ),
       'type' => 'imagefield_crop_widget',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -152,7 +151,7 @@ function sod_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'profile2',
@@ -200,7 +199,7 @@ function sod_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 20,
+      'weight' => 21,
     ),
   );
 
@@ -235,7 +234,7 @@ function sod_users_field_default_field_instances() {
         'rows' => 3,
       ),
       'type' => 'text_textarea',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -256,7 +255,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'profile2',
@@ -336,7 +335,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'profile2',
@@ -368,7 +367,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         ),
       ),
       'type' => 'geocoder',
-      'weight' => 19,
+      'weight' => 20,
     ),
   );
 
@@ -383,7 +382,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'profile2',
@@ -437,7 +436,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'size' => 60,
       ),
       'type' => 'autocomplete_deluxe_taxonomy',
-      'weight' => 21,
+      'weight' => 22,
     ),
   );
 
@@ -520,7 +519,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -862,7 +861,42 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 18,
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_test'
+  $field_instances['profile2-main-field_test'] = array(
+    'bundle' => 'main',
+    'default_value' => array(
+      0 => array(
+        'value' => 'no',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'I volontari di SOD14 organizzano cene collettive. <a href = "http://www.spaghettiopendata.org/page/open-cene">Informazioni qui</a>.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_test',
+    'label' => 'Vengo alla cena di SOD14!',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 16,
     ),
   );
 
@@ -963,6 +997,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Descrizione');
   t('Facebook');
   t('Geocode');
+  t('I volontari di SOD14 organizzano cene collettive. <a href = "http://www.spaghettiopendata.org/page/open-cene">Informazioni qui</a>.');
   t('Inserire l\'url completo es: http://facebook.com/nomeutente');
   t('Inserire l\'url completo es: http://linkedin.com/nomeutente');
   t('Inserire l\'url completo es: http://twitter.com/nomeutente');
@@ -981,6 +1016,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Tag con cui ti identifichi ');
   t('Twitter');
   t('Una tua breve bio');
+  t('Vengo alla cena di SOD14!');
 
   return $field_instances;
 }

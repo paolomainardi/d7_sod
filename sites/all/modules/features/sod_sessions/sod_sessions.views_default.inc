@@ -77,11 +77,6 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Campo: Workbench Moderation: Stato */
-  $handler->display->display_options['fields']['state']['id'] = 'state';
-  $handler->display->display_options['fields']['state']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['fields']['state']['field'] = 'state';
-  $handler->display->display_options['fields']['state']['machine_name'] = 0;
   /* Criterio di ordinamento: Contenuto: Data di inserimento */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -97,17 +92,6 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Criterio del filtro: Workbench Moderation: Stato */
-  $handler->display->display_options['filters']['state']['id'] = 'state';
-  $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['state']['field'] = 'state';
-  $handler->display->display_options['filters']['state']['value'] = array(
-    'all' => 'all',
-    'draft' => 'draft',
-    'needs_review' => 'needs_review',
-    'published' => 'published',
-  );
-  $handler->display->display_options['filters']['state']['group'] = 1;
   /* Criterio del filtro: Contenuto: Tipo */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -139,7 +123,6 @@ function sod_sessions_views_default_views() {
     t('ultima »'),
     t('Non hai ancora inviato una proposta.'),
     t('Titolo'),
-    t('Stato'),
     t('Tutti'),
     t('Page'),
   );
@@ -408,6 +391,15 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
   $handler->display->display_options['fields']['ops']['label'] = 'Azioni';
   $handler->display->display_options['fields']['ops']['empty'] = 'Autenticati per iscriverti';
+  /* Campo: Contenuto: Tipo di attività */
+  $handler->display->display_options['fields']['field_tipo_di_attivit_']['id'] = 'field_tipo_di_attivit_';
+  $handler->display->display_options['fields']['field_tipo_di_attivit_']['table'] = 'field_data_field_tipo_di_attivit_';
+  $handler->display->display_options['fields']['field_tipo_di_attivit_']['field'] = 'field_tipo_di_attivit_';
+  $handler->display->display_options['fields']['field_tipo_di_attivit_']['label'] = 'Giornata';
+  /* Criterio di ordinamento: Contenuto: Tipo di attività (field_tipo_di_attivit_) */
+  $handler->display->display_options['sorts']['field_tipo_di_attivit__tid']['id'] = 'field_tipo_di_attivit__tid';
+  $handler->display->display_options['sorts']['field_tipo_di_attivit__tid']['table'] = 'field_data_field_tipo_di_attivit_';
+  $handler->display->display_options['sorts']['field_tipo_di_attivit__tid']['field'] = 'field_tipo_di_attivit__tid';
   /* Criterio di ordinamento: Contenuto: Data di inserimento */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -461,6 +453,7 @@ function sod_sessions_views_default_views() {
     t(','),
     t('Azioni'),
     t('Autenticati per iscriverti'),
+    t('Giornata'),
     t('Page - Lista sessioni'),
   );
   $export['sessioni_sod14'] = $view;
@@ -640,7 +633,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = '';
+  $handler->display->display_options['header']['result']['content'] = '@total persone partecipano a SOD14. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. ';
   /* Comportamento se non ci sono risultati: Globale: Area di testo */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -966,6 +959,7 @@ function sod_sessions_views_default_views() {
     t('‹ precedente'),
     t('seguente ›'),
     t('ultima »'),
+    t('@total persone partecipano a SOD14. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. '),
     t('Nessun utente trovato con questi criteri di ricerca.'),
     t('Profilo'),
     t('Testo personalizzato'),

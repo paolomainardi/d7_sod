@@ -82,23 +82,16 @@ new TWTR.Widget({
   $box->description = 'Welcome';
   $box->options = array(
     'body' => array(
-      'value' => '<h1>
-	<img alt="Foto: Medhin Paolos" src="http://www.cottica.net/wp-content/uploads/2012/06/LOTEpicjpg.jpeg" style="width: 500px; height: 375px;" /></h1>
+      'value' => '<p><img alt="Logo: Luca Corsato CC- BY" src="http://www.spaghettiopendata.org/sites/default/files/blog/SOD_14_pasta.png" style="width: 50%;" /></p>
 <p>Siamo un gruppo di cittadini italiani interessati al rilascio di&nbsp;<strong>dati pubblici in formato aperto, in modo da renderne facile l&#39;accesso e il riuso (open data)</strong>. Ci sembra che questa pratica sia utile per alimentare la discussione sulle scelte che ci attendono; rendendo facilmente accessibili informazioni di qualit&agrave; alta, contribuir&agrave; a renderla pi&ugrave; razionale, allargata e fondata sui dati. Con tutti i suoi difetti, la nostra democrazia &egrave; un grandissimo dono che ci hanno fatto le generazioni passate: il minimo che possiamo fare, tutti insieme, &egrave; cercare di averne cura.</p>
 <p>Parliamo di dati su <a href="https://groups.google.com/d/forum/spaghettiopendata">questa mailing list</a> da settembre 2010. Abbiamo anche un <a href="https://github.com/spaghetti-open-data">repo Github</a>.</p>
-<iframe id="forum_embed"
-  src="javascript:void(0)"
-  scrolling="no"
-  frameborder="0"
-  width="900"
-  height="300">
-</iframe>
-<script type="text/javascript">
+<p><iframe frameborder="0" height="300" id="forum_embed" scrolling="no" src="javascript:void(0)" width="900"></iframe><script type="text/javascript">
   document.getElementById(\'forum_embed\').src =
      \'https://groups.google.com/forum/embed/?place=forum/spaghettiopendata\'
      + \'&showsearch=false&showpopout=true&showtabs=false&hideforumtitle=true\'
      + \'&parenturl=\' + encodeURIComponent(window.location.href);
-</script>',
+</script></p>
+',
       'format' => 'full_html',
     ),
     'additional_classes' => '',

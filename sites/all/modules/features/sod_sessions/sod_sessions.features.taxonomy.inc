@@ -35,5 +35,31 @@ function sod_sessions_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'tipo_di_attivit_' => array(
+      'name' => 'Tipo di attività',
+      'machine_name' => 'tipo_di_attivit_',
+      'description' => 'La categoria di attività di una proposta all\'interno di un raduno di SOD',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'language' => 'und',
+      'i18n_mode' => 0,
+      'metatags' => array(),
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
   );
 }

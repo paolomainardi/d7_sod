@@ -100,25 +100,28 @@ function sod_sessions_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '4',
+          'weight' => '6',
         ),
         'title' => array(
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '3',
+          'weight' => '5',
+        ),
+        'redirect' => array(
+          'weight' => '7',
         ),
       ),
       'display' => array(
         'sessions_lista_partecipanti_entity_view_1' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '5',
             'visible' => TRUE,
           ),
         ),
         'sod_sessions_flag_link' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
@@ -160,7 +163,8 @@ function sod_sessions_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'ip_geoloc_exclude_pages';
   $strongarm->value = 'admin/*
-sites/default/*';
+sites/default/*
+*';
   $export['ip_geoloc_exclude_pages'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -174,7 +178,7 @@ sites/default/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ip_geoloc_include_pages';
-  $strongarm->value = '*';
+  $strongarm->value = '';
   $export['ip_geoloc_include_pages'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -224,8 +228,8 @@ sites/default/*';
   $strongarm->api_version = 1;
   $strongarm->name = 'ip_geoloc_roles_to_reverse_geocode';
   $strongarm->value = array(
+    2 => '2',
     1 => 0,
-    2 => 0,
     3 => 0,
     4 => 0,
   );
