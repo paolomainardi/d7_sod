@@ -1,5 +1,11 @@
 # Ignore configuration files that may contain sensitive information.
 sites/*/settings*.php
+INSTALL.*
+README.txt
+UPGRADE.txt
+sites/default
+sites/example.sites.php
+sites/sod/default.settings.php
 
 # Ignore paths that contain user-generated content.
 sites/*/files
