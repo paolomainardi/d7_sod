@@ -180,6 +180,7 @@ function sod_sessions_variable_info($options) {
     'default' => 'node/116',
     'description' => t('Relative node url information conference page (ex: node/116).', array(), $options),
     'required' => TRUE,
+    'group' => 'sod_sessions',
   );
   return $variables;
 }
