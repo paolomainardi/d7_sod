@@ -179,7 +179,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'Non sei iscritto ancora a nessuna sessione, <?php print l(\'clicca qui per visualizzarle tutte\', \'sod14/sessioni\') ?>.';
+  $handler->display->display_options['empty']['area']['content'] = 'Non sei iscritto ancora a nessuna sessione, <?php print l(\'clicca qui per visualizzarle tutte\', \'conf/sessioni\') ?>.';
   $handler->display->display_options['empty']['area']['format'] = 'php_code';
   /* Relazione: Flags: partecipo */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
@@ -238,7 +238,7 @@ function sod_sessions_views_default_views() {
     t('‹ precedente'),
     t('seguente ›'),
     t('ultima »'),
-    t('Non sei iscritto ancora a nessuna sessione, <?php print l(\'clicca qui per visualizzarle tutte\', \'sod14/sessioni\') ?>.'),
+    t('Non sei iscritto ancora a nessuna sessione, <?php print l(\'clicca qui per visualizzarle tutte\', \'conf/sessioni\') ?>.'),
     t('flag'),
     t('Titolo'),
     t('Azioni'),
@@ -332,6 +332,13 @@ function sod_sessions_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Comportamento se non ci sono risultati: Globale: Area di testo */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Nessuna sessione al momento disponibile.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Relazione: Contenuto: Autore */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
@@ -440,6 +447,7 @@ function sod_sessions_views_default_views() {
     t('‹ precedente'),
     t('seguente ›'),
     t('ultima »'),
+    t('Nessuna sessione al momento disponibile.'),
     t('autore'),
     t('flag'),
     t('counter'),
