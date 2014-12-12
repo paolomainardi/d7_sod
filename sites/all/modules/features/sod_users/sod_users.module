@@ -84,3 +84,12 @@ function sod_users_leaflet_map_info() {
   return $map_info;
 }
 
+/**
+ * Implements hook_form_FORMID_form_alter().
+ */
+function sod_users_form_user_profile_form_alter(&$form, &$form_state) {
+  // Hide SOD14 registration field.
+  $form['profile_main']['field__b_partecipo_a_sod14_b_']['#access'] = FALSE;
+  $form['profile_main']['field_test']['#access'] = FALSE;
+}
+

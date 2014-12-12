@@ -113,9 +113,10 @@ function sod14_sessions_subscribe_form($form, &$form_state) {
 
 
   // header text
+  $url_info_subscription = variable_get_value('sod_conference_info_page');
   $text =  '<p class="lead">'. t('Ci sono già <strong> @total </strong> utenti iscritti.', array('@total' => $total)) . '</p>';
   if (!$user->uid) {
-    $text .= '<p> Se non hai ancora un account ' . l('clicca qui per tutte le informazioni.', 'node/116') . '</p>';
+    $text .= '<p> Se non hai ancora un account ' . l('clicca qui per tutte le informazioni.', $url_info_subscription) . '</p>';
   }
   $form['sod14_subscribe_text']['#markup'] = $text;
 
@@ -158,4 +159,27 @@ function sod14_sessions_subscribe_form_submit($form, &$form_state) {
   drupal_set_message($confirm_message);
 }
 
+/**
+ * Implements hook_group_info().
+ */
+function sod_sessions_variable_group_info() {
+  $groups['sod_sessions'] = array(
+    'title' => t('Conference information page'),
+    'access' => 'administer site configuration',
+  );
+  return $groups;
+}
 
+/**
+ * Implements hook_variable_info().
+ */
+function sod_sessions_variable_info($options) {
+  $variables['sod_conference_info_page'] = array(
+    'type' => 'string',
+    'title' => t('Node informations page', array(), $options),
+    'default' => 'node/116',
+    'description' => t('Relative node url information conference page (ex: node/116).', array(), $options),
+    'required' => TRUE,
+  );
+  return $variables;
+}
