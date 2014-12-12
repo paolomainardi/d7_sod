@@ -46,7 +46,7 @@ function sod_users_field_default_field_instances() {
     'bundle' => 'main',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Per favore, indica se intendi partecipare a SOD15. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -279,7 +279,7 @@ function sod_users_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => 'Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati con licenza CC0 per favorirne il riuso ? <br> 
+    'description' => 'Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati con licenza CC0 per favorirne il riuso ? <br>
 Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.',
     'display' => array(
@@ -1014,7 +1014,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
 <a href="http://www.spaghettiopendata.org/privacy-policy">Leggi qui il testo integrale dell\'informativa</a>
 ');
   t('Acconsenti alla ricezione di comunicazioni relative alle iniziative della community SOD ?');
-  t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati con licenza CC0 per favorirne il riuso ? <br> 
+  t('Ad esclusione della posta elettronica acconsenti alla pubblicazione di questi dati con licenza CC0 per favorirne il riuso ? <br>
 Il tuo profilo verrà visualizzato nella pagina <a href="http://www.spaghettiopendata.org/community"> Community </a> <br>
 Questo campo è obbligatorio, non è possibile salvare le informazioni di profilo se non viene accordato il consenso.');
   t('Avatar');
