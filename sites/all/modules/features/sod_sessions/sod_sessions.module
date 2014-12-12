@@ -135,9 +135,10 @@ function sod14_sessions_subscribe_form($form, &$form_state) {
 
 function sod14_sessions_subscribe_form_submit($form, &$form_state) {
   global $user;
+  $url_info_subscription = variable_get_value('sod_conference_info_page');
   if (!$user->uid) {
     drupal_set_message(t('Per iscriverti deve essere avere un account, leggi questo post per capire come fare.'));
-    drupal_goto('node/116');
+    drupal_goto($url_info_subscription);
     exit();
   }
 
