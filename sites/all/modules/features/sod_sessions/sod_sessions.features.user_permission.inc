@@ -39,6 +39,15 @@ function sod_sessions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete terms in conference'.
+  $permissions['delete terms in conference'] = array(
+    'name' => 'delete terms in conference',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in session_difficuly_level'.
   $permissions['delete terms in session_difficuly_level'] = array(
     'name' => 'delete terms in session_difficuly_level',
@@ -65,6 +74,15 @@ function sod_sessions_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit terms in conference'.
+  $permissions['edit terms in conference'] = array(
+    'name' => 'edit terms in conference',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in session_difficuly_level'.

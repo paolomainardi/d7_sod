@@ -41,6 +41,38 @@ function sod_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field_partecipo_a_sod15'
+  $field_instances['profile2-main-field_partecipo_a_sod15'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_partecipo_a_sod15',
+    'label' => 'Partecipo a SOD15',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 18,
+    ),
+  );
+
   // Exported field_instance: 'profile2-main-field_profile_avatar'
   $field_instances['profile2-main-field_profile_avatar'] = array(
     'bundle' => 'main',
@@ -1008,6 +1040,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Linkedin');
   t('Nome');
   t('Partecipo a SOD14!');
+  t('Partecipo a SOD15');
   t('Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ');
   t('Pubblicazione dei dati');
   t('Reddito generato con gli OD');

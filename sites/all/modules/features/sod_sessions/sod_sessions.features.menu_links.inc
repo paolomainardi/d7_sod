@@ -14,7 +14,7 @@ function sod_sessions_menu_default_menu_links() {
   $menu_links['menu-sod14_le-mie-proposte-inviate:sod14/sessioni/my'] = array(
     'menu_name' => 'menu-sod14',
     'link_path' => 'sod14/sessioni/my',
-    'router_path' => 'sod14/sessioni/my',
+    'router_path' => 'sod14/sessioni',
     'link_title' => 'Le mie proposte inviate',
     'options' => array(
       'attributes' => array(
@@ -34,7 +34,7 @@ function sod_sessions_menu_default_menu_links() {
   $menu_links['menu-sod14_le-sessioni-a-cui-partecipo:sod14/sessioni/iscrizioni'] = array(
     'menu_name' => 'menu-sod14',
     'link_path' => 'sod14/sessioni/iscrizioni',
-    'router_path' => 'sod14/sessioni/iscrizioni',
+    'router_path' => 'sod14/sessioni',
     'link_title' => 'Le sessioni a cui partecipo',
     'options' => array(
       'attributes' => array(

@@ -104,7 +104,7 @@ function sod_sessions_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'sod14/sessioni/my';
+  $handler->display->display_options['path'] = 'conf/sessioni/my';
   $translatables['le_mie_proposte'] = array(
     t('Master'),
     t('Le mie proposte'),
@@ -221,7 +221,7 @@ function sod_sessions_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'sod14/sessioni/iscrizioni';
+  $handler->display->display_options['path'] = 'conf/sessioni/iscrizioni';
   $translatables['sessioni_a_cui_partecipo'] = array(
     t('Master'),
     t('Sessioni a cui partecipo'),
@@ -258,7 +258,7 @@ function sod_sessions_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'SOD14 - Sessioni';
+  $handler->display->display_options['title'] = 'SOD Raduno - Sessioni';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'altro';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -423,10 +423,10 @@ function sod_sessions_views_default_views() {
   /* Display: Page - Lista sessioni */
   $handler = $view->new_display('page', 'Page - Lista sessioni', 'page');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'sod14/sessioni';
+  $handler->display->display_options['path'] = 'conf/sessioni';
   $translatables['sessioni_sod14'] = array(
     t('Master'),
-    t('SOD14 - Sessioni'),
+    t('SOD Raduno - Sessioni'),
     t('altro'),
     t('Applica'),
     t('Ripristina'),
@@ -603,7 +603,7 @@ function sod_sessions_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Chi viene a SOD14';
+  $handler->display->display_options['title'] = 'Chi viene al raduno';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'altro';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -633,7 +633,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = '@total persone partecipano a SOD14. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. ';
+  $handler->display->display_options['header']['result']['content'] = '@total persone partecipano al raduno. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. ';
   /* Comportamento se non ci sono risultati: Globale: Area di testo */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -758,25 +758,15 @@ function sod_sessions_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Profilo: Partecipo a SOD14! (field__b_partecipo_a_sod14_b_) */
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['id'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['table'] = 'field_data_field__b_partecipo_a_sod14_b_';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['field'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['value'] = array(
+  /* Criterio del filtro: Profilo: Partecipo a SOD15 (field_partecipo_a_sod15) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['id'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['table'] = 'field_data_field_partecipo_a_sod15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['field'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['value'] = array(
     1 => '1',
   );
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['group'] = 1;
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator_id'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['label'] = 'Partecipo a SOD14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['identifier'] = 'sod14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['group'] = 1;
   /* Criterio del filtro: Utente: Consenso al trattamento dei dati (field_user_privacy_polici) */
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
@@ -786,11 +776,11 @@ function sod_sessions_views_default_views() {
   );
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['group'] = 1;
 
-  /* Display: SOD14 User list */
-  $handler = $view->new_display('page', 'SOD14 User list', 'sod14_user_list');
+  /* Display: SOD Raduno User list */
+  $handler = $view->new_display('page', 'SOD Raduno User list', 'sod14_user_list');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['exposed_block'] = TRUE;
-  $handler->display->display_options['path'] = 'sod14/iscritti/list';
+  $handler->display->display_options['path'] = 'conf/iscritti/list';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Lista';
   $handler->display->display_options['menu']['description'] = 'Chi viene a SOD14';
@@ -803,8 +793,8 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'main-menu';
 
-  /* Display: SOD14 User map */
-  $handler = $view->new_display('page', 'SOD14 User map', 'sod14_user_map');
+  /* Display: SOD Raduno user map */
+  $handler = $view->new_display('page', 'SOD Raduno user map', 'sod14_user_map');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
@@ -902,6 +892,22 @@ function sod_sessions_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
+  /* Criterio del filtro: Profilo: Partecipo a SOD15 (field_partecipo_a_sod15) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['id'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['table'] = 'field_data_field_partecipo_a_sod15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['field'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['group'] = 1;
+  /* Criterio del filtro: Profilo: Geocode (field_profile_geocode:lat) */
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['id'] = 'field_profile_geocode_lat';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['table'] = 'field_data_field_profile_geocode';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['field'] = 'field_profile_geocode_lat';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['group'] = 1;
   /* Criterio del filtro: Utente: Consenso al trattamento dei dati (field_user_privacy_polici) */
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
@@ -910,33 +916,7 @@ function sod_sessions_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['group'] = 1;
-  /* Criterio del filtro: Profilo: Geocode (field_profile_geocode:lat) */
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['id'] = 'field_profile_geocode_lat';
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['table'] = 'field_data_field_profile_geocode';
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['field'] = 'field_profile_geocode_lat';
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['operator'] = 'not empty';
-  $handler->display->display_options['filters']['field_profile_geocode_lat']['group'] = 1;
-  /* Criterio del filtro: Profilo: Partecipo a SOD14! (field__b_partecipo_a_sod14_b_) */
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['id'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['table'] = 'field_data_field__b_partecipo_a_sod14_b_';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['field'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['value'] = array(
-    1 => '1',
-  );
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['group'] = 1;
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator_id'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['label'] = 'Partecipo a SOD14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['identifier'] = 'sod14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  $handler->display->display_options['path'] = 'sod14/iscritti/map';
+  $handler->display->display_options['path'] = 'conf/iscritti/map';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Mappa';
   $handler->display->display_options['menu']['description'] = 'Mappa utenti sod14';
@@ -945,7 +925,7 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['menu']['context'] = 0;
   $translatables['sod14_users'] = array(
     t('Master'),
-    t('Chi viene a SOD14'),
+    t('Chi viene al raduno'),
     t('altro'),
     t('Applica'),
     t('Ripristina'),
@@ -959,7 +939,7 @@ function sod_sessions_views_default_views() {
     t('‹ precedente'),
     t('seguente ›'),
     t('ultima »'),
-    t('@total persone partecipano a SOD14. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. '),
+    t('@total persone partecipano al raduno. <a href = "/blog/mara-cinquepalmi/sod14-come-iscriversi-e-come-partecipare">Partecipa anche tu</a>. '),
     t('Nessun utente trovato con questi criteri di ricerca.'),
     t('Profilo'),
     t('Testo personalizzato'),
@@ -967,9 +947,8 @@ function sod_sessions_views_default_views() {
 [field_profile_avatar_1] '),
     t('Provincia'),
     t('Categoria'),
-    t('Partecipo a SOD14'),
-    t('SOD14 User list'),
-    t('SOD14 User map'),
+    t('SOD Raduno User list'),
+    t('SOD Raduno user map'),
   );
   $export['sod14_users'] = $view;
 

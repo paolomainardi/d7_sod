@@ -191,18 +191,18 @@ function sod_users_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Profilo: Partecipo a SOD14! (field__b_partecipo_a_sod14_b_) */
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['id'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['table'] = 'field_data_field__b_partecipo_a_sod14_b_';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['field'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['group'] = 1;
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator_id'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['label'] = 'Partecipo a SOD14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['identifier'] = 'sod14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['remember_roles'] = array(
+  /* Criterio del filtro: Profilo: Partecipo a SOD15 (field_partecipo_a_sod15) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['id'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['table'] = 'field_data_field_partecipo_a_sod15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['field'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['operator_id'] = 'field_partecipo_a_sod15_value_op';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['label'] = 'Partecipo a SOD15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['operator'] = 'field_partecipo_a_sod15_value_op';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['identifier'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -359,17 +359,19 @@ function sod_users_views_default_views() {
   $handler->display->display_options['filters']['field_profile_geocode_lat']['field'] = 'field_profile_geocode_lat';
   $handler->display->display_options['filters']['field_profile_geocode_lat']['relationship'] = 'profile';
   $handler->display->display_options['filters']['field_profile_geocode_lat']['operator'] = 'not empty';
-  /* Criterio del filtro: Profilo: Partecipo a SOD14! (field__b_partecipo_a_sod14_b_) */
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['id'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['table'] = 'field_data_field__b_partecipo_a_sod14_b_';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['field'] = 'field__b_partecipo_a_sod14_b__value';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator_id'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['label'] = 'Partecipo a SOD14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['operator'] = 'field__b_partecipo_a_sod14_b__value_op';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['identifier'] = 'sod14';
-  $handler->display->display_options['filters']['field__b_partecipo_a_sod14_b__value']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_profile_geocode_lat']['group'] = 1;
+  /* Criterio del filtro: Profilo: Partecipo a SOD15 (field_partecipo_a_sod15) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['id'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['table'] = 'field_data_field_partecipo_a_sod15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['field'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['operator_id'] = 'field_partecipo_a_sod15_value_op';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['label'] = 'Partecipo a SOD15';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['operator'] = 'field_partecipo_a_sod15_value_op';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['identifier'] = 'field_partecipo_a_sod15_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod15_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -406,7 +408,7 @@ function sod_users_views_default_views() {
     t('Parole chiave'),
     t('Provincia'),
     t('Categoria'),
-    t('Partecipo a SOD14'),
+    t('Partecipo a SOD15'),
     t('User search page'),
     t('User map (ip_geoloc)'),
   );

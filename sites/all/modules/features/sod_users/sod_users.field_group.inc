@@ -138,20 +138,22 @@ function sod_users_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'SOD14',
+    'label' => 'SOD15',
     'weight' => '6',
     'children' => array(
       0 => 'field__b_partecipo_a_sod14_b_',
       1 => 'field_test',
+      2 => 'field_partecipo_a_sod15',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'SOD15',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-sod14 field-group-tab',
         'required_fields' => 1,
+        'classes' => 'group-sod14 group-sod15 field-group-tab',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_sod14|profile2|main|form'] = $field_group;

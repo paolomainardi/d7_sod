@@ -98,8 +98,8 @@ function sod14_sessions_subscribe_form($form, &$form_state) {
   $subscribed = false;
   if ($user->uid) {
     $profile = profile2_load_by_user($user);
-    if (isset($profile['main']->field__b_partecipo_a_sod14_b_)) {
-      $subscribed = (bool) $profile['main']->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'];
+    if (isset($profile['main']->field_partecipo_a_sod15)) {
+      $subscribed = (bool) $profile['main']->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'];
     }
   }
 
@@ -145,12 +145,12 @@ function sod14_sessions_subscribe_form_submit($form, &$form_state) {
 
   // sub/unsubscribe
   $sub = false;
-  if (isset($profile->field__b_partecipo_a_sod14_b_)) {
-    $sub = (int) !$profile->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'];
+  if (isset($profile->field_partecipo_a_sod15)) {
+    $sub = (int) !$profile->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'];
   }
 
   // set the value
-  $profile->field__b_partecipo_a_sod14_b_[LANGUAGE_NONE][0]['value'] = $sub;
+  $profile->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'] = $sub;
   profile2_save($profile);
 
   // thanks to user and exit

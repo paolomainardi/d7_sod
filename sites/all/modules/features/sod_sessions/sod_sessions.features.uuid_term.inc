@@ -11,6 +11,17 @@ function sod_sessions_uuid_features_default_terms() {
   $terms = array();
 
   $terms[] = array(
+    'name' => 'SOD15',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => '5c277811-db49-4099-b5ac-d909521de6ef',
+    'language' => 'und',
+    'i18n_tsid' => 0,
+    'vocabulary_machine_name' => 'conference',
+    'metatags' => array(),
+  );
+  $terms[] = array(
     'name' => 'Avanzato',
     'description' => '<p>Richiede conoscenze avanzate di programmazione, analisi dei dati o conoscenza delle principali forme di licenza.</p>
 ',
@@ -44,6 +55,17 @@ function sod_sessions_uuid_features_default_terms() {
     'language' => 'und',
     'i18n_tsid' => 0,
     'vocabulary_machine_name' => 'session_difficuly_level',
+    'metatags' => array(),
+  );
+  $terms[] = array(
+    'name' => 'SOD14',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => 'fdd88dce-807f-4b41-bf4e-961b5d591cd9',
+    'language' => 'und',
+    'i18n_tsid' => 0,
+    'vocabulary_machine_name' => 'conference',
     'metatags' => array(),
   );
   return $terms;

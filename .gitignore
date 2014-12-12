@@ -6,6 +6,11 @@ sites/*/files
 sites/*/private
 
 includes/deploy
+INSTALL.*
+README.*
+UPGRADE*
+example.sites.php
+default.settings.php
 
 *.sql
 *.tar.gz
