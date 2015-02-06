@@ -144,11 +144,17 @@ function sod14_sessions_subscribe_form_submit($form, &$form_state) {
 
   // load user profile
   $profile = profile2_load_by_user($user, 'main');
-
+  if (!$profile) {
+    $profile = entity_create('profile2', array('type' => 'main'));
+    $profile->uid = $user->uid;
+    $profile->save();
+  }
   // sub/unsubscribe
-  $sub = false;
   if (isset($profile->field_partecipo_a_sod15)) {
     $sub = (int) !$profile->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'];
+  }
+  else {
+    $sub = 1;
   }
 
   // set the value
