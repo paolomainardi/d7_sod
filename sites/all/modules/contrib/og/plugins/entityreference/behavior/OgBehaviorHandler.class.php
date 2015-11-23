@@ -9,7 +9,7 @@ class OgBehaviorHandler extends EntityReference_BehaviorHandler_Abstract {
    * Implements EntityReference_BehaviorHandler_Abstract::access().
    */
   public function access($field, $instance) {
-    return $field['settings']['handler'] == 'og';
+    return $field['settings']['handler'] == 'og' || strpos($field['settings']['handler'], 'og_') === 0;
   }
 
   /**
@@ -17,17 +17,25 @@ class OgBehaviorHandler extends EntityReference_BehaviorHandler_Abstract {
    */
   public function load($entity_type, $entities, $field, $instances, $langcode, &$items) {
     // Get the OG memberships from the field.
+    $field_name = $field['field_name'];
+    $target_type = $field['settings']['target_type'];
     foreach ($entities as $entity) {
       $wrapper = entity_metadata_wrapper($entity_type, $entity);
-      if (empty($wrapper->{$field['field_name'] . '__og_membership'})) {
+      if (empty($wrapper->{$field_name})) {
         // If the entity belongs to a bundle that was deleted, return early.
         continue;
       }
       $id = $wrapper->getIdentifier();
       $items[$id] = array();
-      foreach ($wrapper->{$field['field_name'] . '__og_membership'}->value() as $og_membership) {
+      $gids = og_get_entity_groups($entity_type, $entity, array(), $field_name);
+
+      if (empty($gids[$target_type])) {
+        continue;
+      }
+
+      foreach ($gids[$target_type] as $gid) {
         $items[$id][] = array(
-          'target_id' => $og_membership->gid,
+          'target_id' => $gid,
         );
       }
     }
@@ -91,8 +99,7 @@ class OgBehaviorHandler extends EntityReference_BehaviorHandler_Abstract {
       // User has no access to field.
       return;
     }
-    $diff = $this->groupAudiencegetDiff($entity_type, $entity, $field, $instance, $langcode, $items);
-    if (!$diff) {
+    if (!$diff = $this->groupAudiencegetDiff($entity_type, $entity, $field, $instance, $langcode, $items)) {
       return;
     }
 
@@ -106,12 +113,31 @@ class OgBehaviorHandler extends EntityReference_BehaviorHandler_Abstract {
       og_membership_delete_multiple($diff['delete']);
     }
 
+    if (!$diff['insert']) {
+      return;
+    }
+
+    // Prepare an array with the membership state, if it was provided in the widget.
+    $states = array();
+    foreach ($items as $item) {
+      $gid = $item['target_id'];
+      if (empty($item['state']) || !in_array($gid, $diff['insert'])) {
+        // State isn't provided, or not an "insert" operation.
+        continue;
+      }
+      $states[$gid] = $item['state'];
+    }
+
     foreach ($diff['insert'] as $gid) {
       $values = array(
         'entity_type' => $entity_type,
         'entity' => $entity,
         'field_name' => $field_name,
       );
+
+      if (!empty($states[$gid])) {
+        $values['state'] = $states[$gid];
+      }
 
       og_group($group_type, $gid, $values);
     }
@@ -161,5 +187,115 @@ class OgBehaviorHandler extends EntityReference_BehaviorHandler_Abstract {
     }
 
     return $return;
+  }
+
+  /**
+   * Implements EntityReference_BehaviorHandler_Abstract::views_data_alter().
+   */
+  public function views_data_alter(&$data, $field) {
+    // We need to override the default EntityReference table settings when OG
+    // behavior is being used.
+    if (og_is_group_audience_field($field['field_name'])) {
+      $entity_types = array_keys($field['bundles']);
+      // We need to join the base table for the entities
+      // that this field is attached to.
+      foreach ($entity_types as $entity_type) {
+        $entity_info = entity_get_info($entity_type);
+        $data['og_membership'] = array(
+          'table' => array(
+            'join' => array(
+              $entity_info['base table'] => array(
+                // Join entity base table on its id field with left_field.
+                'left_field' => $entity_info['entity keys']['id'],
+                'field' => 'etid',
+                'extra' => array(
+                  0 => array(
+                    'field' => 'entity_type',
+                    'value' => $entity_type,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          // Copy the original config from the table definition.
+          $field['field_name'] => $data['field_data_' . $field['field_name']][$field['field_name']],
+          $field['field_name'] . '_target_id' => $data['field_data_' . $field['field_name']][$field['field_name'] . '_target_id'],
+        );
+
+        // Change config with settings from og_membership table.
+        foreach (array('filter', 'argument', 'sort') as $op) {
+          $data['og_membership'][$field['field_name'] . '_target_id'][$op]['field'] = 'gid';
+          $data['og_membership'][$field['field_name'] . '_target_id'][$op]['table'] = 'og_membership';
+          unset($data['og_membership'][$field['field_name'] . '_target_id'][$op]['additional fields']);
+        }
+      }
+
+      // Get rid of the original table configs.
+      unset($data['field_data_' . $field['field_name']]);
+      unset($data['field_revision_' . $field['field_name']]);
+    }
+  }
+
+  /**
+   * Implements EntityReference_BehaviorHandler_Abstract::validate().
+   *
+   * Re-build $errors array to be keyed correctly by "default" and "admin" field
+   * modes.
+   *
+   * @todo: Try to get the correct delta so we can highlight the invalid
+   * reference.
+   *
+   * @see entityreference_field_validate().
+   */
+  public function validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
+    $new_errors = array();
+    $values = array('default' => array(), 'admin' => array());
+
+    $item = reset($items);
+    if (!empty($item['field_mode'])) {
+      // This is a complex widget with "default" and "admin" field modes.
+      foreach ($items as $item) {
+        $values[$item['field_mode']][] = $item['target_id'];
+      }
+    }
+    else {
+      foreach ($items as $item) {
+        $values['default'][] = $item['target_id'];
+      }
+    }
+
+    $field_name = $field['field_name'];
+
+    foreach ($values as $field_mode => $ids) {
+      if (!$ids) {
+        continue;
+      }
+
+      if ($field_mode == 'admin' && !user_access('administer group')) {
+        // No need to validate the admin, as the user has no access to it.
+        continue;
+      }
+
+      $instance['field_mode'] = $field_mode;
+      $valid_ids = entityreference_get_selection_handler($field, $instance, $entity_type, $entity)->validateReferencableEntities($ids);
+
+      if ($invalid_entities = array_diff($ids, $valid_ids)) {
+        foreach ($invalid_entities as $id) {
+          $new_errors[$field_mode][] = array(
+            'error' => 'og_invalid_entity',
+            'message' => t('The referenced group (@type: @id) is invalid.', array('@type' => $field['settings']['target_type'], '@id' => $id)),
+          );
+        }
+      }
+    }
+
+    if ($new_errors) {
+      og_field_widget_register_errors($field_name, $new_errors);
+      // We throw an exception ourself, as we unset the $errors array.
+      throw new FieldValidationException($new_errors);
+    }
+
+    // Errors for this field now handled, removing from the referenced array.
+    unset($errors[$field_name]);
   }
 }

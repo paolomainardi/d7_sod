@@ -59,7 +59,7 @@ function i18n_block_menu_alter(&$items) {
  */
 function i18n_block_translate_tab_access($module, $delta) {
   $block = block_load($module, $delta);
-  return user_access('translate interface') && isset($block) && ($block->i18n_mode == I18N_MODE_LOCALIZE);
+  return user_access('translate interface') && $block && isset($block->i18n_mode) && ($block->i18n_mode == I18N_MODE_LOCALIZE);
 }
 
 /**
@@ -106,7 +106,7 @@ function i18n_block_block_view_alter(&$data, $block) {
   if (!empty($block->i18n_mode)) {
     if (!empty($block->title) && $block->title != '<none>') {
       // Unfiltered, as $block->subject will be created later from the title.
-      $block->title = i18n_string(array('blocks', $block->module, $block->delta, 'title'), $block->title, array('sanitize' => FALSE));
+      $data['title'] = i18n_string(array('blocks', $block->module, $block->delta, 'title'), $block->title, array('sanitize' => FALSE));
     }
     if ($block->module == 'block' && isset($data['content'])) {
       $data['content'] = i18n_string(array('blocks', $block->module, $block->delta, 'body'), $data['content']);

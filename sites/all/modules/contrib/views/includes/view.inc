@@ -756,7 +756,7 @@ class view extends views_db_object {
    */
   function _init_handler($key, $info) {
     // Load the requested items from the display onto the object.
-    $this->$key = $this->display_handler->get_handlers($key);
+    $this->$key = &$this->display_handler->get_handlers($key);
 
     // This reference deals with difficult PHP indirection.
     $handlers = &$this->$key;
@@ -960,8 +960,16 @@ class view extends views_db_object {
 
     if ($this->display_handler->uses_exposed()) {
       $exposed_form = $this->display_handler->get_plugin('exposed_form');
+      // (1) Record the errors before rendering the exposed form widgets.
+      $errors_before = form_set_error();
       $this->exposed_widgets = $exposed_form->render_exposed_form();
-      if (form_set_error() || !empty($this->build_info['abort'])) {
+      // (2) Record the errors after rendering the exposed form widgets.
+      $errors_after = form_set_error();
+      // Find out if the validation of any of the elements in the exposed form
+      // has failed by comparing (1) and (2) above. Don't mess with the view
+      // otherwise.
+      $exposed_errors = count($errors_after) > count($errors_before);
+      if ($exposed_errors || !empty($this->build_info['abort'])) {
         $this->built = TRUE;
         // Don't execute the query, but rendering will still be executed to display the empty text.
         $this->executed = TRUE;
@@ -1142,7 +1150,7 @@ class view extends views_db_object {
       $cache = $this->display_handler->get_plugin('cache');
     }
     if ($cache && $cache->cache_get('results')) {
-      if($this->query->pager->use_pager()) {
+      if($this->query->pager->use_pager() || !empty($this->get_total_rows)) {
         $this->query->pager->total_items = $this->total_rows;
         $this->query->pager->update_page_info();
       }
@@ -1258,6 +1266,7 @@ class view extends views_db_object {
         $cache->cache_set('output');
       }
     }
+    $this->render_time = microtime(TRUE) - $start;
 
     $exposed_form->post_render($this->display_handler->output);
 
@@ -1286,7 +1295,6 @@ class view extends views_db_object {
     if (!empty($this->live_preview) && variable_get('views_show_additional_queries', FALSE)) {
       $this->end_query_capture();
     }
-    $this->render_time = microtime(TRUE) - $start;
 
     return $this->display_handler->output;
   }
@@ -2094,6 +2102,10 @@ class view extends views_db_object {
    * Determine whether a view supports admin string translation.
    */
   function is_translatable() {
+    // Use translation no matter what type of view.
+    if (variable_get('views_localize_all', FALSE)) {
+      return TRUE;
+    }
     // If the view is normal or overridden, use admin string translation.
     // A newly created view won't have a type. Accept this.
     return (!isset($this->type) || in_array($this->type, array(t('Normal'), t('Overridden')))) ? TRUE : FALSE;
@@ -2558,7 +2570,7 @@ class views_display extends views_db_object {
   var $display_options;
 
   var $db_table = 'views_display';
-  function views_display($init = TRUE) {
+  function __construct($init = TRUE) {
     parent::init($init);
   }
 

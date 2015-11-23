@@ -6,7 +6,7 @@
 class OgWidgetHandler extends EntityReference_BehaviorHandler_Abstract {
 
   public function access($field, $instance) {
-    return $field['settings']['handler'] == 'og' && $instance['widget']['type'] == 'og_complex';
+    return ($field['settings']['handler'] == 'og' || strpos($field['settings']['handler'], 'og_') === 0) && $instance['widget']['type'] == 'og_complex';
   }
 
   /**
@@ -50,6 +50,14 @@ class OgWidgetHandler extends EntityReference_BehaviorHandler_Abstract {
         '#description' => $value['description'],
       );
     }
+
+    // Field access settings.
+    $form['access_override'] = array(
+      '#title' => t('Allow entity access to control field access'),
+      '#description' => t('By default, the <em>administer group</em> permission is required to directly edit this field. Selecting this option will allow access to anybody with access to edit the entity.'),
+      '#type' => 'checkbox',
+      '#default_value' => isset($settings['access_override']) ? $settings['access_override'] : FALSE,
+    );
 
     return $form;
   }

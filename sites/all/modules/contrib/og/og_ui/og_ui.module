@@ -58,6 +58,29 @@ function og_ui_menu() {
     'file' => 'og_ui.admin.inc',
   );
 
+  // User listing pages.
+  $items['group/%/%/admin/people/edit-membership/%og_membership'] = array(
+    'title callback' => 'og_ui_menu_title_callback',
+    'title arguments' => array('Edit membership in group @group', 1, 2),
+    'type' => MENU_CALLBACK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('og_ui_edit_membership', 1, 2, 6),
+    'access callback' => 'og_ui_user_access_group',
+    'access arguments' => array('manage members', 1, 2),
+    'file' => 'og_ui.admin.inc',
+  );
+
+  // Delete a single membership.
+  $items['group/%/%/admin/people/delete-membership/%og_membership'] = array(
+    'title' => 'Delete',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('og_ui_delete_membership', 1, 2, 6),
+    'access callback' => 'og_ui_user_access_group',
+    'access arguments' => array('manage members', 1, 2),
+    'file' => 'og_ui.admin.inc',
+  );
+
   // Permission administration pages.
   $items['group/%/%/admin/roles'] = array(
     'title callback' => 'og_ui_menu_title_callback',
@@ -574,9 +597,15 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
         return;
       }
 
-      if (!empty($entity->uid) && ($entity->uid == $user->uid)) {
+      if (!empty($entity->uid) && ($entity->uid == $account->uid)) {
         // User is the group manager.
-        $element[0] = array('#markup' => t('You are the group manager'));
+        $element[0] = array(
+          '#type' => 'html_tag',
+          '#tag' => 'span',
+          '#attributes' => array('title' => t('You are the group manager'), 'class' => 'group manager'),
+          '#value' => t('You are the group manager'),
+        );
+
         return $element;
       }
 
@@ -585,6 +614,7 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
         if (og_user_access($entity_type, $id, 'unsubscribe', $account)) {
           $links['title'] = t('Unsubscribe from group');
           $links['href'] = "group/$entity_type/$id/unsubscribe";
+          $links['class'] = 'group unsubscribe';
         }
       }
       else {
@@ -595,7 +625,7 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
         }
 
         // Check if user can subscribe to the field.
-        if (empty($settings['field_name']) && $audience_field_name = og_get_best_group_audience_field('user', $user->uid, $entity_type, $bundle)) {
+        if (empty($settings['field_name']) && $audience_field_name = og_get_best_group_audience_field('user', $account, $entity_type, $bundle)) {
           $settings['field_name'] = $audience_field_name;
         }
         if (!$settings['field_name']) {
@@ -614,8 +644,13 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
           return;
         }
 
-        if (!og_check_field_cardinality('user', $user->uid, $settings['field_name'])) {
-          $element[0] = array('#markup' => format_plural($field_info['cardinality'], 'You are already registered to another group', 'You are already registered to @count groups'));
+        if (!og_check_field_cardinality('user', $account, $settings['field_name'])) {
+          $element[0] = array(
+            '#type' => 'html_tag',
+            '#tag' => 'span',
+            '#attributes' => array('title' => format_plural($field_info['cardinality'], 'You are already registered to another group', 'You are already registered to @count groups'), 'class' => 'group other'),
+            '#value' => format_plural($field_info['cardinality'], 'You are already registered to another group', 'You are already registered to @count groups'),
+          );
           return $element;
         }
 
@@ -626,6 +661,7 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
 
         if (og_user_access($entity_type, $id, 'subscribe without approval', $account)) {
           $links['title'] = t('Subscribe to group');
+          $links['class'] = 'group subscribe';
           if ($account->uid) {
             $links['href'] = $url;
           }
@@ -636,6 +672,7 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
         }
         elseif (og_user_access($entity_type, $id, 'subscribe')) {
           $links['title'] = t('Request group membership');
+          $links['class'] = 'group subscribe request';
           if ($account->uid) {
             $links['href'] = $url;
           }
@@ -645,13 +682,19 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
           }
         }
         else {
-          $element[0] =  array('#markup' => t('This is a closed group. Only a group administrator can add you.'));
+          $element[0] = array(
+            '#type' => 'html_tag',
+            '#tag' => 'span',
+            '#attributes' => array('title' => t('This is a closed group. Only a group administrator can add you.'), 'class' => 'group closed'),
+            '#value' => t('This is a closed group. Only a group administrator can add you.'),
+          );
+
           return $element;
         }
       }
 
       if (!empty($links['title'])) {
-        $links += array('options' => array());
+        $links += array('options' => array('attributes' => array('title' => $links['title'], 'class' => array($links['class']))));
         $element[0] = array(
           '#type' => 'link',
           '#title' => $links['title'],
@@ -668,6 +711,9 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
       $private = FALSE;
       $wrapper = entity_metadata_wrapper($entity_type, $entity);
       $field_name = $field['field_name'];
+      if (!$wrapper->{$field_name}->value()) {
+        return;
+      }
       if ($field['cardinality'] == 1) {
         // Single-value field.
         if ($wrapper->{$field_name}->entityAccess('view')) {
@@ -709,6 +755,10 @@ function og_ui_field_formatter_view($entity_type, $entity, $field, $instance, $l
             '#type' => 'link',
             '#title' => $wrapper->label(),
             '#href' => $wrapper->url->value(),
+            // Add the group type and group ID, so it's easier for implementing
+            // modules to extend the formatter.
+            '#group_type' => $group_type,
+            '#gid' => $wrapper->getIdentifier(),
           );
         }
       }
@@ -785,6 +835,12 @@ function og_ui_field_access($op, $field, $entity_type, $entity, $account) {
   }
 
   if ($entity_type != 'user') {
+    return;
+  }
+
+  list($id, $vid, $bundle_name) = entity_extract_ids($entity_type, $entity);
+  $instance = field_info_instance($entity_type, $field['field_name'], $bundle_name);
+  if (!empty($instance['settings']['behaviors']['og_widget']['access_override'])) {
     return;
   }
 
@@ -1119,32 +1175,22 @@ function og_ui_og_ui_get_group_admin($group_type, $gid) {
  * Implements hook_migrate_api().
  */
 function og_ui_migrate_api() {
+  $migrations = array();
+  if (db_table_exists('d6_og')) {
+    $migrations['OgUiMigrateAddField'] = array('class_name' => 'OgUiMigrateAddField');
+    $migrations['OgUiSetRoles'] = array('class_name' => 'OgUiSetRoles');
+
+    foreach (node_type_get_names() as $bundle => $value) {
+      $machine_name = 'OgUiPopulateField' . ucfirst($bundle);
+      $migrations[$machine_name] = array(
+        'class_name' => 'OgUiPopulateField',
+        'bundle' => $bundle,
+      );
+    }
+  }
   $api = array(
     'api' => 2,
-    'migrations' => array(
-      'OgUiMigrateAddField' => array('class_name' => 'OgUiMigrateAddField'),
-      'OgUiSetRoles' => array('class_name' => 'OgUiSetRoles'),
-    )
+    'migrations' => $migrations,
   );
   return $api;
-}
-
-/**
- * Implements hook_modules_enabled().
- *
- * Register dynamic migrate plugins for upgrading from OG6.
- */
-function og_ui_modules_enabled($modules) {
-  if (!db_table_exists('d6_og')) {
-    return;
-  }
-
-  if (!in_array('migrate', $modules) && !module_exists('migrate')) {
-    return;
-  }
-
-  foreach (node_type_get_names() as $bundle => $value) {
-    // Register dynamic migrations.
-    Migration::registerMigration('OgUiPopulateField', 'OgUiPopulateField' . ucfirst($bundle), array('bundle' => $bundle));
-  }
 }
