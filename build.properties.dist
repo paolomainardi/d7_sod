@@ -1,0 +1,17 @@
+domain=%%ENV%%.%%PROJECT%%.%%VENDOR%%.%%SERVER%%
+
+drush.destination.alias=@%%VENDOR%%.%%PROJECT%%.%%ENV%%
+drush.make.concurrency=8
+drush.make.cache=TRUE
+
+source.sys.dump_dir=./dumps
+source.db.schema=mysql
+source.db.user.name=drupal
+source.db.user.pass=drupal
+source.db.host=mysql
+source.db.port=3306
+source.db.name=drupal
+source.db.url=${source.db.schema}://${source.db.user.name}:${source.db.user.pass}@${source.db.host}:${source.db.port}/${source.db.name}
+
+settings.directory.source = default
+settings.directory.destination = default

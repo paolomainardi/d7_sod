@@ -1,0 +1,44 @@
+data:
+  image: busybox
+  volumes:
+    - /var/lib/mysql
+    - .:/var/www/html
+    - ./sites/default/files:/var/www/html/sites/default/files
+    - ./cache/drush:/root/.drush/cache
+    - ./cache/composer:/composer-libs/cache
+drupal:
+  build: .
+  dockerfile: Dockerfile
+  hostname: drupal
+  volumes_from:
+    - data
+  links:
+    - mysql
+    - mail
+    - blackfire_agent:blackfire
+  environment:
+    - DNSDOCK_ALIAS=%%ENV%%.%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc,%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc
+    - ENV_TYPE=LOC
+    - PHP_OPCACHE_ENABLE=0
+  extra_hosts:
+    - "%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc:127.0.0.1"
+    - "%%ENV%%.%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc:127.0.0.1"
+mysql:
+  image: mariadb:10.1.12
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=drupal
+    - MYSQL_USER=drupal
+    - MYSQL_PASSWORD=drupal
+    - DNSDOCK_ALIAS=mysql.srv.%%ENV%%.%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc
+  volumes_from:
+    - data
+blackfire_agent:
+  image: blackfire/blackfire:latest
+  environment:
+    - BLACKFIRE_SERVER_ID
+    - BLACKFIRE_SERVER_TOKEN
+mail:
+  image: mailhog/mailhog:latest
+  environment:
+    - DNSDOCK_ALIAS=mail.srv.%%ENV%%.%%PROJECT%%.%%VENDOR%%.sparkfabrik.loc

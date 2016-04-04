@@ -1,6 +1,28 @@
-# Ignore configuration files that may contain sensitive information.
+.DS_Store
+cache
+vendor/
+bin/
+!bin/e
+!bin/cs
+!bin/enable-xdebug
+!bin/run
+!bin/runhttpd
+includes/deploy
 sites/*/settings*.php
-
-# Ignore paths that contain user-generated content.
+sites/site.php
+build.*.properties
+.htaccess
+.aliases
+*.txt
+*.php
+*.bz2
+*.gz
+*.zip
+*.sql
+*.tar
+web.config
 sites/*/files
 sites/*/private
+docker-compose.yml
+docker-compose.ci.deploy.yml
+sites/default

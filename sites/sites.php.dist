@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file
+ * Configuration file for Drupal's multi-site directory aliasing feature.
+ *
+ * @see default.settings.php
+ */
+
+$sites['%%SITES_DOMAIN%%'] = '%%SITES_DESTINATION%%';

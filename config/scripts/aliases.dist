@@ -1,0 +1,16 @@
+#!/bin/bash
+alias drush="cd %PWD%; bin/e bin/drush"
+alias phing="cd %PWD%; bin/e bin/phing"
+alias cli="cd %PWD%; bin/e"
+alias php=php_cli
+alias php_err_logs="cd %PWD%; bin/e tail -F /tmp/php.err.log"
+alias fix-cs="cd %PWD%; bin/e bin/fix-cs"
+alias cs="cd %PWD%; bin/e bin/cs"
+alias dmake="cd %PWD%; bin/e bin/phing drush-make -Dvendor=vendor -Dproject=project -Denv=loc"
+alias cca="cd %PWD%; bin/e bin/drush cc all"
+alias cct="cd %PWD%; bin/e bin/drush cc theme-registry"
+alias dsqlc="bin/e drush sql-cli --extra=-A"
+
+function php_cli() {
+  bin/e php "${@}"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "spark/drupal",
+  "license": "proprietary",
+  "repositories": [
+       {
+           "type": "package",
+           "package": {
+               "name": "drupal/phing-drush-task",
+               "version": "1.2",
+               "source": {
+                   "url": "https://git.drupal.org/project/phingdrushtask.git",
+                   "type": "git",
+                   "reference": "7.x-1.2"
+               },
+               "autoload": {
+                   "classmap": [
+                       "DrushTask.php"
+                   ]
+               },
+               "include-path": [
+                   "."
+               ]
+           }
+       }
+   ],
+  "require-dev": {
+    "phing/phing": "2.12.*",
+    "drush/drush": "8.0.*",
+    "drupal/phing-drush-task": "^1.2",
+    "drupal/drupal-extension": "~3.1",
+    "drupal/coder": "8.2.6"
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer"
+    ]
+  }
+}

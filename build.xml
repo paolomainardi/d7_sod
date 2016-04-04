@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="app" default="dummy">
+  <property name="drush.bin" value="bin/drush"/>
+  <taskdef name="drush" classname="DrushTask" />
+
+  <target name="generate-properties" if="env" depends="get-properties">
+    <if>
+      <equals arg1="${env}" arg2="loc" />
+      <then>
+        <property name="server" value="sparkfabrik.loc"/>
+      </then>
+      <else>
+        <property name="server" value="ci.sparkfabrik.com"/>
+      </else>
+    </if>
+    <if>
+      <available file='build.${env}.properties' type='file' />
+      <then>
+        <echo>Properties available. skip generation</echo>
+      </then>
+      <else>
+        <echo>Generate file properties</echo>
+        <copy file="build.properties.dist" tofile="build.${env}.properties">
+          <filterchain>
+            <replacetokens begintoken="%%" endtoken="%%">
+              <token key="ENV" value="${env}" />
+              <token key="PROJECT" value="${project}" />
+              <token key="VENDOR" value="${vendor}" />
+              <token key="SERVER" value="${server}" />
+            </replacetokens>
+          </filterchain>
+        </copy>
+      </else>
+    </if>
+  </target>
+
+  <target name="generate-settings" if="env" depends="get-properties">
+    <mkdir dir="sites/${settings.directory.source}" />
+    <chmod file="sites/${settings.directory.source}" mode="775" verbose="true" failonerror="false"/>
+    <if>
+      <available file='sites/${settings.directory.source}/settings.php' type='file' />
+      <then>
+        <chmod file="sites/${settings.directory.source}/settings.php" mode="775" verbose="true" failonerror="false"/>
+      </then>
+    </if>
+    <copy file="sites/settings.php.dist" tofile="sites/${settings.directory.source}/settings.php" overwrite="true">
+      <filterchain>
+        <replacetokens begintoken="%%" endtoken="%%">
+          <token key="DB_NAME" value="${source.db.name}" />
+          <token key="DB_USER_NAME" value="${source.db.user.name}" />
+          <token key="DB_USER_PASS" value="${source.db.user.pass}" />
+          <token key="DB_HOST" value="${source.db.host}" />
+          <token key="DB_PORT" value="${source.db.port}" />
+        </replacetokens>
+      </filterchain>
+    </copy>
+  </target>
+
+  <target name="generate-sites" if="env" depends="get-properties">
+    <copy file="sites/sites.php.dist" tofile="sites/sites.php" overwrite="true">
+      <filterchain>
+        <replacetokens begintoken="%%" endtoken="%%">
+          <token key="SITES_DOMAIN" value="${domain}" />
+          <token key="SITES_DESTINATION" value="${settings.directory.destination}" />
+        </replacetokens>
+      </filterchain>
+    </copy>
+  </target>
+
+  <target name="get-properties" if="env">
+    <property file="build.${env}.properties" />
+  </target>
+
+  <target name="drush-make" if="env">
+    <drush command="make" assume="yes">
+      <param>app.make</param>
+    </drush>
+    <exec dir="." command="git checkout .gitignore" />
+  </target>
+
+  <target name="build-app" if="env">
+    <phingcall target="get-properties" />
+    <phingcall target="generate-properties" />
+    <phingcall target="generate-sites" />
+    <phingcall target="generate-settings" />
+    <phingcall target="drush-make" />
+  </target>
+</project>
