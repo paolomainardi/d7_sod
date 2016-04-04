@@ -41,6 +41,70 @@ function sod_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'profile2-main-field__reddito_2014_generato_con'
+  $field_instances['profile2-main-field__reddito_2014_generato_con'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Rispondendo a questa domanda contribuisci a stimare l\'occupazione negli open data in Italia. per esempio, due persone che derivano la metà del loro reddito dal lavoro con gli OD fanno un posto di lavoro a tempo pieno equivalente. Stimiamo anche il volontariato, che sappiamo essere tanto ma vorremmo quantificare!',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field__reddito_2014_generato_con',
+    'label' => '% Reddito 2014 generato con gli OD',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_classe_di_reddito_2014'
+  $field_instances['profile2-main-field_classe_di_reddito_2014'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Rispondendo a questa domanda contribuisci a stimare il valore dell\'economia degli open data in Italia. Per esempio, se guadagni tra i 30 e i 60mila euro all\'anno, e il 10-25% di essi è dovuto a lavoro su open data, significa che contribuisci all\'economia open data per un valore pari al reddito medio della classe, cioè (60-30)/2 + 30 = 45mila euro, moltiplicato per la percentuale di questi dovuto agli open data, cioè (25-10)/2 + 10  17.5%, cioè 7.875 euro.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_classe_di_reddito_2014',
+    'label' => 'Classe di reddito 2014',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 25,
+    ),
+  );
+
   // Exported field_instance: 'profile2-main-field_partecipo_a_sod15'
   $field_instances['profile2-main-field_partecipo_a_sod15'] = array(
     'bundle' => 'main',
@@ -70,6 +134,38 @@ function sod_users_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance: 'profile2-main-field_partecipo_a_sod16'
+  $field_instances['profile2-main-field_partecipo_a_sod16'] = array(
+    'bundle' => 'main',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Per favore, indica se intendi partecipare a SOD16. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 19,
+      ),
+    ),
+    'entity_type' => 'profile2',
+    'field_name' => 'field_partecipo_a_sod16',
+    'label' => 'Partecipo a SOD16',
+    'required' => 0,
+    'settings' => array(
+      'user_field_privacy' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 19,
     ),
   );
 
@@ -419,7 +515,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
     ),
     'entity_type' => 'profile2',
     'field_name' => 'field_profile_income_with_od',
-    'label' => 'Reddito generato con gli OD',
+    'label' => '% Reddito 2013 generato con gli OD',
     'required' => 0,
     'settings' => array(
       'user_field_privacy' => FALSE,
@@ -1010,6 +1106,8 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('% Reddito 2013 generato con gli OD');
+  t('% Reddito 2014 generato con gli OD');
   t('Acconsenti al trattamento dei dati relativi alla registrazione e alla navigazione per i fini <a href="http://www.spaghettiopendata.org/privacy-policy">descritti nell\'informativa</a> ? <br>
 <a href="http://www.spaghettiopendata.org/privacy-policy">Leggi qui il testo integrale dell\'informativa</a>
 ');
@@ -1022,6 +1120,7 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Carica una tua immagine');
   t('Citta di cui mi interesso');
   t('Classe di reddito 2013');
+  t('Classe di reddito 2014');
   t('Comunità di appartenenza');
   t('Consenso al trattamento dei dati');
   t('Consenso invio comunicazioni');
@@ -1041,9 +1140,11 @@ Questo campo è obbligatorio, non è possibile salvare le informazioni di profil
   t('Nome');
   t('Partecipo a SOD14!');
   t('Partecipo a SOD15');
+  t('Partecipo a SOD16');
   t('Per favore, indica se intendi partecipare a SOD14. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ');
+  t('Per favore, indica se intendi partecipare a SOD15. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ');
+  t('Per favore, indica se intendi partecipare a SOD16. Se cambi idea, ricordati di modificare il profilo e correggere la scelta: usiamo questa informazione per organizzare il raduno, ed è importante sapere con qualche settimana di anticipo quanti siamo. ');
   t('Pubblicazione dei dati');
-  t('Reddito generato con gli OD');
   t('Rispondendo a questa domanda contribuisci a stimare il valore dell\'economia degli open data in Italia. Per esempio, se guadagni tra i 30 e i 60mila euro all\'anno, e il 10-25% di essi è dovuto a lavoro su open data, significa che contribuisci all\'economia open data per un valore pari al reddito medio della classe, cioè (60-30)/2 + 30 = 45mila euro, moltiplicato per la percentuale di questi dovuto agli open data, cioè (25-10)/2 + 10  17.5%, cioè 7.875 euro.');
   t('Rispondendo a questa domanda contribuisci a stimare l\'occupazione negli open data in Italia. per esempio, due persone che derivano la metà del loro reddito dal lavoro con gli OD fanno un posto di lavoro a tempo pieno equivalente. Stimiamo anche il volontariato, che sappiamo essere tanto ma vorremmo quantificare!');
   t('Tag con cui ti identifichi ');

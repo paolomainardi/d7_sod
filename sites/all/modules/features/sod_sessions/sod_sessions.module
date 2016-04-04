@@ -78,7 +78,6 @@ function sod_sessions_flag_create_link($flag_name, $nid) {
 function sod_sessions_preprocess_views_view(&$vars) {
   $view = $vars['view'];
   if ($view->name == 'sod14_users') {
-
     // get the users total calling the views without filters
     $view = views_get_view('sod14_users');
     $view->init_display('sod14_user_list');
@@ -98,8 +97,8 @@ function sod14_sessions_subscribe_form($form, &$form_state) {
   $subscribed = false;
   if ($user->uid) {
     $profile = profile2_load_by_user($user);
-    if (isset($profile['main']->field_partecipo_a_sod15)) {
-      $subscribed = (bool) $profile['main']->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'];
+    if (isset($profile['main']->field_partecipo_a_sod16)) {
+      $subscribed = (bool) $profile['main']->field_partecipo_a_sod16[LANGUAGE_NONE][0]['value'];
     }
   }
 
@@ -150,19 +149,19 @@ function sod14_sessions_subscribe_form_submit($form, &$form_state) {
     $profile->save();
   }
   // sub/unsubscribe
-  if (isset($profile->field_partecipo_a_sod15)) {
-    $sub = (int) !$profile->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'];
+  if (isset($profile->field_partecipo_a_sod16)) {
+    $sub = (int) !$profile->field_partecipo_a_sod16[LANGUAGE_NONE][0]['value'];
   }
   else {
     $sub = 1;
   }
 
   // set the value
-  $profile->field_partecipo_a_sod15[LANGUAGE_NONE][0]['value'] = $sub;
+  $profile->field_partecipo_a_sod16[LANGUAGE_NONE][0]['value'] = $sub;
   profile2_save($profile);
 
   // thanks to user and exit
-  $confirm_message = ($sub ? t('Grazie, ora sei iscritto al raduno SOD14') : t('Non sei più iscritto al raduno SOD14'));
+  $confirm_message = ($sub ? t('Grazie, ora sei iscritto al raduno SOD16') : t('Non sei più iscritto al raduno SOD16'));
   drupal_set_message($confirm_message);
 }
 

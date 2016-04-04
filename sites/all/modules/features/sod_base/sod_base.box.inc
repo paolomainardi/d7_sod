@@ -84,7 +84,7 @@ new TWTR.Widget({
     'body' => array(
       'value' => '<p><img alt="Logo: Luca Corsato CC- BY" height="auto" src="http://www.spaghettiopendata.org/sites/default/files/blog/SOD_14_pasta.png" width="40%" /></p>
 <h4>
-	Il terzo raduno di Spaghetti Open Data si tiene a Bologna, 27-29 marzo 2015 &ndash; <a href="/blog/alberto-cottica/sod15-come-iscriversi-e-partecipare">Info</a></h4>
+	Il quarto raduno di Spaghetti Open Data si tiene a Trento, 6-8 maggio 2016 &ndash; <a href="/page/benvenut-sod16">Info</a></h4>
 <p>Siamo un gruppo di cittadini italiani interessati al rilascio di&nbsp;<strong>dati pubblici in formato aperto, in modo da renderne facile l&#39;accesso e il riuso (open data)</strong>. Ci sembra che questa pratica sia utile per alimentare la discussione sulle scelte che ci attendono; rendendo facilmente accessibili informazioni di qualit&agrave; alta, contribuir&agrave; a renderla pi&ugrave; razionale, allargata e fondata sui dati. Con tutti i suoi difetti, la nostra democrazia &egrave; un grandissimo dono che ci hanno fatto le generazioni passate: il minimo che possiamo fare, tutti insieme, &egrave; cercare di averne cura.</p>
 <p>Parliamo di dati su <a href="https://groups.google.com/d/forum/spaghettiopendata">questa mailing list</a> da settembre 2010. Abbiamo anche un <a href="https://github.com/spaghetti-open-data">repo Github</a>.</p>
 <p><iframe frameborder="0" height="300" id="forum_embed" scrolling="no" src="javascript:void(0)" width="900"></iframe><script type="text/javascript">

@@ -20,6 +20,7 @@ function opendata_ctypes_menu_default_menu_links() {
       'attributes' => array(),
       'node_type' => 'page',
       'identifier' => 'main-menu_dati:node/1',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 1,
@@ -37,6 +38,7 @@ function opendata_ctypes_menu_default_menu_links() {
     'link_title' => 'Richiedi dati',
     'options' => array(
       'identifier' => 'main-menu_richiedi-dati:node/5',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 1,

@@ -13,6 +13,34 @@ function sod_users_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_profile_extra_2015|profile2|main|form';
+  $field_group->group_name = 'group_profile_extra_2015';
+  $field_group->entity_type = 'profile2';
+  $field_group->bundle = 'main';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Indagine 2015 sull\'economia degli open data',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field__reddito_2014_generato_con',
+      1 => 'field_classe_di_reddito_2014',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-profile-extra-2015 field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_profile_extra_2015|profile2|main|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_profile_extra|profile2|main|form';
   $field_group->group_name = 'group_profile_extra';
   $field_group->entity_type = 'profile2';
@@ -20,15 +48,15 @@ function sod_users_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Partecipa all\'indagine sull\'economia degli open data',
-    'weight' => '3',
+    'label' => 'Indagine 2014 sull\'economia degli open data',
+    'weight' => '5',
     'children' => array(
       0 => 'field_profile_classe_di_reddito',
       1 => 'field_profile_income_with_od',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
-      'label' => 'Partecipa all\'indagine sull\'economia degli open data',
+      'label' => 'Indagine 2014 sull\'economia degli open data',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => '',
@@ -139,11 +167,12 @@ function sod_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'SOD15',
-    'weight' => '6',
+    'weight' => '3',
     'children' => array(
       0 => 'field__b_partecipo_a_sod14_b_',
       1 => 'field_test',
       2 => 'field_partecipo_a_sod15',
+      3 => 'field_partecipo_a_sod16',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

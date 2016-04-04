@@ -66,7 +66,7 @@ function sod_base_ckeditor_profile_defaults() {
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
             'desc' => 'Plugin for inserting Drupal teaser and page breaks.',
-            'path' => '%base_path%%plugin_dir%drupalbreaks/',
+            'path' => '%plugin_dir%drupalbreaks/',
             'buttons' => array(
               'DrupalBreak' => array(
                 'label' => 'DrupalBreak',
@@ -78,7 +78,7 @@ function sod_base_ckeditor_profile_defaults() {
           'mediaembed' => array(
             'name' => 'mediaembed',
             'desc' => 'Plugin for inserting Drupal embeded media',
-            'path' => '%base_path%%plugin_dir%mediaembed/',
+            'path' => '%plugin_dir%mediaembed/',
             'buttons' => array(
               'MediaEmbed' => array(
                 'label' => 'MediaEmbed',
@@ -90,7 +90,7 @@ function sod_base_ckeditor_profile_defaults() {
           'tableresize' => array(
             'name' => 'tableresize',
             'desc' => 'Table Resize plugin',
-            'path' => '%base_path%%editor_path%plugins/tableresize/',
+            'path' => '%editor_path%plugins/tableresize/',
             'buttons' => FALSE,
             'default' => 't',
           ),
@@ -172,7 +172,7 @@ function sod_base_ckeditor_profile_defaults() {
           'drupalbreaks' => array(
             'name' => 'drupalbreaks',
             'desc' => 'Plugin for inserting Drupal teaser and page breaks.',
-            'path' => '%base_path%%plugin_dir%drupalbreaks/',
+            'path' => '%plugin_dir%drupalbreaks/',
             'buttons' => array(
               'DrupalBreak' => array(
                 'label' => 'DrupalBreak',
@@ -184,7 +184,7 @@ function sod_base_ckeditor_profile_defaults() {
           'tableresize' => array(
             'name' => 'tableresize',
             'desc' => 'Table Resize plugin',
-            'path' => '%base_path%%editor_path%plugins/tableresize/',
+            'path' => '%editor_path%plugins/tableresize/',
             'buttons' => FALSE,
             'default' => 't',
           ),

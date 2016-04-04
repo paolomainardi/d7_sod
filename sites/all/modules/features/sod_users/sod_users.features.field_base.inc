@@ -37,6 +37,68 @@ function sod_users_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
+  // Exported field_base: 'field__reddito_2014_generato_con'
+  $field_bases['field__reddito_2014_generato_con'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field__reddito_2014_generato_con',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '0% per me OD è una passione e non un lavoro',
+        1 => '0% ma mi piacerebbe lavorarci',
+        '0-10' => 'tra 0 e 10%, collaborazioni occasionali pagate',
+        '10-25' => 'tra 10 e 25%, è una parte minoritaria del mio lavoro',
+        '25-50' => 'tra 25 e 50%, è una parte importante del mio lavoro',
+        '50-100' => 'tra il 50 e il 100%, è la parte dominante del mio lavoro',
+        100 => '100%, è il mio lavoro',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_classe_di_reddito_2014'
+  $field_bases['field_classe_di_reddito_2014'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_classe_di_reddito_2014',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        15 => 'meno di 15K euro',
+        '15-30' => '15-30K euro',
+        '30-60' => '30-60K euro',
+        '60-100' => '60-100K euro',
+        100 => 'più di 100K euro',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_partecipo_a_sod15'
   $field_bases['field_partecipo_a_sod15'] = array(
     'active' => 1,
@@ -56,6 +118,33 @@ function sod_users_field_default_field_bases() {
       'allowed_values' => array(
         0 => 'No',
         1 => 'SI',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_partecipo_a_sod16'
+  $field_bases['field_partecipo_a_sod16'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_partecipo_a_sod16',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'No',
+        1 => 'Si',
       ),
       'allowed_values_function' => '',
       'profile2_private' => 0,

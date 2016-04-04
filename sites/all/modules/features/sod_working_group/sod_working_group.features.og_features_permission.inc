@@ -96,8 +96,8 @@ function sod_working_group_og_features_default_permissions() {
   // Exported og permission: 'node:working_group:update any documento content'
   $permissions['node:working_group:update any documento content'] = array(
     'roles' => array(
-      'member' => 'member',
       'administrator member' => 'administrator member',
+      'member' => 'member',
     ),
   );
 
@@ -111,8 +111,8 @@ function sod_working_group_og_features_default_permissions() {
   // Exported og permission: 'node:working_group:update own documento content'
   $permissions['node:working_group:update own documento content'] = array(
     'roles' => array(
-      'member' => 'member',
       'administrator member' => 'administrator member',
+      'member' => 'member',
     ),
   );
 

@@ -171,7 +171,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'honeypot_element_name';
-  $strongarm->value = 'url';
+  $strongarm->value = 'homepage';
   $export['honeypot_element_name'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -339,7 +339,7 @@ function sod_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'honeypot_time_limit';
-  $strongarm->value = '5';
+  $strongarm->value = '0';
   $export['honeypot_time_limit'] = $strongarm;
 
   $strongarm = new stdClass();
