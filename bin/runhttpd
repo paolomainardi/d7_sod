@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+CMD="$@"
+docker-compose pause drupal
+docker-compose run --rm drupal /bin/bash -c "(/usr/sbin/apache2 -DFOREGROUND &> /dev/null &); ${CMD}"
+RET=$?
+docker-compose unpause drupal
+exit "${RET}"

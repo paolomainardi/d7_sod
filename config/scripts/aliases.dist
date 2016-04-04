@@ -9,7 +9,7 @@ alias cs="cd %PWD%; bin/e bin/cs"
 alias dmake="cd %PWD%; bin/e bin/phing drush-make -Dvendor=vendor -Dproject=project -Denv=loc"
 alias cca="cd %PWD%; bin/e bin/drush cc all"
 alias cct="cd %PWD%; bin/e bin/drush cc theme-registry"
-alias dsqlc="bin/e drush sql-cli --extra=-A"
+alias dsqlc="bin/i drush sql-cli --extra=-A"
 
 function php_cli() {
   bin/e php "${@}"

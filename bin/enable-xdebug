@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+CONTAINER_NAME=$(docker-compose ps | grep drupal | awk '{print $1}')
+docker exec -it "${CONTAINER_NAME}" bash -c "docker-php-ext-enable xdebug"
+docker exec -it "${CONTAINER_NAME}" bash -c 'cp ${PHP_INI_DIR}/conf.d/docker-php-ext-xdebug.ini $PHP_INI_DIR/apache2/conf.d'
+docker exec -it "${CONTAINER_NAME}" bash -c 'rm ${PHP_INI_DIR}/conf.d/docker-php-ext-xdebug.ini'
+docker exec -it "${CONTAINER_NAME}" bash -c 'echo "xdebug.remote_enable=on" >> $PHP_INI_DIR/apache2/conf.d/docker-php-ext-xdebug.ini'
+docker exec -it "${CONTAINER_NAME}" bash -c 'echo "xdebug.remote_connect_back=on" >> $PHP_INI_DIR/apache2/conf.d/docker-php-ext-xdebug.ini'
+docker exec -it "${CONTAINER_NAME}" bash -c 'echo "xdebug.remote_autostart=on" >> $PHP_INI_DIR/apache2/conf.d/docker-php-ext-xdebug.ini'
+docker exec -it "${CONTAINER_NAME}" bash -c 'killall -9 apache2'
