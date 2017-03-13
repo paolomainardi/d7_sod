@@ -17,6 +17,25 @@ function sod_sessions_block_view_alter(&$data, $block) {
 }
 
 /**
+ * Implements hook_form_alter().
+ */
+function sod_sessions_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id !== 'session_node_form') {
+    return;
+  }
+  $sod_conf_year = '2017';
+  $options = &$form['field_tipo_di_attivit_'][LANGUAGE_NONE]['#options'];
+  foreach ($options as $key => $option) {
+    if (!is_numeric($key)) {
+      continue;
+    }
+    if (strpos($option, $sod_conf_year) === FALSE) {
+      unset($options[$key]);
+    }
+  }
+}
+
+/**
  * Implements of hook_form_alter()
  */
 function sod_sessions_form_views_exposed_form_alter(&$form, &$form_state) {
