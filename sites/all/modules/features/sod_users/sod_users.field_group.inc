@@ -173,6 +173,7 @@ function sod_users_field_group_info() {
       1 => 'field_test',
       2 => 'field_partecipo_a_sod15',
       3 => 'field_partecipo_a_sod16',
+      4 => 'field_partecipo_a_sod17',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

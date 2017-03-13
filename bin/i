@@ -9,7 +9,7 @@ if [ -z "$CMD" ]
 then
   CMD="bash"
 fi
-CONTAINER_NAME=$(docker-compose ps | grep "drupal_1" | awk '{ print $1 }')
+CONTAINER_NAME=$(docker-compose ps 2>/dev/null | grep "drupal_1" | awk '{ print $1 }')
 if [ ! -z "${CONTAINER_NAME}" ]
 then
   docker exec -i "${CONTAINER_NAME}" /bin/bash -c "${CMD}"

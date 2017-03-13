@@ -100,6 +100,12 @@ function sod_sessions_views_default_views() {
     'session' => 'session',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Criterio del filtro: Contenuto: Data di inserimento */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>=';
+  $handler->display->display_options['filters']['created']['value']['value'] = '2017-01-01';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -217,6 +223,12 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'session' => 'session',
   );
+  /* Criterio del filtro: Contenuto: Data di inserimento */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>=';
+  $handler->display->display_options['filters']['created']['value']['value'] = '2017-01-01';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -426,6 +438,12 @@ function sod_sessions_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'session' => 'session',
   );
+  /* Criterio del filtro: Contenuto: Data di inserimento */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = '>=';
+  $handler->display->display_options['filters']['created']['value']['value'] = '2017-01-01';
 
   /* Display: Page - Lista sessioni */
   $handler = $view->new_display('page', 'Page - Lista sessioni', 'page');
@@ -766,15 +784,15 @@ function sod_sessions_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Profilo: Partecipo a SOD16 (field_partecipo_a_sod16) */
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['id'] = 'field_partecipo_a_sod16_value';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['table'] = 'field_data_field_partecipo_a_sod16';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['field'] = 'field_partecipo_a_sod16_value';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['value'] = array(
+  /* Criterio del filtro: Profilo: Partecipo a SOD17 (field_partecipo_a_sod17) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['id'] = 'field_partecipo_a_sod17_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['table'] = 'field_data_field_partecipo_a_sod17';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['field'] = 'field_partecipo_a_sod17_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['value'] = array(
     1 => '1',
   );
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['group'] = 1;
   /* Criterio del filtro: Utente: Consenso al trattamento dei dati (field_user_privacy_polici) */
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['id'] = 'field_user_privacy_polici_value';
   $handler->display->display_options['filters']['field_user_privacy_polici_value']['table'] = 'field_data_field_user_privacy_polici';
@@ -900,15 +918,15 @@ function sod_sessions_views_default_views() {
     1 => '1',
   );
   $handler->display->display_options['filters']['field_profile_extra_consenso_value']['group'] = 1;
-  /* Criterio del filtro: Profilo: Partecipo a SOD16 (field_partecipo_a_sod16) */
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['id'] = 'field_partecipo_a_sod16_value';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['table'] = 'field_data_field_partecipo_a_sod16';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['field'] = 'field_partecipo_a_sod16_value';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['relationship'] = 'profile';
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['value'] = array(
+  /* Criterio del filtro: Profilo: Partecipo a SOD17 (field_partecipo_a_sod17) */
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['id'] = 'field_partecipo_a_sod17_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['table'] = 'field_data_field_partecipo_a_sod17';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['field'] = 'field_partecipo_a_sod17_value';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['relationship'] = 'profile';
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['value'] = array(
     1 => '1',
   );
-  $handler->display->display_options['filters']['field_partecipo_a_sod16_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_partecipo_a_sod17_value']['group'] = 1;
   /* Criterio del filtro: Profilo: Geocode (field_profile_geocode:lat) */
   $handler->display->display_options['filters']['field_profile_geocode_lat']['id'] = 'field_profile_geocode_lat';
   $handler->display->display_options['filters']['field_profile_geocode_lat']['table'] = 'field_data_field_profile_geocode';

@@ -24,4 +24,4 @@ features[features_api][] = api:2
 features[variable][] = i18n_node_extended_blog
 features[variable][] = i18n_node_options_blog
 features[variable][] = i18n_sync_node_type_blog
-mtime = 1418420836
+mtime = 1459807318

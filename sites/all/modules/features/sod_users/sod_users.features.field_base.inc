@@ -153,6 +153,33 @@ function sod_users_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
+  // Exported field_base: 'field_partecipo_a_sod17'
+  $field_bases['field_partecipo_a_sod17'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_partecipo_a_sod17',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'No',
+        1 => 'Si',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_profile_avatar'
   $field_bases['field_profile_avatar'] = array(
     'active' => 1,
